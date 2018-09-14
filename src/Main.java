@@ -27,6 +27,7 @@ public class Main extends Application {
 
 
   @Override
+  
   public void start(Stage primaryStage) {
     primaryStage.setTitle("Gutterboyz & Son Tutoring Center"); // Sets title on top of window
 
