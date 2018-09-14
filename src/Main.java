@@ -1,4 +1,4 @@
-package sample;
+package src;
 
 import java.io.IOException;
 import javafx.application.Application;
@@ -65,12 +65,12 @@ public class Main extends Application {
         actiontarget.setFill(Color.FIREBRICK);
         actiontarget.setText("Sign in button pressed");
         //Checks if the account is in the text document, then takes you to homepage
-        if (sample.BackEnd.logInAuth(userTextField.getText(),pwBox.getText()) == true) {
+        if (src.BackEnd.logInAuth(userTextField.getText(),pwBox.getText()) == true) {
             //loading to homepage
-            sample.HomePage scene2 = new sample.HomePage(primaryStage);
+            src.HomePage scene2 = new src.HomePage(primaryStage);
         }
         try {
-          sample.BackEnd.addUser(userTextField.getText(),pwBox.getText());
+          src.BackEnd.addUser(userTextField.getText(),pwBox.getText());
         } catch (IOException e1) {
           e1.printStackTrace();
         }
