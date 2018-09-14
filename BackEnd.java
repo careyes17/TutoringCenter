@@ -9,16 +9,35 @@ import java.util.Scanner;
 public class BackEnd {
 
   public static void addUser(String Username, String Password) throws IOException {
-    File file = new File("C:\\Users\\Carlos\\Desktop\\sample\\test.txt");
-      //instances PrintWriter
-      FileWriter writer = new FileWriter(file,true);
-      // Writes to Text doc
-      writer.write("Username:" + Username + "\r\n");
-      writer.write("Password:" + Password + "\r\n");
-      //Closes file an writer object
-      writer.close();
+      //Referencing Login Text File
+      File file = new File("test.txt");
+      //Creating scanner object
+      Scanner scan1 = new Scanner(file);
+      String inputUsername = "Username:" + Username;
+      //username found boolean
+      boolean found = false;
+      //loop looking for username
+      while (scan1.hasNextLine()) {
 
-    //to call the function you must use the following code
+          // Stores initial input in variable for comparison
+          String i = scan1.nextLine();
+
+          // Checks the users input in comparison to the first line present in text doc
+          if (inputUsername.equals(i)) {
+              found = true;
+          }
+      }
+      //if username is not found, create one
+      if (!found) {
+          //instances PrintWriter
+          FileWriter writer = new FileWriter(file, true);
+          // Writes to Text doc
+          writer.write("Username:" + Username + "\r\n");
+          writer.write("Password:" + Password + "\r\n");
+          //Closes file an writer object
+          writer.close();
+
+          //to call the function you must use the following code
   /*
    try {
           BackEnd.addUser(userTextField.getText(),pwBox.getText());
@@ -26,10 +45,11 @@ public class BackEnd {
           e1.printStackTrace();
         }
    */
+      }
   }
 
   public static boolean logInAuth(String Username, String Password) {
-    File file = new File("C:\\Users\\Carlos\\Desktop\\sample\\test.txt");
+    File file = new File("test.txt");
     //Creates and initializes the scanner
     //Scanner keyboard = new Scanner(System.in);
     //start of try catch code for file not found exception
