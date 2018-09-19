@@ -6,7 +6,6 @@ import javafx.scene.layout.GridPane;
 
 
 public class PageTemplate {
-
   // To-be inherited fields
   GridPane pageTempGrid = new GridPane(); // sets grid for all subclasses
 
