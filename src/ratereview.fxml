@@ -62,5 +62,6 @@
          </children>
       </JFXBadge>
       <JFXButton buttonType="RAISED" layoutX="520.0" layoutY="235.0" prefHeight="40.0" prefWidth="35.0" style="-fx-background-color: #ffffff;" text="V" />
+      <JFXButton buttonType="RAISED" layoutX="130.0" layoutY="297.0" prefHeight="40.0" prefWidth="64.0" style="-fx-background-color: #ffffff;" text="Report" />
    </children>
 </AnchorPane>
