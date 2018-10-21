@@ -1,10 +1,20 @@
 package src;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.controlsfx.control.PopOver;
+
+import java.io.IOException;
+
+import java.io.IOException;
 
 public class Main extends Application {
 
@@ -12,6 +22,7 @@ public class Main extends Application {
     launch(args);
   }
 
+    private static Stage primaryStage;
 
   @Override
   public void start(Stage primaryStage) throws Exception {
@@ -22,4 +33,14 @@ public class Main extends Application {
     primaryStage.show();
 
   }
+
+    private void setPrimaryStage(Stage stage) {
+        Main.primaryStage = stage;
+    }
+
+    static public Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
+
 }
