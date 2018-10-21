@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <JFXTabPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="34.0" prefWidth="600.0">
+         <tabs>
+            <Tab text="Dashboard">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab text="Calendar">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab text="Quizzes">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab text="Grades">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab text="Schedule">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab text="Settings">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+      <Label alignment="CENTER" layoutY="378.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0" text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER" />
+      <JFXButton buttonType="RAISED" layoutX="371.0" layoutY="330.0" prefHeight="37.0" prefWidth="69.0" style="-fx-background-color: #ffffff;" text="Submit" />
+      <JFXDatePicker layoutX="182.0" layoutY="240.0" prefHeight="25.0" prefWidth="258.0" promptText="Choose Date" />
+      <JFXComboBox layoutX="182.0" layoutY="110.0" prefHeight="25.0" prefWidth="258.0" promptText="Select Tutor" />
+      <JFXComboBox layoutX="182.0" layoutY="60.0" prefHeight="25.0" prefWidth="258.0" promptText="Select Subject" />
+      <JFXTextArea layoutX="182.0" layoutY="160.0" prefHeight="61.0" prefWidth="258.0" promptText="Describe what you would like to study." wrapText="true" />
+      <JFXTimePicker layoutX="182.0" layoutY="280.0" prefHeight="25.0" prefWidth="258.0" promptText="Choose Time" />
+   </children>
+</AnchorPane>
