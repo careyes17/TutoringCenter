@@ -8,36 +8,36 @@
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.dashboardController">
    <children>
       <JFXTabPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="34.0" prefWidth="600.0">
          <tabs>
-            <Tab text="Dashboard">
+            <Tab text="Dashboard" >
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
-            <Tab text="Calendar">
+            <Tab text="Calendar" fx:id="calendar" onSelectionChanged="#calendarChosen">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
-            <Tab text="Quizzes">
+            <Tab text="Quizzes" fx:id="quizzes" onSelectionChanged="#quizChosen">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
-            <Tab text="Grades">
+            <Tab text="Grades" fx:id="grades" onSelectionChanged="#gradesChosen">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
-            <Tab text="Schedule">
+            <Tab text="Schedule" fx:id="schedule" onSelectionChanged="#scheduleChosen">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
-            <Tab text="Settings">
+            <Tab text="Settings" fx:id="settings" onSelectionChanged="#settingsChosen">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
@@ -49,7 +49,7 @@
       <JFXButton buttonType="RAISED" layoutX="50.0" layoutY="150.0" prefHeight="37.0" prefWidth="152.0" ripplerFill="#167cd0" style="-fx-background-color: #ffffff;" text="Grades and Attendance" />
       <JFXButton buttonType="RAISED" layoutX="50.0" layoutY="220.0" prefHeight="37.0" prefWidth="152.0" ripplerFill="#167cd0" style="-fx-background-color: #ffffff;" text="Tutor Reviews" />
       <JFXButton buttonType="RAISED" layoutX="50.0" layoutY="80.0" prefHeight="37.0" prefWidth="152.0" ripplerFill="#167cd0" style="-fx-background-color: #ffffff;" text="Schedule Tutoring Center" />
-      <JFXBadge layoutX="346.0" layoutY="70.0" prefHeight="57.0" prefWidth="152.0" style="-fx-background-color: #ffccbb;">
+      <JFXBadge fx:id="class1" onMouseEntered="#class1Hover" onMouseExited="#class1Exit" layoutX="346.0" layoutY="70.0" prefHeight="57.0" prefWidth="152.0" style="-fx-background-color: #ffccbb;">
          <effect>
             <DropShadow blurType="GAUSSIAN" color="#0000005c" />
          </effect>
@@ -57,7 +57,7 @@
             <Label alignment="CENTER" text="Class 1" />
          </children>
       </JFXBadge>
-      <JFXBadge layoutX="346.0" layoutY="175.0" prefHeight="57.0" prefWidth="152.0" style="-fx-background-color: #6eb5c0;">
+      <JFXBadge fx:id="class2" onMouseEntered="#class2Hover" onMouseExited="#class2Exit" layoutX="346.0" layoutY="175.0" prefHeight="57.0" prefWidth="152.0" style="-fx-background-color: #6eb5c0;">
          <effect>
             <DropShadow blurType="GAUSSIAN" color="#0000005c" />
          </effect>
@@ -65,7 +65,7 @@
             <Label text="Class 2" />
          </children>
       </JFXBadge>
-      <JFXBadge layoutX="346.0" layoutY="280.0" prefHeight="57.0" prefWidth="152.0" style="-fx-background-color: #006c84;">
+      <JFXBadge fx:id="class3" onMouseEntered="#class3Hover" onMouseExited="#class3Exit" layoutX="346.0" layoutY="280.0" prefHeight="57.0" prefWidth="152.0" style="-fx-background-color: #006c84;">
          <effect>
             <DropShadow blurType="GAUSSIAN" color="#0000005c" />
          </effect>
@@ -73,8 +73,5 @@
             <Label text="Class 3" />
          </children>
       </JFXBadge>
-      <Label alignment="CENTER" layoutX="407.0" layoutY="110.0" text="100%" textAlignment="CENTER" />
-      <Label alignment="CENTER" layoutX="407.0" layoutY="215.0" text="100%" textAlignment="CENTER" />
-      <Label alignment="CENTER" layoutX="407.0" layoutY="320.0" text="100%" textAlignment="CENTER" />
    </children>
 </AnchorPane>
