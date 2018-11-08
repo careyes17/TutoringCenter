@@ -8,14 +8,14 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-<<<<<<< HEAD
   public static void main(String[] args) {
     launch(args);
   }
+  
   @Override
   public void start(Stage primaryStage) {
     LoginPage Login = new LoginPage(primaryStage);
-=======
+
   private static Stage primaryStage;
 
   @Override
@@ -41,7 +41,6 @@ public class Main extends Application {
   public static void main(String[] args) {
 
     launch(args);
->>>>>>> d29914bef2ec0cb5cf3a33d1b75ee98ffa772328
   }
 
 }
