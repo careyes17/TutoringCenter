@@ -14,8 +14,6 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-    private static Stage primaryStage;
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         setPrimaryStage(primaryStage);
