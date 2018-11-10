@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class calendarController {
+public class quizController {
 
     @FXML
     private void settingsChosen(Event event) throws IOException {
@@ -17,7 +17,7 @@ public class calendarController {
 
         Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("settings.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("src/settings.fxml"));
 
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
@@ -30,13 +30,13 @@ public class calendarController {
 
         Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("src/dashboard.fxml"));
 
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
 
     }
-
+/*
     @FXML
     private void quizChosen(Event event) throws IOException {
         // System.out.println("in button1pressed");
@@ -49,7 +49,7 @@ public class calendarController {
         stage.show();
 
     }
-
+*/
     // TEMPORARY TEMPORARY TEMPRARY TEMPORARY
     @FXML
     private void gradesChosen(Event event) throws IOException {
@@ -57,7 +57,7 @@ public class calendarController {
 
         Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("writereview.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("src/writereview.fxml"));
 
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
@@ -69,24 +69,24 @@ public class calendarController {
 
         Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("schedule.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("src/Schedule.fxml"));
 
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
 
     }
-/*
+
     @FXML
     private void calendarChosen(Event event) throws IOException {
         // System.out.println("in button1pressed");
 
         Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("calendar.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../FXMLUnits/calendar.fxml"));
 
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
 
     }
-    */
+
 }

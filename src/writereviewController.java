@@ -17,7 +17,7 @@ public class writereviewController {
 
         Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("settings.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../SingleFXMLandControllers/settings.fxml"));
 
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
@@ -43,7 +43,7 @@ public class writereviewController {
 
         Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("quiz.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../SingleFXMLandControllers/quiz.fxml"));
 
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
@@ -71,7 +71,7 @@ public class writereviewController {
 
         Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("schedule.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../SingleFXMLandControllers/Schedule.fxml"));
 
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
@@ -84,7 +84,7 @@ public class writereviewController {
 
         Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("calendar.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../FXMLUnits/calendar.fxml"));
 
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
