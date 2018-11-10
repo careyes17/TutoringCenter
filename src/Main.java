@@ -14,18 +14,18 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-  private static Stage primaryStage;
+    private static Stage primaryStage;
 
-  @Override
-  public void start(Stage primaryStage) throws Exception {
-    setPrimaryStage(primaryStage);
-    Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
-    //primaryStage.setResizable(false);
-    primaryStage.setTitle("Tutoring App");
-    primaryStage.setScene(new Scene(root, 600, 440));
-    primaryStage.show();
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        setPrimaryStage(primaryStage);
+        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        //primaryStage.setResizable(false);
+        primaryStage.setTitle("Tutoring App");
+        primaryStage.setScene(new Scene(root, 600, 440));
+        primaryStage.show();
 
-  }
+    }
 
     private void setPrimaryStage(Stage stage) {
         Main.primaryStage = stage;
@@ -36,9 +36,9 @@ public class Main extends Application {
     }
 
 
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    launch(args);
-  }
+        launch(args);
+    }
 
 }

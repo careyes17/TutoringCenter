@@ -1,6 +1,7 @@
 package src;
 
 import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -14,30 +15,32 @@ import javafx.stage.Stage;
 
 public class signinController {// extends JSONObjectFactory{
 
-    @FXML TextField passwordtxt;
+    @FXML
+    TextField passwordtxt;
 
-    @FXML TextField usernametxt;
+    @FXML
+    TextField usernametxt;
 
-    @FXML Label errortext;
+    @FXML
+    Label errortext;
 
     @FXML
 
     private void button1Pressed(ActionEvent event) throws IOException {
-            // System.out.println("in button1pressed");
+        // System.out.println("in button1pressed");
 
-            Stage stage = Main.getPrimaryStage();
+        Stage stage = Main.getPrimaryStage();
 
-            Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
 
-            stage.setScene(new Scene(root, 600, 400));
-            stage.show();
+        stage.setScene(new Scene(root, 600, 400));
+        stage.show();
 
         JSONObjectFactory JSONFile = new JSONObjectFactory();
         if (JSONFile.LoginValidation(usernametxt.getText(), passwordtxt.getText()) == Boolean.TRUE) {
             errortext.setText("Success");
             //this is where the code goes to change the page to a home page
-        }
-        else{
+        } else {
             String error = "Failed login";
             errortext.setText(error);
         }
