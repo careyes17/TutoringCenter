@@ -9,28 +9,28 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class settingsController {
-    /*
+public class calendarController {
+
     @FXML
     private void settingsChosen(Event event) throws IOException {
         // System.out.println("in button1pressed");
 
         Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("settings.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("src/settings.fxml"));
 
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
 
     }
-*/
+
     @FXML
     private void dashboardChosen(Event event) throws IOException {
         // System.out.println("in button1pressed");
 
         Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("src/dashboard.fxml"));
 
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
@@ -43,7 +43,7 @@ public class settingsController {
 
         Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("quiz.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("src/quiz.fxml"));
 
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
@@ -57,7 +57,7 @@ public class settingsController {
 
         Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("writereview.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("src/writereview.fxml"));
 
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
@@ -69,13 +69,13 @@ public class settingsController {
 
         Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("schedule.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("src/Schedule.fxml"));
 
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
 
     }
-
+/*
     @FXML
     private void calendarChosen(Event event) throws IOException {
         // System.out.println("in button1pressed");
@@ -88,4 +88,5 @@ public class settingsController {
         stage.show();
 
     }
+    */
 }

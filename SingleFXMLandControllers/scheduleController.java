@@ -17,7 +17,7 @@ public class scheduleController {
 
         Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("settings.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("src/settings.fxml"));
 
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
@@ -30,7 +30,7 @@ public class scheduleController {
 
         Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("src/dashboard.fxml"));
 
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
@@ -57,7 +57,7 @@ public class scheduleController {
 
         Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("writereview.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("src/writereview.fxml"));
 
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
@@ -83,7 +83,7 @@ public class scheduleController {
 
         Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("calendar.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../FXMLUnits/calendar.fxml"));
 
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
