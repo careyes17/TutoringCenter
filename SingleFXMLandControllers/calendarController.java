@@ -11,70 +11,71 @@ import java.io.IOException;
 
 public class calendarController {
 
-    @FXML
-    private void settingsChosen(Event event) throws IOException {
-        // System.out.println("in button1pressed");
+  @FXML
+  private void settingsChosen(Event event) throws IOException {
+    // System.out.println("in button1pressed");
 
-        Stage stage = Main.getPrimaryStage();
+    Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("src/settings.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("src/settings.fxml"));
 
-        stage.setScene(new Scene(root, 600, 400));
-        stage.show();
+    stage.setScene(new Scene(root, 600, 400));
+    stage.show();
 
-    }
+  }
 
-    @FXML
-    private void dashboardChosen(Event event) throws IOException {
-        // System.out.println("in button1pressed");
+  @FXML
+  private void dashboardChosen(Event event) throws IOException {
+    // System.out.println("in button1pressed");
 
-        Stage stage = Main.getPrimaryStage();
+    Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("src/dashboard.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("src/dashboard.fxml"));
 
-        stage.setScene(new Scene(root, 600, 400));
-        stage.show();
+    stage.setScene(new Scene(root, 600, 400));
+    stage.show();
 
-    }
+  }
 
-    @FXML
-    private void quizChosen(Event event) throws IOException {
-        // System.out.println("in button1pressed");
+  @FXML
+  private void quizChosen(Event event) throws IOException {
+    // System.out.println("in button1pressed");
 
-        Stage stage = Main.getPrimaryStage();
+    Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("src/quiz.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("src/quiz.fxml"));
 
-        stage.setScene(new Scene(root, 600, 400));
-        stage.show();
+    stage.setScene(new Scene(root, 600, 400));
+    stage.show();
 
-    }
+  }
 
-    // TEMPORARY TEMPORARY TEMPRARY TEMPORARY
-    @FXML
-    private void gradesChosen(Event event) throws IOException {
-        // System.out.println("in button1pressed");
+  // TEMPORARY TEMPORARY TEMPRARY TEMPORARY
+  @FXML
+  private void gradesChosen(Event event) throws IOException {
+    // System.out.println("in button1pressed");
 
-        Stage stage = Main.getPrimaryStage();
+    Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("src/writereview.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("src/writereview.fxml"));
 
-        stage.setScene(new Scene(root, 600, 400));
-        stage.show();
+    stage.setScene(new Scene(root, 600, 400));
+    stage.show();
 
-    }
-    @FXML
-    private void scheduleChosen(Event event) throws IOException {
-        // System.out.println("in button1pressed");
+  }
 
-        Stage stage = Main.getPrimaryStage();
+  @FXML
+  private void scheduleChosen(Event event) throws IOException {
+    // System.out.println("in button1pressed");
 
-        Parent root = FXMLLoader.load(getClass().getResource("src/Schedule.fxml"));
+    Stage stage = Main.getPrimaryStage();
 
-        stage.setScene(new Scene(root, 600, 400));
-        stage.show();
+    Parent root = FXMLLoader.load(getClass().getResource("src/Schedule.fxml"));
 
-    }
+    stage.setScene(new Scene(root, 600, 400));
+    stage.show();
+
+  }
 /*
     @FXML
     private void calendarChosen(Event event) throws IOException {

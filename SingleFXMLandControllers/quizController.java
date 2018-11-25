@@ -11,82 +11,84 @@ import java.io.IOException;
 
 public class quizController {
 
-    @FXML
-    private void settingsChosen(Event event) throws IOException {
-        // System.out.println("in button1pressed");
+  @FXML
+  private void settingsChosen(Event event) throws IOException {
+    // System.out.println("in button1pressed");
 
-        Stage stage = Main.getPrimaryStage();
+    Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("src/settings.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("src/settings.fxml"));
 
-        stage.setScene(new Scene(root, 600, 400));
-        stage.show();
+    stage.setScene(new Scene(root, 600, 400));
+    stage.show();
 
-    }
+  }
 
-    @FXML
-    private void dashboardChosen(Event event) throws IOException {
-        // System.out.println("in button1pressed");
+  @FXML
+  private void dashboardChosen(Event event) throws IOException {
+    // System.out.println("in button1pressed");
 
-        Stage stage = Main.getPrimaryStage();
+    Stage stage = Main.getPrimaryStage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("src/dashboard.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("src/dashboard.fxml"));
 
-        stage.setScene(new Scene(root, 600, 400));
-        stage.show();
+    stage.setScene(new Scene(root, 600, 400));
+    stage.show();
 
-    }
-/*
-    @FXML
-    private void quizChosen(Event event) throws IOException {
-        // System.out.println("in button1pressed");
+  }
 
-        Stage stage = Main.getPrimaryStage();
+  /*
+      @FXML
+      private void quizChosen(Event event) throws IOException {
+          // System.out.println("in button1pressed");
 
-        Parent root = FXMLLoader.load(getClass().getResource("quiz.fxml"));
+          Stage stage = Main.getPrimaryStage();
 
-        stage.setScene(new Scene(root, 600, 400));
-        stage.show();
+          Parent root = FXMLLoader.load(getClass().getResource("quiz.fxml"));
 
-    }
-*/
-    // TEMPORARY TEMPORARY TEMPRARY TEMPORARY
-    @FXML
-    private void gradesChosen(Event event) throws IOException {
-        // System.out.println("in button1pressed");
+          stage.setScene(new Scene(root, 600, 400));
+          stage.show();
 
-        Stage stage = Main.getPrimaryStage();
+      }
+  */
+  // TEMPORARY TEMPORARY TEMPRARY TEMPORARY
+  @FXML
+  private void gradesChosen(Event event) throws IOException {
+    // System.out.println("in button1pressed");
 
-        Parent root = FXMLLoader.load(getClass().getResource("src/writereview.fxml"));
+    Stage stage = Main.getPrimaryStage();
 
-        stage.setScene(new Scene(root, 600, 400));
-        stage.show();
+    Parent root = FXMLLoader.load(getClass().getResource("src/writereview.fxml"));
 
-    }
-    @FXML
-    private void scheduleChosen(Event event) throws IOException {
-        // System.out.println("in button1pressed");
+    stage.setScene(new Scene(root, 600, 400));
+    stage.show();
 
-        Stage stage = Main.getPrimaryStage();
+  }
 
-        Parent root = FXMLLoader.load(getClass().getResource("src/Schedule.fxml"));
+  @FXML
+  private void scheduleChosen(Event event) throws IOException {
+    // System.out.println("in button1pressed");
 
-        stage.setScene(new Scene(root, 600, 400));
-        stage.show();
+    Stage stage = Main.getPrimaryStage();
 
-    }
+    Parent root = FXMLLoader.load(getClass().getResource("src/Schedule.fxml"));
 
-    @FXML
-    private void calendarChosen(Event event) throws IOException {
-        // System.out.println("in button1pressed");
+    stage.setScene(new Scene(root, 600, 400));
+    stage.show();
 
-        Stage stage = Main.getPrimaryStage();
+  }
 
-        Parent root = FXMLLoader.load(getClass().getResource("../FXMLUnits/calendar.fxml"));
+  @FXML
+  private void calendarChosen(Event event) throws IOException {
+    // System.out.println("in button1pressed");
 
-        stage.setScene(new Scene(root, 600, 400));
-        stage.show();
+    Stage stage = Main.getPrimaryStage();
 
-    }
+    Parent root = FXMLLoader.load(getClass().getResource("../FXMLUnits/calendar.fxml"));
+
+    stage.setScene(new Scene(root, 600, 400));
+    stage.show();
+
+  }
 
 }
