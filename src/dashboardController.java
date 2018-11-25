@@ -47,6 +47,9 @@ public class dashboardController {
   private Tab grades;
 
   @FXML
+  private Tab profile;
+
+  @FXML
   JFXBadge class1 = new JFXBadge();
 
   @FXML
@@ -122,9 +125,13 @@ public class dashboardController {
 
   @FXML
   private void goToGradesAttendance(ActionEvent event) throws IOException {
-    /*
-     * ENTER FUNCTIONALITY
-     * */
+    Stage stage = Main.getPrimaryStage();
+
+    Parent root = FXMLLoader.load(getClass().getResource("grades.fxml"));
+
+    stage.setScene(new Scene(root, 600, 440));
+
+    stage.show();
   }
 
   @FXML
@@ -165,6 +172,28 @@ public class dashboardController {
 
   @FXML
   private void submitTutorReview(ActionEvent event) throws IOException {
+    /*
+     * ENTER FUNCTIONALITY
+     * */
+  }
+
+  /******************************************
+   * SCHEDULE TUTORING METHODS
+   ******************************************/
+
+  @FXML
+  private void scheduleTutor(ActionEvent event) throws IOException {
+    /*
+     * ENTER FUNCTIONALITY
+     * */
+  }
+
+  /******************************************
+   * SETTINGS METHODS
+   ******************************************/
+
+  @FXML
+  private void updateSettings(ActionEvent event) throws IOException {
     /*
      * ENTER FUNCTIONALITY
      * */
