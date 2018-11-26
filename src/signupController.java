@@ -56,7 +56,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 
-public class signupController extends JSONObjectFactory {
+public class signupController extends Main {
 
   @FXML
   TextField passwordtxt;
@@ -79,19 +79,18 @@ public class signupController extends JSONObjectFactory {
     assert roledropdown
         != null : "fx:id=\"roledropdown\" was not injected: check your FXML file 'signup.fxml'.";
     // populate the fruit combo box with item choices.
-    roledropdown.getItems().setAll("Student", "Tutor");
+    roledropdown.getItems().setAll("User", "Tutor");
   }
 
   @FXML
   private void button1Pressed(ActionEvent event) throws IOException {
-    JSONObjectFactory JSONFile = new JSONObjectFactory();
+
     if (usernametxt.getText().isEmpty() || passwordtxt.getText().isEmpty()) {
       errortxt.setStyle("-fx-text-fill: One of the submission fields are empty");
     } else {
-      JSONFile.createNewUser(usernametxt.getText(), passwordtxt.getText());
       //check the last parameter to see if it gets the value from the drop down
-      JSONFile.createUserInformation(UserNumber, firstnametxt.getText(), lastnametxt.getText(),
-          emailtxt.getText(), roledropdown.getPromptText());
+      newLogin.createUserInformation(usernametxt.getText(), passwordtxt.getText(), firstnametxt.getText(), lastnametxt.getText(),
+          emailtxt.getText(), roledropdown.getValue().toString());
 
     }
   }

@@ -11,19 +11,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.SingleSelectionModel;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.controlsfx.control.PopOver;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 
-public class dashboardController {
+public class dashboardController extends Main {
 
   @FXML
   private TabPane tabpane;
@@ -69,6 +70,7 @@ public class dashboardController {
   Label class3Label = new Label("Grade: 100%");
   VBox vbox3 = new VBox(class3Label);
   PopOver popOver3 = new PopOver(vbox3);
+
 
   @FXML
   void class1Hover(MouseEvent event) throws Exception {
@@ -152,33 +154,24 @@ public class dashboardController {
   @FXML
   private void goToClass1Quiz(ActionEvent event) throws IOException {
     Stage stage = Main.getPrimaryStage();
-
     Parent root = FXMLLoader.load(getClass().getResource("quiz.fxml"));
-
     stage.setScene(new Scene(root, 600, 440));
-
     stage.show();
   }
 
   @FXML
   private void goToClass2Quiz(ActionEvent event) throws IOException {
     Stage stage = Main.getPrimaryStage();
-
     Parent root = FXMLLoader.load(getClass().getResource("quiz.fxml"));
-
     stage.setScene(new Scene(root, 600, 440));
-
     stage.show();
   }
 
   @FXML
   private void goToClass3Quiz(ActionEvent event) throws IOException {
     Stage stage = Main.getPrimaryStage();
-
     Parent root = FXMLLoader.load(getClass().getResource("quiz.fxml"));
-
     stage.setScene(new Scene(root, 600, 440));
-
     stage.show();
   }
 
@@ -196,11 +189,8 @@ public class dashboardController {
   @FXML
   private void goToTutorReviews(ActionEvent event) throws IOException {
     Stage stage = Main.getPrimaryStage();
-
     Parent root = FXMLLoader.load(getClass().getResource("ratereview.fxml"));
-
     stage.setScene(new Scene(root, 600, 440));
-
     stage.show();
   }
 
@@ -216,35 +206,58 @@ public class dashboardController {
   }
 
   /******************************************
-   * SETTINGS METHODS
+   * SETTINGS
    ******************************************/
 
+  //SETTINGS FXML ELEMENTS
   @FXML
-  private void updateSettings(ActionEvent event) throws IOException {
-    /*
-     * ENTER FUNCTIONALITY
-     * */
-  }
+  TextField emailTextField;
+  @FXML
+  TextField usernameTextField;
+  @FXML
+  PasswordField passwordTextField;
 
+  //SETTINGS METHODS
   @FXML
   private void updateEmail(ActionEvent event) throws IOException {
-    /*
-     * ENTER FUNCTIONALITY
-     * */
+    System.out.println("attempting email update");
+    try {
+      String newEmail = emailTextField.getText();   //grabs the new email value
+      newLogin.currentUserUser.setUserEmail(newLogin.getUserNumber(), newEmail);
+      System.out.println("email updated");
+
+    } catch (Exception e) {
+      System.out.println("email update failed");
+      System.out.println(e);
+    }
   }
 
   @FXML
   private void updateUsername(ActionEvent event) throws IOException {
-    /*
-     * ENTER FUNCTIONALITY
-     * */
+    System.out.println("attempting username update");
+    try {
+      String newUsername = usernameTextField.getText();
+      newLogin.currentUserUser.setUsername(newLogin.getUserNumber(), newUsername);
+      System.out.println("username updated");
+
+    } catch (Exception e) {
+      System.out.println("username update failed");
+      System.out.println(e);
+    }
   }
 
   @FXML
   private void updatePassword(ActionEvent event) throws IOException {
-    /*
-     * ENTER FUNCTIONALITY
-     * */
+    System.out.println("attempting password update");
+    try {
+      String newUsername = passwordTextField.getText();
+      newLogin.currentUserUser.setPassword(newLogin.getUserNumber(), newUsername);
+      System.out.println("password updated");
+
+    } catch (Exception e) {
+      System.out.println("password update failed");
+      System.out.println(e);
+    }
   }
 
   /******************************************
@@ -267,12 +280,16 @@ public class dashboardController {
 
   @FXML
   private void logout(ActionEvent event) throws IOException {
+        /*login system needs to search for the last JSON OBJECT before implementation
+        System.out.println("attempting email update");
+        //creates new date object
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        newLogin.currentUserUser.setLogout(newLogin.getUserNumber(), date);
+        */
     Stage stage = Main.getPrimaryStage();
-
     Parent root = FXMLLoader.load(getClass().getResource("signin.fxml"));
-
     stage.setScene(new Scene(root, 600, 440));
-
     stage.show();
   }
 

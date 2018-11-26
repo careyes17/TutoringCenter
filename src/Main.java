@@ -16,6 +16,8 @@ public class Main extends Application {
 
   private static Stage primaryStage;
 
+  Login newLogin = new Login();
+
   @Override
   public void start(Stage primaryStage) throws Exception {
     setPrimaryStage(primaryStage);
