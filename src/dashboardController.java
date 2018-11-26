@@ -141,9 +141,8 @@ public class dashboardController {
 
   @FXML
   private void goToProfile(ActionEvent event) throws IOException {
-    /*
-     * ENTER FUNCTIONALITY
-     * */
+    SingleSelectionModel<Tab> selectionModel = tabpane.getSelectionModel();
+    selectionModel.select(profile);
   }
 
   /******************************************
@@ -268,9 +267,13 @@ public class dashboardController {
 
   @FXML
   private void logout(ActionEvent event) throws IOException {
-    /*
-     * ENTER FUNCTIONALITY
-     * */
+    Stage stage = Main.getPrimaryStage();
+
+    Parent root = FXMLLoader.load(getClass().getResource("signin.fxml"));
+
+    stage.setScene(new Scene(root, 600, 440));
+
+    stage.show();
   }
 
 }
