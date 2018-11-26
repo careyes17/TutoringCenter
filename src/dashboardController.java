@@ -12,6 +12,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.input.MouseEvent;
@@ -19,7 +20,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.controlsfx.control.PopOver;
 
-import javax.swing.*;
 import java.io.IOException;
 
 
@@ -44,7 +44,7 @@ public class dashboardController {
   private Tab schedule;
 
   @FXML
-  private Tab grades;
+  private Tab reviewTutors;
 
   @FXML
   private Tab profile;
@@ -118,9 +118,8 @@ public class dashboardController {
 
   @FXML
   private void goToScheduleTutoringCenter(ActionEvent event) throws IOException {
-    /*
-     * ENTER FUNCTIONALITY
-     * */
+    SingleSelectionModel<Tab> selectionModel = tabpane.getSelectionModel();
+    selectionModel.select(schedule);
   }
 
   @FXML
@@ -135,10 +134,9 @@ public class dashboardController {
   }
 
   @FXML
-  private void goToTutorReviews(ActionEvent event) throws IOException {
-    /*
-     * ENTER FUNCTIONALITY
-     * */
+  private void goToReviewTutorsDashboard(ActionEvent event) throws IOException {
+    SingleSelectionModel<Tab> selectionModel = tabpane.getSelectionModel();
+    selectionModel.select(reviewTutors);
   }
 
   @FXML
@@ -153,17 +151,36 @@ public class dashboardController {
    ******************************************/
 
   @FXML
-  private void goToQuizNext(ActionEvent event) throws IOException {
-    /*
-     * ENTER FUNCTIONALITY
-     * */
+  private void goToClass1Quiz(ActionEvent event) throws IOException {
+    Stage stage = Main.getPrimaryStage();
+
+    Parent root = FXMLLoader.load(getClass().getResource("quiz.fxml"));
+
+    stage.setScene(new Scene(root, 600, 440));
+
+    stage.show();
   }
 
   @FXML
-  private void goToQuizBack(ActionEvent event) throws IOException {
-    /*
-     * ENTER FUNCTIONALITY
-     * */
+  private void goToClass2Quiz(ActionEvent event) throws IOException {
+    Stage stage = Main.getPrimaryStage();
+
+    Parent root = FXMLLoader.load(getClass().getResource("quiz.fxml"));
+
+    stage.setScene(new Scene(root, 600, 440));
+
+    stage.show();
+  }
+
+  @FXML
+  private void goToClass3Quiz(ActionEvent event) throws IOException {
+    Stage stage = Main.getPrimaryStage();
+
+    Parent root = FXMLLoader.load(getClass().getResource("quiz.fxml"));
+
+    stage.setScene(new Scene(root, 600, 440));
+
+    stage.show();
   }
 
   /******************************************
@@ -175,6 +192,17 @@ public class dashboardController {
     /*
      * ENTER FUNCTIONALITY
      * */
+  }
+
+  @FXML
+  private void goToTutorReviews(ActionEvent event) throws IOException {
+    Stage stage = Main.getPrimaryStage();
+
+    Parent root = FXMLLoader.load(getClass().getResource("ratereview.fxml"));
+
+    stage.setScene(new Scene(root, 600, 440));
+
+    stage.show();
   }
 
   /******************************************
@@ -198,4 +226,51 @@ public class dashboardController {
      * ENTER FUNCTIONALITY
      * */
   }
+
+  @FXML
+  private void updateEmail(ActionEvent event) throws IOException {
+    /*
+     * ENTER FUNCTIONALITY
+     * */
+  }
+
+  @FXML
+  private void updateUsername(ActionEvent event) throws IOException {
+    /*
+     * ENTER FUNCTIONALITY
+     * */
+  }
+
+  @FXML
+  private void updatePassword(ActionEvent event) throws IOException {
+    /*
+     * ENTER FUNCTIONALITY
+     * */
+  }
+
+  /******************************************
+   * PROFILE METHODS
+   ******************************************/
+
+  @FXML
+  private void updateProfile(ActionEvent event) throws IOException {
+    /*
+     * ENTER FUNCTIONALITY
+     * */
+  }
+
+  @FXML
+  private void updateProfileIcon(ActionEvent event) throws IOException {
+    /*
+     * ENTER FUNCTIONALITY
+     * */
+  }
+
+  @FXML
+  private void logout(ActionEvent event) throws IOException {
+    /*
+     * ENTER FUNCTIONALITY
+     * */
+  }
+
 }

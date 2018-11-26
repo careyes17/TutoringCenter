@@ -47,9 +47,13 @@ import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 
 public class signupController extends JSONObjectFactory {
@@ -90,6 +94,14 @@ public class signupController extends JSONObjectFactory {
           emailtxt.getText(), roledropdown.getPromptText());
 
     }
+  }
+
+  @FXML
+  private void goToDashboard(ActionEvent event) throws IOException {
+    Stage stage = Main.getPrimaryStage();
+    Parent root = FXMLLoader.load(getClass().getResource("signin.fxml"));
+    stage.setScene(new Scene(root, 600, 440));
+    stage.show();
   }
 }
 
