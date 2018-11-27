@@ -89,7 +89,8 @@ public class signupController extends Main {
       errortxt.setStyle("-fx-text-fill: One of the submission fields are empty");
     } else {
       //check the last parameter to see if it gets the value from the drop down
-      newLogin.createUserInformation(usernametxt.getText(), passwordtxt.getText(), firstnametxt.getText(), lastnametxt.getText(),
+      newLogin.createUserInformation(usernametxt.getText(), passwordtxt.getText(),
+          firstnametxt.getText(), lastnametxt.getText(),
           emailtxt.getText(), roledropdown.getValue().toString());
 
     }
