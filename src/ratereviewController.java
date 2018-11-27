@@ -54,9 +54,11 @@ public class ratereviewController extends Main{
   private void submit(ActionEvent event) throws IOException {
     if(roleDropDownOne.getValue().toString()=="Hunter"){
       if(roleDropDownTwo.getValue().toString()=="Biology"){
+        tutorValue.setText("15");
         reviewText.setText("Hunter was very relaxed and taught me things from even before the semester. Very chill guy!");
       }
       else if(roleDropDownTwo.getValue().toString()=="Chemistry"){
+        tutorValue.setText("15");
         reviewText.setText(" Hunter helped get me through electron diagrams like it was nothing. Very good for visual learners!");
       }
       else if(roleDropDownTwo.getValue().toString()=="Math"){
@@ -142,16 +144,27 @@ public class ratereviewController extends Main{
 
     stage.show();
   }
-
+  int temp=1;
   @FXML
   private void rateUp(ActionEvent event) throws IOException {
+    this.temp--;
     String number=tutorValue.getText();
     int result = Integer.parseInt(number);
     result++;
     String newresult = Integer.toString(result);
     tutorValue.setText(newresult);
-    RateUp.visibleProperty().setValue(Boolean.FALSE);
-    RateDown.visibleProperty().setValue(Boolean.TRUE);
+    if(temp==1){
+      RateUp.visibleProperty().setValue(Boolean.TRUE);
+      RateDown.visibleProperty().setValue(Boolean.TRUE);
+    }
+    if(temp==0){
+      RateUp.visibleProperty().setValue(Boolean.FALSE);
+      RateDown.visibleProperty().setValue(Boolean.TRUE);
+    }
+    if(temp==2){
+      RateUp.visibleProperty().setValue(Boolean.FALSE);
+      RateDown.visibleProperty().setValue(Boolean.TRUE);
+    }
   }
 
   @FXML
@@ -161,8 +174,20 @@ public class ratereviewController extends Main{
     result--;
     String newresult = Integer.toString(result);
     tutorValue.setText(newresult);
-    RateDown.visibleProperty().setValue(Boolean.FALSE);
-    RateUp.visibleProperty().setValue(Boolean.TRUE);
+    this.temp++;
+    if(temp==1){
+      RateUp.visibleProperty().setValue(Boolean.TRUE);
+      RateDown.visibleProperty().setValue(Boolean.TRUE);
+    }
+    if(temp==0){
+      RateUp.visibleProperty().setValue(Boolean.FALSE);
+      RateDown.visibleProperty().setValue(Boolean.TRUE);
+    }
+    if(temp==2){
+      RateUp.visibleProperty().setValue(Boolean.TRUE);
+      RateDown.visibleProperty().setValue(Boolean.FALSE);
+
+    }
   }
 
 }

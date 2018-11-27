@@ -23,7 +23,7 @@
     <JFXPasswordField fx:id="passwordtxt" layoutX="171.0" layoutY="228.0" prefHeight="25.0" prefWidth="258.0" promptText="Password" onKeyPressed="#enterClicked" />
     <Hyperlink fx:id="hyperlink" layoutX="277.0" layoutY="343.0" onAction="#hyperlinkPressed" text="Would you like to make one?" />
     <Label fx:id="errortext" layoutX="172.0" layoutY="278.0" prefHeight="17.0" prefWidth="258.0" text="" style="-fx-text-fill: #cc0000;" />
-    <Label alignment="CENTER" layoutY="378.0" maxHeight="-Infinity" maxWidth="-Infinity"
+    <Label alignment="CENTER" layoutY="415.0" maxHeight="-Infinity" maxWidth="-Infinity"
       minHeight="-Infinity"
       minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0"
       text="Copyright © 2018 Gutterboyz and Son LLC"

@@ -79,7 +79,7 @@ public class signupController extends Main {
     assert roledropdown
         != null : "fx:id=\"roledropdown\" was not injected: check your FXML file 'signup.fxml'.";
     // populate the fruit combo box with item choices.
-    roledropdown.getItems().setAll("User", "Tutor");
+    roledropdown.getItems().setAll("Student", "Tutor");
   }
 
   @FXML

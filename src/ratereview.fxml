@@ -44,7 +44,7 @@
         <DropShadow color="#00000061"/>
       </effect>
       <children>
-        <Label fx:id="tutorValue" text="42"/>
+        <Label fx:id="tutorValue" text="0"/>
       </children>
     </JFXBadge>
     <JFXButton onAction="#nextReview" buttonType="RAISED" layoutX="520.0" layoutY="235.0"
