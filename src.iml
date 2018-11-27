@@ -10,28 +10,14 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/jfoenix-8.0.7.jar!/" />
+          <root url="jar://$USER_HOME$/OneDrive - Florida Gulf Coast University/IDEs/InteleJ/Java Libraries/controlsfx-8.40.14.jar!/" />
+          <root url="jar://$USER_HOME$/OneDrive - Florida Gulf Coast University/IDEs/InteleJ/Java Libraries/jfoenix-8.0.7.jar!/" />
+          <root url="jar://$USER_HOME$/OneDrive - Florida Gulf Coast University/IDEs/InteleJ/Java Libraries/json-simple-1.1.1.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/json-simple-1.1.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/New folder (2)/controlsfx-8.40.14.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$" />
+        </SOURCES>
       </library>
     </orderEntry>
   </component>

@@ -68,6 +68,12 @@ public class dashboardController extends Main {
   private Tab profile;
 
   @FXML
+  ComboBox roleDropDownOne;
+
+  @FXML
+  ComboBox roleDropDownTwo;
+
+  @FXML
   JFXBadge class1 = new JFXBadge();
 
   @FXML
@@ -333,9 +339,9 @@ public class dashboardController extends Main {
 
   @FXML
   private void submitTutorReview(ActionEvent event) throws IOException {
-    /*
-     * ENTER FUNCTIONALITY
-     * */
+    System.out.println(newLogin.HardCode.toString());
+    newLogin.HardCode = true;
+    System.out.println(newLogin.HardCode.toString());
   }
 
   @FXML
@@ -356,6 +362,11 @@ public class dashboardController extends Main {
     TutorPicked.getItems().setAll("Hunter", "Carlos", "Brian", "Martin");
 
     SubjectPicked.getItems().setAll("Biology", "Chemistry", "Math", "OOP");
+
+    roleDropDownTwo.getItems().setAll("Biology","Chemistry","Math","OOP");
+
+    roleDropDownOne.getItems().setAll("Hunter","Carlos","Brian","Martin");
+
 
   }
 
