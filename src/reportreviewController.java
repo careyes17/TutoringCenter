@@ -6,9 +6,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class reportreviewController {
+
+  @FXML
+  Label errortext;
 
   @FXML
   private void goToDashboard(ActionEvent event) throws IOException {
@@ -23,9 +27,8 @@ public class reportreviewController {
 
   @FXML
   private void submit(ActionEvent event) throws IOException {
-    /*
-     * ENTER FUNCTIONALITY
-     * */
+    String error = "Thank you for contributing to the community.";
+    errortext.setText(error);
   }
 
 }

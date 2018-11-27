@@ -32,5 +32,6 @@
       style="-fx-background-color: #ffffff;" text="Dashboard"/>
     <JFXTextField layoutX="113.0" layoutY="230.0" prefHeight="37.0" prefWidth="375.0"
       promptText="Reasoning"/>
+    <Label fx:id="errortext" layoutX="172.0" layoutY="278.0" prefHeight="17.0" prefWidth="258.0" text="" style="-fx-text-fill: #cc0000;" />
   </children>
 </AnchorPane>
