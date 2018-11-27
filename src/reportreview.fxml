@@ -20,7 +20,7 @@
       textAlignment="CENTER"/>
     <JFXTextArea editable="false" layoutX="113.0" layoutY="95.0" prefHeight="109.0"
       prefWidth="375.0"
-      text="This is sample text in order to demonstrate the wrapping feature of a text area. This is the Review in Question that is being reported."
+      text="We seek to Follow FGCU’s student guidelines. Please give reasoning when reporting a review."
       wrapText="true"/>
     <JFXButton onAction="#submit" buttonType="RAISED" layoutX="419.0" layoutY="305.0"
       prefHeight="37.0"

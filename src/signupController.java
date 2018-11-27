@@ -92,6 +92,10 @@ public class signupController extends Main {
       newLogin.createUserInformation(usernametxt.getText(), passwordtxt.getText(),
           firstnametxt.getText(), lastnametxt.getText(),
           emailtxt.getText(), roledropdown.getValue().toString());
+      Stage stage = Main.getPrimaryStage();
+      Parent root = FXMLLoader.load(getClass().getResource("signin.fxml"));
+      stage.setScene(new Scene(root, 600, 440));
+      stage.show();
 
     }
   }
