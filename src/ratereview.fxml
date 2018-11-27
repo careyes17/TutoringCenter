@@ -20,22 +20,22 @@
       minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0"
       text="Copyright © 2018 Gutterboyz and Son LLC"
       textAlignment="CENTER"/>
-    <JFXTextArea editable="false" layoutX="130.0" layoutY="165.0" prefHeight="109.0"
+    <JFXTextArea  fx:id="reviewText" editable="false" layoutX="130.0" layoutY="165.0" prefHeight="109.0"
       prefWidth="375.0"
       text="This is sample text in order to demonstrate the wrapping feature of a text area."
       wrapText="true"/>
-    <JFXComboBox layoutX="130.0" layoutY="60.0" prefHeight="25.0" prefWidth="258.0"
+    <JFXComboBox fx:id="roleDropDownOne" layoutX="130.0" layoutY="60.0" prefHeight="25.0" prefWidth="258.0"
       promptText="Select Tutor"/>
-    <JFXComboBox layoutX="130.0" layoutY="110.0" prefHeight="25.0" prefWidth="258.0"
+    <JFXComboBox fx:id="roleDropDownTwo" layoutX="130.0" layoutY="110.0" prefHeight="25.0" prefWidth="258.0"
       promptText="Select Tags"/>
     <JFXButton onAction="#submit" buttonType="RAISED" layoutX="441.0" layoutY="297.0"
       prefHeight="40.0"
       prefWidth="64.0"
-      style="-fx-background-color: #ffffff;" text="Submit"/>
-    <JFXButton onAction="#rateUp" buttonType="RAISED" layoutX="67.0" layoutY="173.0"
-      prefHeight="40.0" prefWidth="35.0"
+      style="-fx-background-color: #ffffff;" text="Search"/>
+    <JFXButton fx:id="RateUp" onAction="#rateUp" buttonType="RAISED" layoutX="67.0" layoutY="173.0"
+      prefHeight="40.0" prefWidth="35.0" visible="true"
       style="-fx-background-color: #ffffff;" text="+1"/>
-    <JFXButton onAction="#rateDown" buttonType="RAISED" layoutX="67.0" layoutY="235.0"
+    <JFXButton fx:id="RateDown" onAction="#rateDown" buttonType="RAISED" layoutX="67.0" layoutY="235.0"
       prefHeight="40.0" prefWidth="35.0"
       style="-fx-background-color: #ffffff;" text="-1"/>
     <JFXBadge layoutX="515.0" layoutY="171.0" position="CENTER" prefHeight="45.0" prefWidth="45.0"
@@ -44,7 +44,7 @@
         <DropShadow color="#00000061"/>
       </effect>
       <children>
-        <Label text="42"/>
+        <Label fx:id="tutorValue" text="42"/>
       </children>
     </JFXBadge>
     <JFXButton onAction="#nextReview" buttonType="RAISED" layoutX="520.0" layoutY="235.0"
