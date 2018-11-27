@@ -1,413 +1,383 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXBadge?>
-<?import com.jfoenix.controls.JFXTabPane?>
-<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.calendarController">
-   <children>
-      <JFXTabPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="34.0" prefWidth="600.0">
-         <tabs>
-            <Tab text="Dashboard" fx:id="dashboard" onSelectionChanged="#dashboardChosen">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab text="Calendar">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab text="Quizzes" fx:id="quizzes" onSelectionChanged="#quizChosen">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab text="Grades" fx:id="grades" onSelectionChanged="#gradesChosen">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab text="Schedule" fx:id="schedule" onSelectionChanged="#scheduleChosen">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab text="Settings" fx:id="settings" onSelectionChanged="#settingsChosen">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-         </tabs>
-      </JFXTabPane>
-      <Label alignment="CENTER" layoutY="378.0" prefHeight="24.0" prefWidth="600.0" text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER" />
-      <Label alignment="CENTER" layoutX="258.0" layoutY="42.0" text="October 2018">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <JFXBadge layoutX="23.0" layoutY="90.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="30" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="103.0" layoutY="90.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="1" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="183.0" layoutY="90.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="2" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="263.0" layoutY="90.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="3" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="343.0" layoutY="90.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="4" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="423.0" layoutY="90.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="5" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="503.0" layoutY="90.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="6" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="23.0" layoutY="150.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="7" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="103.0" layoutY="150.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="8" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="183.0" layoutY="150.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="9" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="263.0" layoutY="150.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="10" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="343.0" layoutY="150.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="11" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="423.0" layoutY="150.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="12" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="503.0" layoutY="150.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="13" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="23.0" layoutY="210.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="14" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="103.0" layoutY="210.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="15" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="183.0" layoutY="210.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="16" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="263.0" layoutY="210.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="17" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="343.0" layoutY="210.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="18" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="423.0" layoutY="210.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="19" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="503.0" layoutY="210.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="20" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="23.0" layoutY="270.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="21" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="103.0" layoutY="270.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="22" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="183.0" layoutY="270.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="23" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="263.0" layoutY="270.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="24" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="343.0" layoutY="270.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="25" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="423.0" layoutY="270.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="26" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="503.0" layoutY="270.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="27" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="23.0" layoutY="330.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="28" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="103.0" layoutY="330.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="29" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="183.0" layoutY="330.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="30" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="263.0" layoutY="330.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="31" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="343.0" layoutY="330.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="1" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="423.0" layoutY="330.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="2" />
-         </children>
-      </JFXBadge>
-      <JFXBadge layoutX="503.0" layoutY="330.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" color="#0000005c" />
-         </effect>
-         <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="3" />
-         </children>
-      </JFXBadge>
-      <JFXTextField alignment="CENTER" editable="false" layoutX="23.0" layoutY="58.0" prefHeight="24.0" prefWidth="75.0" text="Sunday" />
-      <JFXTextField alignment="CENTER" editable="false" layoutX="103.0" layoutY="58.0" prefHeight="24.0" prefWidth="75.0" text="Monday" />
-      <JFXTextField alignment="CENTER" editable="false" layoutX="183.0" layoutY="58.0" prefHeight="24.0" prefWidth="75.0" text="Tuesday" />
-      <JFXTextField alignment="CENTER" editable="false" layoutX="263.0" layoutY="58.0" prefHeight="24.0" prefWidth="75.0" text="Wednesday" />
-      <JFXTextField alignment="CENTER" editable="false" layoutX="343.0" layoutY="58.0" prefHeight="24.0" prefWidth="75.0" text="Thursday" />
-      <JFXTextField alignment="CENTER" editable="false" layoutX="423.0" layoutY="58.0" prefHeight="24.0" prefWidth="75.0" text="Friday" />
-      <JFXTextField alignment="CENTER" editable="false" layoutX="503.0" layoutY="58.0" prefHeight="24.0" prefWidth="75.0" text="Saturday" />
-      <Circle fill="#bf8484" layoutX="88.0" layoutY="100.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="168.0" layoutY="100.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="248.0" layoutY="100.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="328.0" layoutY="100.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="408.0" layoutY="100.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="488.0" layoutY="100.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="568.0" layoutY="100.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="88.0" layoutY="160.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="168.0" layoutY="160.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="248.0" layoutY="160.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="328.0" layoutY="160.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="408.0" layoutY="160.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="488.0" layoutY="160.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="568.0" layoutY="160.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="88.0" layoutY="220.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="168.0" layoutY="220.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="248.0" layoutY="220.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="328.0" layoutY="220.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="408.0" layoutY="220.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="488.0" layoutY="220.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="568.0" layoutY="220.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="88.0" layoutY="280.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Label layoutX="85.0" layoutY="271.0" text="1" />
-      <Circle fill="#bf8484" layoutX="88.0" layoutY="340.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Label layoutX="85.0" layoutY="331.0" text="1" />
-      <Circle fill="#bf8484" layoutX="168.0" layoutY="280.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="248.0" layoutY="280.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="328.0" layoutY="280.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="408.0" layoutY="280.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="488.0" layoutY="280.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="568.0" layoutY="280.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="168.0" layoutY="340.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="248.0" layoutY="340.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="328.0" layoutY="340.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="408.0" layoutY="340.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="488.0" layoutY="340.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Circle fill="#bf8484" layoutX="568.0" layoutY="340.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
-      <Label layoutX="85.0" layoutY="211.0" text="1" />
-      <Label layoutX="85.0" layoutY="151.0" text="1" />
-      <Label layoutX="82.0" layoutY="91.0" text="9+" />
-      <Label layoutX="165.0" layoutY="331.0" text="1" />
-      <Label layoutX="245.0" layoutY="331.0" text="1" />
-      <Label layoutX="325.0" layoutY="331.0" text="1" />
-      <Label layoutX="405.0" layoutY="331.0" text="1" />
-      <Label layoutX="485.0" layoutY="331.0" text="1" />
-      <Label layoutX="565.0" layoutY="331.0" text="1" />
-      <Label layoutX="165.0" layoutY="271.0" text="1" />
-      <Label layoutX="245.0" layoutY="271.0" text="1" />
-      <Label layoutX="325.0" layoutY="271.0" text="1" />
-      <Label layoutX="405.0" layoutY="271.0" text="1" />
-      <Label layoutX="485.0" layoutY="271.0" text="1" />
-      <Label layoutX="565.0" layoutY="271.0" text="1" />
-      <Label layoutX="165.0" layoutY="211.0" text="1" />
-      <Label layoutX="245.0" layoutY="211.0" text="1" />
-      <Label layoutX="325.0" layoutY="211.0" text="1" />
-      <Label layoutX="405.0" layoutY="211.0" text="1" />
-      <Label layoutX="485.0" layoutY="211.0" text="1" />
-      <Label layoutX="565.0" layoutY="211.0" text="1" />
-      <Label layoutX="165.0" layoutY="151.0" text="1" />
-      <Label layoutX="245.0" layoutY="151.0" text="1" />
-      <Label layoutX="325.0" layoutY="151.0" text="1" />
-      <Label layoutX="405.0" layoutY="151.0" text="1" />
-      <Label layoutX="485.0" layoutY="151.0" text="1" />
-      <Label layoutX="565.0" layoutY="151.0" text="1" />
-      <Label layoutX="165.0" layoutY="91.0" text="1" />
-      <Label layoutX="245.0" layoutY="91.0" text="1" />
-      <Label layoutX="325.0" layoutY="91.0" text="1" />
-      <Label layoutX="405.0" layoutY="91.0" text="1" />
-      <Label layoutX="485.0" layoutY="91.0" text="1" />
-      <Label layoutX="565.0" layoutY="91.0" text="1" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+  prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1"
+  xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.calendarController">
+  <children>
+    <Label alignment="CENTER" layoutY="378.0" prefHeight="24.0" prefWidth="600.0"
+      text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER"/>
+    <JFXTreeTableView layoutX="46.0" layoutY="68.0" prefHeight="310.0" prefWidth="509.0"/>
+  </children>
 </AnchorPane>
+
+  <!--
+  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <Label alignment="CENTER" layoutY="378.0" prefHeight="24.0" prefWidth="600.0" text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER" />
+            <Label alignment="CENTER" layoutX="258.0" layoutY="42.0" text="October 2018">
+              <font>
+                <Font size="14.0" />
+              </font>
+            </Label>
+            <JFXBadge layoutX="23.0" layoutY="90.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="30" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="103.0" layoutY="90.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="1" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="183.0" layoutY="90.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="2" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="263.0" layoutY="90.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="3" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="343.0" layoutY="90.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="4" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="423.0" layoutY="90.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="5" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="503.0" layoutY="90.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="6" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="23.0" layoutY="150.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="7" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="103.0" layoutY="150.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="8" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="183.0" layoutY="150.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="9" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="263.0" layoutY="150.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="10" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="343.0" layoutY="150.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="11" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="423.0" layoutY="150.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="12" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="503.0" layoutY="150.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="13" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="23.0" layoutY="210.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="14" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="103.0" layoutY="210.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="15" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="183.0" layoutY="210.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="16" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="263.0" layoutY="210.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="17" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="343.0" layoutY="210.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="18" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="423.0" layoutY="210.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="19" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="503.0" layoutY="210.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="20" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="23.0" layoutY="270.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="21" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="103.0" layoutY="270.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="22" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="183.0" layoutY="270.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="23" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="263.0" layoutY="270.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="24" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="343.0" layoutY="270.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="25" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="423.0" layoutY="270.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="26" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="503.0" layoutY="270.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="27" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="23.0" layoutY="330.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="28" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="103.0" layoutY="330.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="29" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="183.0" layoutY="330.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="30" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="263.0" layoutY="330.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="31" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="343.0" layoutY="330.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="1" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="423.0" layoutY="330.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="2" />
+              </children>
+            </JFXBadge>
+            <JFXBadge layoutX="503.0" layoutY="330.0" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #ffccbb;">
+              <effect>
+                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              </effect>
+              <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="56.0" text="3" />
+              </children>
+            </JFXBadge>
+            <JFXTextField alignment="CENTER" editable="false" layoutX="23.0" layoutY="58.0" prefHeight="24.0" prefWidth="75.0" text="Sunday" />
+            <JFXTextField alignment="CENTER" editable="false" layoutX="103.0" layoutY="58.0" prefHeight="24.0" prefWidth="75.0" text="Monday" />
+            <JFXTextField alignment="CENTER" editable="false" layoutX="183.0" layoutY="58.0" prefHeight="24.0" prefWidth="75.0" text="Tuesday" />
+            <JFXTextField alignment="CENTER" editable="false" layoutX="263.0" layoutY="58.0" prefHeight="24.0" prefWidth="75.0" text="Wednesday" />
+            <JFXTextField alignment="CENTER" editable="false" layoutX="343.0" layoutY="58.0" prefHeight="24.0" prefWidth="75.0" text="Thursday" />
+            <JFXTextField alignment="CENTER" editable="false" layoutX="423.0" layoutY="58.0" prefHeight="24.0" prefWidth="75.0" text="Friday" />
+            <JFXTextField alignment="CENTER" editable="false" layoutX="503.0" layoutY="58.0" prefHeight="24.0" prefWidth="75.0" text="Saturday" />
+            <Circle fill="#bf8484" layoutX="88.0" layoutY="100.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="168.0" layoutY="100.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="248.0" layoutY="100.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="328.0" layoutY="100.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="408.0" layoutY="100.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="488.0" layoutY="100.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="568.0" layoutY="100.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="88.0" layoutY="160.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="168.0" layoutY="160.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="248.0" layoutY="160.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="328.0" layoutY="160.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="408.0" layoutY="160.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="488.0" layoutY="160.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="568.0" layoutY="160.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="88.0" layoutY="220.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="168.0" layoutY="220.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="248.0" layoutY="220.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="328.0" layoutY="220.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="408.0" layoutY="220.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="488.0" layoutY="220.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="568.0" layoutY="220.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="88.0" layoutY="280.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Label layoutX="85.0" layoutY="271.0" text="1" />
+            <Circle fill="#bf8484" layoutX="88.0" layoutY="340.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Label layoutX="85.0" layoutY="331.0" text="1" />
+            <Circle fill="#bf8484" layoutX="168.0" layoutY="280.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="248.0" layoutY="280.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="328.0" layoutY="280.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="408.0" layoutY="280.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="488.0" layoutY="280.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="568.0" layoutY="280.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="168.0" layoutY="340.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="248.0" layoutY="340.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="328.0" layoutY="340.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="408.0" layoutY="340.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="488.0" layoutY="340.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Circle fill="#bf8484" layoutX="568.0" layoutY="340.0" radius="8.0" stroke="#bf8484" strokeType="INSIDE" />
+            <Label layoutX="85.0" layoutY="211.0" text="1" />
+            <Label layoutX="85.0" layoutY="151.0" text="1" />
+            <Label layoutX="82.0" layoutY="91.0" text="9+" />
+            <Label layoutX="165.0" layoutY="331.0" text="1" />
+            <Label layoutX="245.0" layoutY="331.0" text="1" />
+            <Label layoutX="325.0" layoutY="331.0" text="1" />
+            <Label layoutX="405.0" layoutY="331.0" text="1" />
+            <Label layoutX="485.0" layoutY="331.0" text="1" />
+            <Label layoutX="565.0" layoutY="331.0" text="1" />
+            <Label layoutX="165.0" layoutY="271.0" text="1" />
+            <Label layoutX="245.0" layoutY="271.0" text="1" />
+            <Label layoutX="325.0" layoutY="271.0" text="1" />
+            <Label layoutX="405.0" layoutY="271.0" text="1" />
+            <Label layoutX="485.0" layoutY="271.0" text="1" />
+            <Label layoutX="565.0" layoutY="271.0" text="1" />
+            <Label layoutX="165.0" layoutY="211.0" text="1" />
+            <Label layoutX="245.0" layoutY="211.0" text="1" />
+            <Label layoutX="325.0" layoutY="211.0" text="1" />
+            <Label layoutX="405.0" layoutY="211.0" text="1" />
+            <Label layoutX="485.0" layoutY="211.0" text="1" />
+            <Label layoutX="565.0" layoutY="211.0" text="1" />
+            <Label layoutX="165.0" layoutY="151.0" text="1" />
+            <Label layoutX="245.0" layoutY="151.0" text="1" />
+            <Label layoutX="325.0" layoutY="151.0" text="1" />
+            <Label layoutX="405.0" layoutY="151.0" text="1" />
+            <Label layoutX="485.0" layoutY="151.0" text="1" />
+            <Label layoutX="565.0" layoutY="151.0" text="1" />
+            <Label layoutX="165.0" layoutY="91.0" text="1" />
+            <Label layoutX="245.0" layoutY="91.0" text="1" />
+            <Label layoutX="325.0" layoutY="91.0" text="1" />
+            <Label layoutX="405.0" layoutY="91.0" text="1" />
+            <Label layoutX="485.0" layoutY="91.0" text="1" />
+            <Label layoutX="565.0" layoutY="91.0" text="1" />
+          </AnchorPane>
+  -->

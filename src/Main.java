@@ -14,29 +14,33 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        setPrimaryStage(primaryStage);
-        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
-        //primaryStage.setResizable(false);
-        primaryStage.setTitle("Tutoring App");
-        primaryStage.setScene(new Scene(root, 600, 440));
-        primaryStage.show();
+  private static Stage primaryStage;
 
-    }
+  Login newLogin = new Login();
 
-    private void setPrimaryStage(Stage stage) {
-        Main.primaryStage = stage;
-    }
+  @Override
+  public void start(Stage primaryStage) throws Exception {
+    setPrimaryStage(primaryStage);
+    Parent root = FXMLLoader.load(getClass().getResource("signin.fxml"));
+    //primaryStage.setResizable(false);
+    primaryStage.setTitle("Tutoring App");
+    primaryStage.setScene(new Scene(root, 600, 440));
+    primaryStage.show();
 
-    static public Stage getPrimaryStage() {
-        return primaryStage;
-    }
+  }
+
+  private void setPrimaryStage(Stage stage) {
+    Main.primaryStage = stage;
+  }
+
+  static public Stage getPrimaryStage() {
+    return primaryStage;
+  }
 
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        launch(args);
-    }
+    launch(args);
+  }
 
 }
