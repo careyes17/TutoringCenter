@@ -10,20 +10,14 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -35,10 +29,6 @@ import javafx.util.Callback;
 import org.controlsfx.control.PopOver;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 
 public class dashboardController extends Main {
@@ -185,11 +175,11 @@ public class dashboardController extends Main {
     subject.setPrefWidth(100);
 
     subject.setCellValueFactory(
-        new Callback<TreeTableColumn.CellDataFeatures<Schedule, String>, ObservableValue<String>>() {
+        new Callback<CellDataFeatures<Schedule, String>, ObservableValue<String>>() {
 
           @Override
           public ObservableValue<String> call(
-              TreeTableColumn.CellDataFeatures<Schedule, String> param) {
+              CellDataFeatures<Schedule, String> param) {
             return param.getValue().getValue().subject;
           }
         });
@@ -204,7 +194,7 @@ public class dashboardController extends Main {
 
           @Override
           public ObservableValue<String> call(
-              TreeTableColumn.CellDataFeatures<Schedule, String> param) {
+              CellDataFeatures<Schedule, String> param) {
             return param.getValue().getValue().tutor;
           }
         });
@@ -213,11 +203,11 @@ public class dashboardController extends Main {
     comment.setPrefWidth(100);
 
     comment.setCellValueFactory(
-        new Callback<TreeTableColumn.CellDataFeatures<Schedule, String>, ObservableValue<String>>() {
+        new Callback<CellDataFeatures<Schedule, String>, ObservableValue<String>>() {
 
           @Override
           public ObservableValue<String> call(
-              TreeTableColumn.CellDataFeatures<Schedule, String> param) {
+              CellDataFeatures<Schedule, String> param) {
             return param.getValue().getValue().comment;
           }
         });
@@ -226,11 +216,11 @@ public class dashboardController extends Main {
     date.setPrefWidth(100);
 
     date.setCellValueFactory(
-        new Callback<TreeTableColumn.CellDataFeatures<Schedule, String>, ObservableValue<String>>() {
+        new Callback<CellDataFeatures<Schedule, String>, ObservableValue<String>>() {
 
           @Override
           public ObservableValue<String> call(
-              TreeTableColumn.CellDataFeatures<Schedule, String> param) {
+              CellDataFeatures<Schedule, String> param) {
             return param.getValue().getValue().date;
           }
         });
@@ -239,11 +229,11 @@ public class dashboardController extends Main {
     time.setPrefWidth(100);
 
     time.setCellValueFactory(
-        new Callback<TreeTableColumn.CellDataFeatures<Schedule, String>, ObservableValue<String>>() {
+        new Callback<CellDataFeatures<Schedule, String>, ObservableValue<String>>() {
 
           @Override
           public ObservableValue<String> call(
-              TreeTableColumn.CellDataFeatures<Schedule, String> param) {
+              CellDataFeatures<Schedule, String> param) {
             return param.getValue().getValue().time;
           }
         });
@@ -252,11 +242,11 @@ public class dashboardController extends Main {
     location.setPrefWidth(100);
 
     location.setCellValueFactory(
-        new Callback<TreeTableColumn.CellDataFeatures<Schedule, String>, ObservableValue<String>>() {
+        new Callback<CellDataFeatures<Schedule, String>, ObservableValue<String>>() {
 
           @Override
           public ObservableValue<String> call(
-              TreeTableColumn.CellDataFeatures<Schedule, String> param) {
+              CellDataFeatures<Schedule, String> param) {
             return param.getValue().getValue().location;
           }
         });
@@ -327,10 +317,111 @@ public class dashboardController extends Main {
 
   @FXML
   private void goToClass3Quiz(ActionEvent event) throws IOException {
-    Stage stage = Main.getPrimaryStage();
+    /*System.out.println(newLogin.currentUserUser.getUserEmail(0));
+    System.out.println(newLogin.currentUserUser.getRole(0));
+    System.out.println(newLogin.currentUserUser.getMajor(0));
+    System.out.println(newLogin.currentUserUser.getProfileIcon(0));
+
+    newLogin.currentUserUser.setUserEmail(0,"Generic Email");
+    newLogin.currentUserUser.setUsername(0,"Generic Username");
+    newLogin.currentUserUser.setPassword(0,"Generic Password");
+    newLogin.currentUserUser.setFirstName(0,"Generic First Name");
+    newLogin.currentUserUser.setLastName(0,"Generic Last Name");
+    newLogin.currentUserUser.setMajor(0,"Generic Major");
+    newLogin.currentUserUser.setAboutMeText(0,"Generic About Me");
+    newLogin.currentUserUser.setProfileIcon(0,"Generic Location of Profile Pic");*/
+
+    /** APPOINTMENTS FUNCTIONS Black box testing DONE SUCCESSFUL
+    newLogin.currentUserUser.createAppointment(0, "Generic Subject", "Generic Tutor Name", "Generic Appointment Date", "Generic Location", "");
+    System.out.println(newLogin.currentUserUser.getAppointmentDate(0,0));
+    System.out.println(newLogin.currentUserUser.getAppointmentSubject(0,0));
+    System.out.println(newLogin.currentUserUser.getAppointmentLocation(0,0));
+    System.out.println(newLogin.currentUserUser.getAppointmentTutor(0,0));
+    System.out.println(newLogin.currentUserUser.getAppointmentAttendance(0,0));
+
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    Date date = new Date();
+
+
+    newLogin.currentUserUser.setAppointmentDate(0, 0, formatter.format(date));
+    newLogin.currentUserUser.setAppointmentSubject(0,0,"OOP");
+    newLogin.currentUserUser.setAppointmentAttendance(0,0,"Late");
+    newLogin.currentUserUser.setAppointmentTutor(0,0,"Hunter");
+    newLogin.currentUserUser.setAppointmentLocation(0,0,"Library 404");
+
+    System.out.println(newLogin.currentUserUser.getAppointmentDate(0,0));
+    System.out.println(newLogin.currentUserUser.getAppointmentSubject(0,0));
+    System.out.println(newLogin.currentUserUser.getAppointmentLocation(0,0));
+    System.out.println(newLogin.currentUserUser.getAppointmentTutor(0,0));
+    System.out.println(newLogin.currentUserUser.getAppointmentAttendance(0,0));
+    */
+    /** ASSIGNMENT FUNCTIONS Black box testing DONE SUCCESSFUL
+    //newLogin.currentUserUser.createAssignment(0, "Generic Assignment Name", "Generic Assignment Type", "Generic Comments", 0, 0);
+    //print current assignment
+    System.out.println(newLogin.currentUserUser.getAssignmentName(0,0));
+    System.out.println(newLogin.currentUserUser.getAssignmentMaxPoints(0,0));
+    System.out.println(newLogin.currentUserUser.getAssignmentPointsReceived(0,0));
+    System.out.println(newLogin.currentUserUser.getAssignmentComments(0,0));
+    System.out.println(newLogin.currentUserUser.getAssignmentType(0,0));
+
+    //setters
+    newLogin.currentUserUser.setAssignmentName(0, 0, "Generic Assignment Name 2");
+    newLogin.currentUserUser.setMaxPoints(0, 0, 8);
+    newLogin.currentUserUser.setPointsReceived(0, 0, 10);
+    newLogin.currentUserUser.setComments(0, 0, "Generic Comment 2");
+    newLogin.currentUserUser.setAssignmentType(0, 0, "Generic Assignment Type 2");
+
+    System.out.println(newLogin.currentUserUser.getAssignmentName(0,0));
+    System.out.println(newLogin.currentUserUser.getAssignmentMaxPoints(0,0));
+    System.out.println(newLogin.currentUserUser.getAssignmentPointsReceived(0,0));
+    System.out.println(newLogin.currentUserUser.getAssignmentComments(0,0));
+    System.out.println(newLogin.currentUserUser.getAssignmentType(0,0));
+    */
+
+    //newLogin.currentUserUser.createReview(0, "Generic Tutor Name", "Generic Student Name", "Generic Comment", false, 0);
+    //setters
+    /*newLogin.currentUserUser.setReviewTutor(0, 0, "Generic Assignment Name");
+    newLogin.currentUserUser.setReviewStudent(0, 0, 0);
+    newLogin.currentUserUser.setReviewComment(0, 0, "Generic Comment");
+    newLogin.currentUserUser.setReviewFlagged(0, 0, "Generic Assignment Type");
+    newLogin.currentUserUser.setReviewValue(0, 0, "Generic Assignment Type");*/
+    /**
+     * quiz stuff
+
+    newLogin.currentUserUser.createQuiz("Generic Question q", "Generic Answer1", "Generic Answer2", "Generic Answer3", "Generic Answer4", "Generic Answer aaa", "Generic Answer uaaa");
+    System.out.println(newLogin.currentUserUser.getQuizQuestion(0, 0));
+    System.out.println(newLogin.currentUserUser.getAnswerOne(0, 0));
+    System.out.println(newLogin.currentUserUser.getAnswerTwo(0, 0));
+    System.out.println(newLogin.currentUserUser.getAnswerThree(0, 0));
+    System.out.println(newLogin.currentUserUser.getAnswerFour(0, 0));
+    System.out.println(newLogin.currentUserUser.getQuestionAnswer(0, 0));
+    System.out.println(newLogin.currentUserUser.getUserAnswer(0, 0));
+
+    newLogin.currentUserUser.setQuizQuestion(0, 0, "Generic Question1");
+    newLogin.currentUserUser.setAnswerOne(0, 0, "Generic Answer11"); // ????
+    newLogin.currentUserUser.setAnswerTwo(0, 0, "Generic Answer22");
+    newLogin.currentUserUser.setAnswerThree(0, 0, "Generic Answer33");
+    newLogin.currentUserUser.setAnswerFour(0, 0, "Generic Answer44");
+    newLogin.currentUserUser.setQuestionAnswer(0, 0, "Generic a");
+    newLogin.currentUserUser.setUserAnswer(0, 0, "Generic a");
+
+
+    System.out.println(newLogin.currentUserUser.getQuizQuestion(0, 0));
+    System.out.println(newLogin.currentUserUser.getAnswerOne(0, 0));
+    System.out.println(newLogin.currentUserUser.getAnswerTwo(0, 0));
+    System.out.println(newLogin.currentUserUser.getAnswerThree(0, 0));
+    System.out.println(newLogin.currentUserUser.getAnswerFour(0, 0));
+    System.out.println(newLogin.currentUserUser.getQuestionAnswer(0, 0));
+    System.out.println(newLogin.currentUserUser.getUserAnswer(0, 0));
+     */
+
+    //newLogin.currentUserUser.createLoginObject(0, new Date());
+    //newLogin.currentUserUser.setLogout(0, new Date());
+
+    /*Stage stage = Main.getPrimaryStage();
     Parent root = FXMLLoader.load(getClass().getResource("quiz.fxml"));
     stage.setScene(new Scene(root, 600, 440));
-    stage.show();
+    stage.show();*/
   }
 
   /******************************************
@@ -356,19 +447,6 @@ public class dashboardController extends Main {
    * SCHEDULE TUTORING METHODS
    ******************************************/
 
-  @FXML
-  public void initialize() {
-
-    TutorPicked.getItems().setAll("Hunter", "Carlos", "Brian", "Martin");
-
-    SubjectPicked.getItems().setAll("Biology", "Chemistry", "Math", "OOP");
-
-    roleDropDownTwo.getItems().setAll("Biology","Chemistry","Math","OOP");
-
-    roleDropDownOne.getItems().setAll("Hunter","Carlos","Brian","Martin");
-
-
-  }
 
   @FXML
   JFXTextArea Comment;
@@ -394,6 +472,7 @@ public class dashboardController extends Main {
     String time = TimePicked.getValue().toString();
     String location = Location.getText();
     temporary.add(new Schedule(subject, tutor, comment, date, time, location));
+    newLogin.currentUserUser.createAppointment(newLogin.getUserNumber(), subject, tutor, date, location, "");
   }
 
   /******************************************
@@ -454,12 +533,17 @@ public class dashboardController extends Main {
   /******************************************
    * PROFILE METHODS
    ******************************************/
-
+  @FXML
+  JFXComboBox profileComboBox;
+  @FXML
+  JFXTextArea aboutMeTextArea;
+  @FXML
+  JFXTextArea majorTextArea;
   @FXML
   private void updateProfile(ActionEvent event) throws IOException {
-    /*
-     * ENTER FUNCTIONALITY
-     * */
+    newLogin.currentUserUser.setAboutMeText(newLogin.getUserNumber(),aboutMeTextArea.getText());
+    newLogin.currentUserUser.setMajor(newLogin.getUserNumber(),aboutMeTextArea.getText());
+    newLogin.currentUserUser.setRole(newLogin.getUserNumber(),profileComboBox.getValue().toString());
   }
 
   @FXML
@@ -467,6 +551,7 @@ public class dashboardController extends Main {
     /*
      * ENTER FUNCTIONALITY
      * */
+
   }
 
   @FXML
@@ -482,6 +567,33 @@ public class dashboardController extends Main {
     Parent root = FXMLLoader.load(getClass().getResource("signin.fxml"));
     stage.setScene(new Scene(root, 600, 440));
     stage.show();
+  }
+
+  @FXML
+  public void initialize() {
+
+    TutorPicked.getItems().setAll("Hunter", "Carlos", "Brian", "Martin");
+
+    SubjectPicked.getItems().setAll("Biology", "Chemistry", "Math", "OOP");
+
+    roleDropDownTwo.getItems().setAll("Biology","Chemistry","Math","OOP");
+
+    roleDropDownOne.getItems().setAll("Hunter","Carlos","Brian","Martin");
+
+    //this code will set the profile tab's information to be displayed automatically
+    profileComboBox.getItems().setAll("Student","Tutor");
+    aboutMeTextArea.setText(newLogin.currentUserUser.getaboutMeText(newLogin.getUserNumber()));
+    //System.out.println(newLogin.currentUserUser.getaboutMeText(newLogin.getUserNumber()));
+    majorTextArea.setText(newLogin.currentUserUser.getMajor(newLogin.getUserNumber()));
+    //System.out.println(newLogin.currentUserUser.getMajor(newLogin.getUserNumber()));
+    //System.out.println(newLogin.currentUserUser.getRole(newLogin.getUserNumber()));
+    if( newLogin.currentUserUser.getRole(newLogin.getUserNumber()).equals("Student")){
+      profileComboBox.getSelectionModel().selectFirst();
+    }
+    if( newLogin.currentUserUser.getRole(newLogin.getUserNumber()).equals("Tutor")){
+      profileComboBox.getSelectionModel().selectLast();
+    }
+
   }
 
 }
