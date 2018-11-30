@@ -7,5 +7,18 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Desktop/jfoenix-8.0.7.jar!/" />
+          <root url="jar://$USER_HOME$/Desktop/controlsfx-8.40.14.jar!/" />
+          <root url="jar://$USER_HOME$/Desktop/json-simple-1.1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/.." />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

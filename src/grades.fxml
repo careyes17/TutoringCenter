@@ -10,7 +10,7 @@
 <?import java.lang.String?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
   prefHeight="440.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171"
-  xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.gradesController">
+  xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.gradesController" stylesheets="@dashboardstyle.css">
   <children>
     <Label alignment="CENTER" layoutY="415.0" maxHeight="-Infinity" maxWidth="-Infinity"
       minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0"
@@ -27,8 +27,8 @@
     <PieChart fx:id="pieChart" layoutX="115.0" layoutY="14.0" legendSide="LEFT" prefHeight="253.0"
       prefWidth="362.0"/>
     <JFXButton buttonType="RAISED" layoutX="371.0" layoutY="330.0" onAction="#update"
-      prefHeight="37.0" prefWidth="69.0" style="-fx-background-color: #ffffff;" text="Update"/>
+      prefHeight="37.0" prefWidth="69.0" style="-fx-background-color: #ffccbb;" text="Update"/>
     <JFXButton buttonType="RAISED" layoutX="182.0" layoutY="330.0" onAction="#goToDashboard"
-      prefHeight="37.0" prefWidth="103.0" style="-fx-background-color: #ffffff;" text="Dashboard"/>
+      prefHeight="37.0" prefWidth="103.0" style="-fx-background-color: #ffccbb;" text="Dashboard"/>
   </children>
 </AnchorPane>
