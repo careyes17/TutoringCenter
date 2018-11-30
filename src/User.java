@@ -89,6 +89,13 @@ public class User {
    * Account information is array position 0
    */
   //Getter functions
+
+  public int getTotalNumberOfAccounts(){
+    JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
+    int totalNumberOfAccounts = userAccountsIN.size();
+    return totalNumberOfAccounts;
+  }
+
   public String getUserEmail(int UserNumber) {
     //this parses the users account from the constructor
     JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);

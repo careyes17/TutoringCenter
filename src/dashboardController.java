@@ -369,111 +369,10 @@ public class dashboardController extends Main {
    */
   @FXML
   private void goToClass3Quiz(ActionEvent event) throws IOException {
-    /*System.out.println(newLogin.currentUserUser.getUserEmail(0));
-    System.out.println(newLogin.currentUserUser.getRole(0));
-    System.out.println(newLogin.currentUserUser.getMajor(0));
-    System.out.println(newLogin.currentUserUser.getProfileIcon(0));
-
-    newLogin.currentUserUser.setUserEmail(0,"Generic Email");
-    newLogin.currentUserUser.setUsername(0,"Generic Username");
-    newLogin.currentUserUser.setPassword(0,"Generic Password");
-    newLogin.currentUserUser.setFirstName(0,"Generic First Name");
-    newLogin.currentUserUser.setLastName(0,"Generic Last Name");
-    newLogin.currentUserUser.setMajor(0,"Generic Major");
-    newLogin.currentUserUser.setAboutMeText(0,"Generic About Me");
-    newLogin.currentUserUser.setProfileIcon(0,"Generic Location of Profile Pic");*/
-
-    /** APPOINTMENTS FUNCTIONS Black box testing DONE SUCCESSFUL
-     newLogin.currentUserUser.createAppointment(0, "Generic Subject", "Generic Tutor Name", "Generic Appointment Date", "Generic Location", "");
-     System.out.println(newLogin.currentUserUser.getAppointmentDate(0,0));
-     System.out.println(newLogin.currentUserUser.getAppointmentSubject(0,0));
-     System.out.println(newLogin.currentUserUser.getAppointmentLocation(0,0));
-     System.out.println(newLogin.currentUserUser.getAppointmentTutor(0,0));
-     System.out.println(newLogin.currentUserUser.getAppointmentAttendance(0,0));
-
-     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-     Date date = new Date();
-
-
-     newLogin.currentUserUser.setAppointmentDate(0, 0, formatter.format(date));
-     newLogin.currentUserUser.setAppointmentSubject(0,0,"OOP");
-     newLogin.currentUserUser.setAppointmentAttendance(0,0,"Late");
-     newLogin.currentUserUser.setAppointmentTutor(0,0,"Hunter");
-     newLogin.currentUserUser.setAppointmentLocation(0,0,"Library 404");
-
-     System.out.println(newLogin.currentUserUser.getAppointmentDate(0,0));
-     System.out.println(newLogin.currentUserUser.getAppointmentSubject(0,0));
-     System.out.println(newLogin.currentUserUser.getAppointmentLocation(0,0));
-     System.out.println(newLogin.currentUserUser.getAppointmentTutor(0,0));
-     System.out.println(newLogin.currentUserUser.getAppointmentAttendance(0,0));
-     */
-    /** ASSIGNMENT FUNCTIONS Black box testing DONE SUCCESSFUL
-     //newLogin.currentUserUser.createAssignment(0, "Generic Assignment Name", "Generic Assignment Type", "Generic Comments", 0, 0);
-     //print current assignment
-     System.out.println(newLogin.currentUserUser.getAssignmentName(0,0));
-     System.out.println(newLogin.currentUserUser.getAssignmentMaxPoints(0,0));
-     System.out.println(newLogin.currentUserUser.getAssignmentPointsReceived(0,0));
-     System.out.println(newLogin.currentUserUser.getAssignmentComments(0,0));
-     System.out.println(newLogin.currentUserUser.getAssignmentType(0,0));
-
-     //setters
-     newLogin.currentUserUser.setAssignmentName(0, 0, "Generic Assignment Name 2");
-     newLogin.currentUserUser.setMaxPoints(0, 0, 8);
-     newLogin.currentUserUser.setPointsReceived(0, 0, 10);
-     newLogin.currentUserUser.setComments(0, 0, "Generic Comment 2");
-     newLogin.currentUserUser.setAssignmentType(0, 0, "Generic Assignment Type 2");
-
-     System.out.println(newLogin.currentUserUser.getAssignmentName(0,0));
-     System.out.println(newLogin.currentUserUser.getAssignmentMaxPoints(0,0));
-     System.out.println(newLogin.currentUserUser.getAssignmentPointsReceived(0,0));
-     System.out.println(newLogin.currentUserUser.getAssignmentComments(0,0));
-     System.out.println(newLogin.currentUserUser.getAssignmentType(0,0));
-     */
-
-    //newLogin.currentUserUser.createReview(0, "Generic Tutor Name", "Generic Student Name", "Generic Comment", false, 0);
-    //setters
-    /*newLogin.currentUserUser.setReviewTutor(0, 0, "Generic Assignment Name");
-    newLogin.currentUserUser.setReviewStudent(0, 0, 0);
-    newLogin.currentUserUser.setReviewComment(0, 0, "Generic Comment");
-    newLogin.currentUserUser.setReviewFlagged(0, 0, "Generic Assignment Type");
-    newLogin.currentUserUser.setReviewValue(0, 0, "Generic Assignment Type");*/
-    /**
-     * quiz stuff
-
-     newLogin.currentUserUser.createQuiz("Generic Question q", "Generic Answer1", "Generic Answer2", "Generic Answer3", "Generic Answer4", "Generic Answer aaa", "Generic Answer uaaa");
-     System.out.println(newLogin.currentUserUser.getQuizQuestion(0, 0));
-     System.out.println(newLogin.currentUserUser.getAnswerOne(0, 0));
-     System.out.println(newLogin.currentUserUser.getAnswerTwo(0, 0));
-     System.out.println(newLogin.currentUserUser.getAnswerThree(0, 0));
-     System.out.println(newLogin.currentUserUser.getAnswerFour(0, 0));
-     System.out.println(newLogin.currentUserUser.getQuestionAnswer(0, 0));
-     System.out.println(newLogin.currentUserUser.getUserAnswer(0, 0));
-
-     newLogin.currentUserUser.setQuizQuestion(0, 0, "Generic Question1");
-     newLogin.currentUserUser.setAnswerOne(0, 0, "Generic Answer11"); // ????
-     newLogin.currentUserUser.setAnswerTwo(0, 0, "Generic Answer22");
-     newLogin.currentUserUser.setAnswerThree(0, 0, "Generic Answer33");
-     newLogin.currentUserUser.setAnswerFour(0, 0, "Generic Answer44");
-     newLogin.currentUserUser.setQuestionAnswer(0, 0, "Generic a");
-     newLogin.currentUserUser.setUserAnswer(0, 0, "Generic a");
-
-
-     System.out.println(newLogin.currentUserUser.getQuizQuestion(0, 0));
-     System.out.println(newLogin.currentUserUser.getAnswerOne(0, 0));
-     System.out.println(newLogin.currentUserUser.getAnswerTwo(0, 0));
-     System.out.println(newLogin.currentUserUser.getAnswerThree(0, 0));
-     System.out.println(newLogin.currentUserUser.getAnswerFour(0, 0));
-     System.out.println(newLogin.currentUserUser.getQuestionAnswer(0, 0));
-     System.out.println(newLogin.currentUserUser.getUserAnswer(0, 0));
-     */
-
-    //newLogin.currentUserUser.createLoginObject(0, new Date());
-    //newLogin.currentUserUser.setLogout(0, new Date());
-
-    /*Stage stage = Main.getPrimaryStage();
+    Stage stage = Main.getPrimaryStage();
     Parent root = FXMLLoader.load(getClass().getResource("quiz.fxml"));
     stage.setScene(new Scene(root, 600, 440));
-    stage.show();*/
+    stage.show();
   }
 
   /******************************************
@@ -645,6 +544,13 @@ public class dashboardController extends Main {
         Date date = new Date();
         newLogin.currentUserUser.setLogout(newLogin.getUserNumber(), date);
         */
+
+        /*
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        newLogin.currentUserUser.setLogout(0, formatter.format(date));
+        */
+
     Stage stage = Main.getPrimaryStage();
     Parent root = FXMLLoader.load(getClass().getResource("signin.fxml"));
     stage.setScene(new Scene(root, 600, 440));
