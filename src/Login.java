@@ -36,7 +36,7 @@ public class Login {
   //these are the place holders for the construction of the current user.
   static User currentUserUser;
   Tutor currentUserTutor;
-  static Boolean HardCode=false;
+  static Boolean HardCode = false;
 
   //Constructor
   Login() {

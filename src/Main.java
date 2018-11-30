@@ -16,8 +16,10 @@ public class Main extends Application {
 
   private static Stage primaryStage;
 
+  // Creates a new login instance that manages the current user
   Login newLogin = new Login();
 
+  // Loads the sign in fxml and sets the primary stage
   @Override
   public void start(Stage primaryStage) throws Exception {
     setPrimaryStage(primaryStage);
@@ -26,7 +28,6 @@ public class Main extends Application {
     primaryStage.setTitle("Tutoring App");
     primaryStage.setScene(new Scene(root, 600, 440));
     primaryStage.show();
-
   }
 
   private void setPrimaryStage(Stage stage) {
