@@ -4,13 +4,12 @@
   -fx-background-color: #ffffff;
 }
 
-.jfx-radio-button{
+.jfx-radio-button {
   -jfx-selected-color: #6eb5c0;
   -jfx-unselected-color: #6eb5c0;
 }
 
-.jfx-text-field
-{
+.jfx-text-field {
   -jfx-focus-color: #006c84;
 }
 
@@ -26,4 +25,5 @@
   -jfx-focus-color: #006c84;
 }
 
-<!-- #ffccbb #6eb5c0 #006c84-->
+<!--
+#ffccbb #6eb5c0 #006c84-- >

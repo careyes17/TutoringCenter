@@ -24,6 +24,10 @@ public class gradesController {
   @FXML
   JFXComboBox<String> pieChartTypeSelector;
 
+
+  /**
+   * Takes the user to the dashboard
+   */
   @FXML
   private void goToDashboard(ActionEvent event) throws IOException {
     Stage stage = Main.getPrimaryStage();
@@ -35,11 +39,16 @@ public class gradesController {
     stage.show();
   }
 
+  /**
+   * Updates the graph according to the selection from the combo box
+   */
   @FXML
   private void update() {
     System.out.println("attempting update");
 
+    // If the combo box has "Grades" selected
     if (pieChartTypeSelector.getValue().equals("Grades")) {
+      // Loads grade elements
       ObservableList<PieChart.Data> pieChartData =
           FXCollections.observableArrayList(
               new PieChart.Data("A", 13),
@@ -50,10 +59,12 @@ public class gradesController {
       pieChart.setData(pieChartData);
       pieChart.setTitle("Grades");
 
+      // Displays grade elements
       Main.getPrimaryStage().show();
     }
 
     if (pieChartTypeSelector.getValue().equals("Attendance")) {
+      // Loads attendance elements
       ObservableList<PieChart.Data> pieChartData =
           FXCollections.observableArrayList(
               new PieChart.Data("Present", 13),
@@ -63,6 +74,7 @@ public class gradesController {
       pieChart.setData(pieChartData);
       pieChart.setTitle("Attendance");
 
+      // Displays attendance elements
       Main.getPrimaryStage().show();
     }
 

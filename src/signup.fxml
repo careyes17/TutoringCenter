@@ -7,15 +7,26 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.signupController" stylesheets="@dashboardstyle.css">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+  prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1"
+  xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.signupController"
+  stylesheets="@dashboardstyle.css">
   <children>
-    <JFXTextField fx:id="usernametxt" labelFloat="true" layoutX="172.0" layoutY="145.0" prefHeight="25.0" prefWidth="258.0" promptText="Username" />
-    <JFXPasswordField fx:id="passwordtxt" labelFloat="true" layoutX="172.0" layoutY="235.0" prefHeight="25.0" prefWidth="258.0" promptText="Password" />
-    <JFXTextField fx:id="firstnametxt" labelFloat="true" layoutX="174.0" layoutY="55.0" prefHeight="25.0" prefWidth="258.0" promptText="First Name" />
-    <JFXTextField fx:id="lastnametxt" labelFloat="true" layoutX="173.0" layoutY="100.0" prefHeight="25.0" prefWidth="258.0" promptText="Last Name" />
-    <JFXTextField fx:id="emailtxt" labelFloat="true" layoutX="172.0" layoutY="190.0" prefHeight="25.0" prefWidth="258.0" promptText="Email" />
-    <JFXComboBox fx:id="roledropdown" labelFloat="true" layoutX="172.0" layoutY="280.0" prefHeight="25.0" prefWidth="258.0" promptText="Select Role" />
-    <Label fx:id="errortxt" layoutX="173.0" layoutY="350.0" prefHeight="17.0" prefWidth="258.0" style="-fx-text-fill: #cc0000;" />
-    <JFXButton buttonType="RAISED" layoutX="372.0" layoutY="325.0" onAction="#button1Pressed" style="-fx-background-color: #ffffff;" text="Sign Up" />
+    <JFXTextField fx:id="usernametxt" labelFloat="true" layoutX="172.0" layoutY="145.0"
+      prefHeight="25.0" prefWidth="258.0" promptText="Username"/>
+    <JFXPasswordField fx:id="passwordtxt" labelFloat="true" layoutX="172.0" layoutY="235.0"
+      prefHeight="25.0" prefWidth="258.0" promptText="Password"/>
+    <JFXTextField fx:id="firstnametxt" labelFloat="true" layoutX="174.0" layoutY="55.0"
+      prefHeight="25.0" prefWidth="258.0" promptText="First Name"/>
+    <JFXTextField fx:id="lastnametxt" labelFloat="true" layoutX="173.0" layoutY="100.0"
+      prefHeight="25.0" prefWidth="258.0" promptText="Last Name"/>
+    <JFXTextField fx:id="emailtxt" labelFloat="true" layoutX="172.0" layoutY="190.0"
+      prefHeight="25.0" prefWidth="258.0" promptText="Email"/>
+    <JFXComboBox fx:id="roledropdown" labelFloat="true" layoutX="172.0" layoutY="280.0"
+      prefHeight="25.0" prefWidth="258.0" promptText="Select Role"/>
+    <Label fx:id="errortxt" layoutX="173.0" layoutY="350.0" prefHeight="17.0" prefWidth="258.0"
+      style="-fx-text-fill: #cc0000;"/>
+    <JFXButton buttonType="RAISED" layoutX="372.0" layoutY="325.0" onAction="#button1Pressed"
+      style="-fx-background-color: #ffffff;" text="Sign Up"/>
   </children>
 </AnchorPane>

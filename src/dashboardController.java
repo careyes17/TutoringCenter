@@ -72,19 +72,25 @@ public class dashboardController extends Main {
   @FXML
   JFXBadge class3 = new JFXBadge();
 
+  //Sets hover over element to display grade for class 1
   Label class1Label = new Label("Grade: 100%");
   VBox vbox = new VBox(class1Label);
   PopOver popOver = new PopOver(vbox);
 
+  //Sets hover over element to display grade for class 2
   Label class2Label = new Label("Grade: 100%");
   VBox vbox2 = new VBox(class2Label);
   PopOver popOver2 = new PopOver(vbox2);
 
+  //Sets hover over element to display grade for class 3
   Label class3Label = new Label("Grade: 100%");
   VBox vbox3 = new VBox(class3Label);
   PopOver popOver3 = new PopOver(vbox3);
 
 
+  /**
+   * Display class 1 grades element on hover
+   */
   @FXML
   void class1Hover(MouseEvent event) throws Exception {
     vbox.setPrefHeight(45);
@@ -94,11 +100,17 @@ public class dashboardController extends Main {
     popOver.show(class1);
   }
 
+  /**
+   * Hides grades upon leaving hover element
+   */
   @FXML
   void class1Exit(MouseEvent event) throws Exception {
     popOver.hide();
   }
 
+  /**
+   * Display class 2 grades element on hover
+   */
   @FXML
   void class2Hover(MouseEvent event) throws Exception {
     vbox2.setPrefHeight(45);
@@ -108,11 +120,17 @@ public class dashboardController extends Main {
     popOver2.show(class2);
   }
 
+  /**
+   * Hides grades upon leaving hover element
+   */
   @FXML
   void class2Exit(MouseEvent event) throws Exception {
     popOver2.hide();
   }
 
+  /**
+   * Display class 3 grades element on hover
+   */
   @FXML
   void class3Hover(MouseEvent event) throws Exception {
     vbox3.setPrefHeight(45);
@@ -122,6 +140,9 @@ public class dashboardController extends Main {
     popOver3.show(class3);
   }
 
+  /**
+   * Hides grades upon leaving hover element
+   */
   @FXML
   void class3Exit(MouseEvent event) throws Exception {
     popOver3.hide();
@@ -131,12 +152,18 @@ public class dashboardController extends Main {
    * DASHBOARD METHODS
    ******************************************/
 
+  /**
+   * Goes to appointment scheduler
+   */
   @FXML
   private void goToScheduleTutoringCenter(ActionEvent event) throws IOException {
     SingleSelectionModel<Tab> selectionModel = tabpane.getSelectionModel();
     selectionModel.select(schedule);
   }
 
+  /**
+   * Goes to grades and attendance graph representation
+   */
   @FXML
   private void goToGradesAttendance(ActionEvent event) throws IOException {
     Stage stage = Main.getPrimaryStage();
@@ -148,12 +175,18 @@ public class dashboardController extends Main {
     stage.show();
   }
 
+  /**
+   * Goes to appointment scheduler
+   */
   @FXML
   private void goToReviewTutorsDashboard(ActionEvent event) throws IOException {
     SingleSelectionModel<Tab> selectionModel = tabpane.getSelectionModel();
     selectionModel.select(reviewTutors);
   }
 
+  /**
+   * Goes to user profile page
+   */
   @FXML
   private void goToProfile(ActionEvent event) throws IOException {
     SingleSelectionModel<Tab> selectionModel = tabpane.getSelectionModel();
@@ -168,9 +201,13 @@ public class dashboardController extends Main {
   JFXTreeTableView<Schedule> table;
 
 
+  /**
+   * Updates appointments scheduled by user
+   */
   @FXML
   private void updateAssignments(ActionEvent event) throws IOException {
 
+    // Adds "Subject" column
     JFXTreeTableColumn<Schedule, String> subject = new JFXTreeTableColumn("Subject");
     subject.setPrefWidth(100);
 
@@ -184,8 +221,7 @@ public class dashboardController extends Main {
           }
         });
 
-    //subject, tutor, comment, date, time, location
-
+    // Adds "Tutor" column
     JFXTreeTableColumn<Schedule, String> tutor = new JFXTreeTableColumn("Tutor");
     tutor.setPrefWidth(100);
 
@@ -199,6 +235,7 @@ public class dashboardController extends Main {
           }
         });
 
+    // Adds "Comment" column
     JFXTreeTableColumn<Schedule, String> comment = new JFXTreeTableColumn("Comment");
     comment.setPrefWidth(100);
 
@@ -212,6 +249,7 @@ public class dashboardController extends Main {
           }
         });
 
+    // Adds "Date" column
     JFXTreeTableColumn<Schedule, String> date = new JFXTreeTableColumn("Date");
     date.setPrefWidth(100);
 
@@ -225,6 +263,7 @@ public class dashboardController extends Main {
           }
         });
 
+    // Adds "Time" column
     JFXTreeTableColumn<Schedule, String> time = new JFXTreeTableColumn("Time");
     time.setPrefWidth(100);
 
@@ -238,6 +277,7 @@ public class dashboardController extends Main {
           }
         });
 
+    // Adds "Location" column
     JFXTreeTableColumn<Schedule, String> location = new JFXTreeTableColumn("Location");
     location.setPrefWidth(100);
 
@@ -251,6 +291,7 @@ public class dashboardController extends Main {
           }
         });
 
+    // Adds default events to the schedule list
     ObservableList<Schedule> Schedule = FXCollections.observableArrayList();
     Schedule
         .add(new Schedule("Calculus 2", "Carlos", "Integrals", "11/28/18", "3:00", "Library 203"));
@@ -260,6 +301,7 @@ public class dashboardController extends Main {
         .add(new Schedule("Physics", "Brian", "2D movement", "12/03/18", "5:30", "Library 205"));
     Schedule.add(new Schedule("Software", "Martin", "Loops", "12/04/18", "15:00", "Library 206"));
 
+    // Temporary variables for dynamic appending to the ObservableList "Schedule" for archived appointments
     int temporarySize = temporary.size();
 
     for (int i = 0; i < temporarySize; i++) {
@@ -273,6 +315,7 @@ public class dashboardController extends Main {
     table.setShowRoot(false);
   }
 
+  // Class containing appointment elements
   class Schedule extends RecursiveTreeObject<Schedule> {
 
     StringProperty subject;
@@ -299,6 +342,9 @@ public class dashboardController extends Main {
    * QUIZ METHODS
    ******************************************/
 
+  /**
+   * Goes to Class 1 Quiz
+   */
   @FXML
   private void goToClass1Quiz(ActionEvent event) throws IOException {
     Stage stage = Main.getPrimaryStage();
@@ -307,6 +353,9 @@ public class dashboardController extends Main {
     stage.show();
   }
 
+  /**
+   * Goes to Class 2 Quiz
+   */
   @FXML
   private void goToClass2Quiz(ActionEvent event) throws IOException {
     Stage stage = Main.getPrimaryStage();
@@ -315,6 +364,9 @@ public class dashboardController extends Main {
     stage.show();
   }
 
+  /**
+   * Goes to Class 3 Quiz
+   */
   @FXML
   private void goToClass3Quiz(ActionEvent event) throws IOException {
     /*System.out.println(newLogin.currentUserUser.getUserEmail(0));
@@ -332,51 +384,51 @@ public class dashboardController extends Main {
     newLogin.currentUserUser.setProfileIcon(0,"Generic Location of Profile Pic");*/
 
     /** APPOINTMENTS FUNCTIONS Black box testing DONE SUCCESSFUL
-    newLogin.currentUserUser.createAppointment(0, "Generic Subject", "Generic Tutor Name", "Generic Appointment Date", "Generic Location", "");
-    System.out.println(newLogin.currentUserUser.getAppointmentDate(0,0));
-    System.out.println(newLogin.currentUserUser.getAppointmentSubject(0,0));
-    System.out.println(newLogin.currentUserUser.getAppointmentLocation(0,0));
-    System.out.println(newLogin.currentUserUser.getAppointmentTutor(0,0));
-    System.out.println(newLogin.currentUserUser.getAppointmentAttendance(0,0));
+     newLogin.currentUserUser.createAppointment(0, "Generic Subject", "Generic Tutor Name", "Generic Appointment Date", "Generic Location", "");
+     System.out.println(newLogin.currentUserUser.getAppointmentDate(0,0));
+     System.out.println(newLogin.currentUserUser.getAppointmentSubject(0,0));
+     System.out.println(newLogin.currentUserUser.getAppointmentLocation(0,0));
+     System.out.println(newLogin.currentUserUser.getAppointmentTutor(0,0));
+     System.out.println(newLogin.currentUserUser.getAppointmentAttendance(0,0));
 
-    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-    Date date = new Date();
+     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+     Date date = new Date();
 
 
-    newLogin.currentUserUser.setAppointmentDate(0, 0, formatter.format(date));
-    newLogin.currentUserUser.setAppointmentSubject(0,0,"OOP");
-    newLogin.currentUserUser.setAppointmentAttendance(0,0,"Late");
-    newLogin.currentUserUser.setAppointmentTutor(0,0,"Hunter");
-    newLogin.currentUserUser.setAppointmentLocation(0,0,"Library 404");
+     newLogin.currentUserUser.setAppointmentDate(0, 0, formatter.format(date));
+     newLogin.currentUserUser.setAppointmentSubject(0,0,"OOP");
+     newLogin.currentUserUser.setAppointmentAttendance(0,0,"Late");
+     newLogin.currentUserUser.setAppointmentTutor(0,0,"Hunter");
+     newLogin.currentUserUser.setAppointmentLocation(0,0,"Library 404");
 
-    System.out.println(newLogin.currentUserUser.getAppointmentDate(0,0));
-    System.out.println(newLogin.currentUserUser.getAppointmentSubject(0,0));
-    System.out.println(newLogin.currentUserUser.getAppointmentLocation(0,0));
-    System.out.println(newLogin.currentUserUser.getAppointmentTutor(0,0));
-    System.out.println(newLogin.currentUserUser.getAppointmentAttendance(0,0));
-    */
+     System.out.println(newLogin.currentUserUser.getAppointmentDate(0,0));
+     System.out.println(newLogin.currentUserUser.getAppointmentSubject(0,0));
+     System.out.println(newLogin.currentUserUser.getAppointmentLocation(0,0));
+     System.out.println(newLogin.currentUserUser.getAppointmentTutor(0,0));
+     System.out.println(newLogin.currentUserUser.getAppointmentAttendance(0,0));
+     */
     /** ASSIGNMENT FUNCTIONS Black box testing DONE SUCCESSFUL
-    //newLogin.currentUserUser.createAssignment(0, "Generic Assignment Name", "Generic Assignment Type", "Generic Comments", 0, 0);
-    //print current assignment
-    System.out.println(newLogin.currentUserUser.getAssignmentName(0,0));
-    System.out.println(newLogin.currentUserUser.getAssignmentMaxPoints(0,0));
-    System.out.println(newLogin.currentUserUser.getAssignmentPointsReceived(0,0));
-    System.out.println(newLogin.currentUserUser.getAssignmentComments(0,0));
-    System.out.println(newLogin.currentUserUser.getAssignmentType(0,0));
+     //newLogin.currentUserUser.createAssignment(0, "Generic Assignment Name", "Generic Assignment Type", "Generic Comments", 0, 0);
+     //print current assignment
+     System.out.println(newLogin.currentUserUser.getAssignmentName(0,0));
+     System.out.println(newLogin.currentUserUser.getAssignmentMaxPoints(0,0));
+     System.out.println(newLogin.currentUserUser.getAssignmentPointsReceived(0,0));
+     System.out.println(newLogin.currentUserUser.getAssignmentComments(0,0));
+     System.out.println(newLogin.currentUserUser.getAssignmentType(0,0));
 
-    //setters
-    newLogin.currentUserUser.setAssignmentName(0, 0, "Generic Assignment Name 2");
-    newLogin.currentUserUser.setMaxPoints(0, 0, 8);
-    newLogin.currentUserUser.setPointsReceived(0, 0, 10);
-    newLogin.currentUserUser.setComments(0, 0, "Generic Comment 2");
-    newLogin.currentUserUser.setAssignmentType(0, 0, "Generic Assignment Type 2");
+     //setters
+     newLogin.currentUserUser.setAssignmentName(0, 0, "Generic Assignment Name 2");
+     newLogin.currentUserUser.setMaxPoints(0, 0, 8);
+     newLogin.currentUserUser.setPointsReceived(0, 0, 10);
+     newLogin.currentUserUser.setComments(0, 0, "Generic Comment 2");
+     newLogin.currentUserUser.setAssignmentType(0, 0, "Generic Assignment Type 2");
 
-    System.out.println(newLogin.currentUserUser.getAssignmentName(0,0));
-    System.out.println(newLogin.currentUserUser.getAssignmentMaxPoints(0,0));
-    System.out.println(newLogin.currentUserUser.getAssignmentPointsReceived(0,0));
-    System.out.println(newLogin.currentUserUser.getAssignmentComments(0,0));
-    System.out.println(newLogin.currentUserUser.getAssignmentType(0,0));
-    */
+     System.out.println(newLogin.currentUserUser.getAssignmentName(0,0));
+     System.out.println(newLogin.currentUserUser.getAssignmentMaxPoints(0,0));
+     System.out.println(newLogin.currentUserUser.getAssignmentPointsReceived(0,0));
+     System.out.println(newLogin.currentUserUser.getAssignmentComments(0,0));
+     System.out.println(newLogin.currentUserUser.getAssignmentType(0,0));
+     */
 
     //newLogin.currentUserUser.createReview(0, "Generic Tutor Name", "Generic Student Name", "Generic Comment", false, 0);
     //setters
@@ -388,31 +440,31 @@ public class dashboardController extends Main {
     /**
      * quiz stuff
 
-    newLogin.currentUserUser.createQuiz("Generic Question q", "Generic Answer1", "Generic Answer2", "Generic Answer3", "Generic Answer4", "Generic Answer aaa", "Generic Answer uaaa");
-    System.out.println(newLogin.currentUserUser.getQuizQuestion(0, 0));
-    System.out.println(newLogin.currentUserUser.getAnswerOne(0, 0));
-    System.out.println(newLogin.currentUserUser.getAnswerTwo(0, 0));
-    System.out.println(newLogin.currentUserUser.getAnswerThree(0, 0));
-    System.out.println(newLogin.currentUserUser.getAnswerFour(0, 0));
-    System.out.println(newLogin.currentUserUser.getQuestionAnswer(0, 0));
-    System.out.println(newLogin.currentUserUser.getUserAnswer(0, 0));
+     newLogin.currentUserUser.createQuiz("Generic Question q", "Generic Answer1", "Generic Answer2", "Generic Answer3", "Generic Answer4", "Generic Answer aaa", "Generic Answer uaaa");
+     System.out.println(newLogin.currentUserUser.getQuizQuestion(0, 0));
+     System.out.println(newLogin.currentUserUser.getAnswerOne(0, 0));
+     System.out.println(newLogin.currentUserUser.getAnswerTwo(0, 0));
+     System.out.println(newLogin.currentUserUser.getAnswerThree(0, 0));
+     System.out.println(newLogin.currentUserUser.getAnswerFour(0, 0));
+     System.out.println(newLogin.currentUserUser.getQuestionAnswer(0, 0));
+     System.out.println(newLogin.currentUserUser.getUserAnswer(0, 0));
 
-    newLogin.currentUserUser.setQuizQuestion(0, 0, "Generic Question1");
-    newLogin.currentUserUser.setAnswerOne(0, 0, "Generic Answer11"); // ????
-    newLogin.currentUserUser.setAnswerTwo(0, 0, "Generic Answer22");
-    newLogin.currentUserUser.setAnswerThree(0, 0, "Generic Answer33");
-    newLogin.currentUserUser.setAnswerFour(0, 0, "Generic Answer44");
-    newLogin.currentUserUser.setQuestionAnswer(0, 0, "Generic a");
-    newLogin.currentUserUser.setUserAnswer(0, 0, "Generic a");
+     newLogin.currentUserUser.setQuizQuestion(0, 0, "Generic Question1");
+     newLogin.currentUserUser.setAnswerOne(0, 0, "Generic Answer11"); // ????
+     newLogin.currentUserUser.setAnswerTwo(0, 0, "Generic Answer22");
+     newLogin.currentUserUser.setAnswerThree(0, 0, "Generic Answer33");
+     newLogin.currentUserUser.setAnswerFour(0, 0, "Generic Answer44");
+     newLogin.currentUserUser.setQuestionAnswer(0, 0, "Generic a");
+     newLogin.currentUserUser.setUserAnswer(0, 0, "Generic a");
 
 
-    System.out.println(newLogin.currentUserUser.getQuizQuestion(0, 0));
-    System.out.println(newLogin.currentUserUser.getAnswerOne(0, 0));
-    System.out.println(newLogin.currentUserUser.getAnswerTwo(0, 0));
-    System.out.println(newLogin.currentUserUser.getAnswerThree(0, 0));
-    System.out.println(newLogin.currentUserUser.getAnswerFour(0, 0));
-    System.out.println(newLogin.currentUserUser.getQuestionAnswer(0, 0));
-    System.out.println(newLogin.currentUserUser.getUserAnswer(0, 0));
+     System.out.println(newLogin.currentUserUser.getQuizQuestion(0, 0));
+     System.out.println(newLogin.currentUserUser.getAnswerOne(0, 0));
+     System.out.println(newLogin.currentUserUser.getAnswerTwo(0, 0));
+     System.out.println(newLogin.currentUserUser.getAnswerThree(0, 0));
+     System.out.println(newLogin.currentUserUser.getAnswerFour(0, 0));
+     System.out.println(newLogin.currentUserUser.getQuestionAnswer(0, 0));
+     System.out.println(newLogin.currentUserUser.getUserAnswer(0, 0));
      */
 
     //newLogin.currentUserUser.createLoginObject(0, new Date());
@@ -428,6 +480,9 @@ public class dashboardController extends Main {
    * TUTOR REVIEW METHODS
    ******************************************/
 
+  /**
+   * Executes default code for tutor review submission
+   */
   @FXML
   private void submitTutorReview(ActionEvent event) throws IOException {
     System.out.println(newLogin.HardCode.toString());
@@ -435,6 +490,9 @@ public class dashboardController extends Main {
     System.out.println(newLogin.HardCode.toString());
   }
 
+  /**
+   * Goes to tutor reviews
+   */
   @FXML
   private void goToTutorReviews(ActionEvent event) throws IOException {
     Stage stage = Main.getPrimaryStage();
@@ -461,8 +519,12 @@ public class dashboardController extends Main {
   @FXML
   JFXTextArea Location;
 
+  // Temporary ObservableList containing archived appointments to be appended in update in updateAssignments()
   ObservableList<Schedule> temporary = FXCollections.observableArrayList();
 
+  /**
+   * Takes information from appointment scheduler form and appends the appointment list
+   */
   @FXML
   private void scheduleTutor(ActionEvent event) throws IOException {
     String subject = SubjectPicked.getValue().toString();
@@ -472,7 +534,8 @@ public class dashboardController extends Main {
     String time = TimePicked.getValue().toString();
     String location = Location.getText();
     temporary.add(new Schedule(subject, tutor, comment, date, time, location));
-    newLogin.currentUserUser.createAppointment(newLogin.getUserNumber(), subject, tutor, date, location, "");
+    newLogin.currentUserUser
+        .createAppointment(newLogin.getUserNumber(), subject, tutor, date, location, "");
   }
 
   /******************************************
@@ -487,7 +550,9 @@ public class dashboardController extends Main {
   @FXML
   PasswordField passwordTextField;
 
-  //SETTINGS METHODS
+  /**
+   * Updates user email
+   */
   @FXML
   private void updateEmail(ActionEvent event) throws IOException {
     System.out.println("attempting email update");
@@ -502,6 +567,9 @@ public class dashboardController extends Main {
     }
   }
 
+  /**
+   * Updates user username
+   */
   @FXML
   private void updateUsername(ActionEvent event) throws IOException {
     System.out.println("attempting username update");
@@ -516,6 +584,9 @@ public class dashboardController extends Main {
     }
   }
 
+  /**
+   * Updates user password
+   */
   @FXML
   private void updatePassword(ActionEvent event) throws IOException {
     System.out.println("attempting password update");
@@ -539,13 +610,21 @@ public class dashboardController extends Main {
   JFXTextArea aboutMeTextArea;
   @FXML
   JFXTextArea majorTextArea;
+
+  /**
+   * Updates all of the user set profile elements
+   */
   @FXML
   private void updateProfile(ActionEvent event) throws IOException {
-    newLogin.currentUserUser.setAboutMeText(newLogin.getUserNumber(),aboutMeTextArea.getText());
-    newLogin.currentUserUser.setMajor(newLogin.getUserNumber(),aboutMeTextArea.getText());
-    newLogin.currentUserUser.setRole(newLogin.getUserNumber(),profileComboBox.getValue().toString());
+    newLogin.currentUserUser.setAboutMeText(newLogin.getUserNumber(), aboutMeTextArea.getText());
+    newLogin.currentUserUser.setMajor(newLogin.getUserNumber(), aboutMeTextArea.getText());
+    newLogin.currentUserUser
+        .setRole(newLogin.getUserNumber(), profileComboBox.getValue().toString());
   }
 
+  /**
+   * Updates user's profile icon
+   */
   @FXML
   private void updateProfileIcon(ActionEvent event) throws IOException {
     /*
@@ -554,6 +633,9 @@ public class dashboardController extends Main {
 
   }
 
+  /**
+   * Logs user out of the Tutoring Center application
+   */
   @FXML
   private void logout(ActionEvent event) throws IOException {
         /*login system needs to search for the last JSON OBJECT before implementation
@@ -569,6 +651,9 @@ public class dashboardController extends Main {
     stage.show();
   }
 
+  /**
+   * Executes default code when dashboard is called
+   */
   @FXML
   public void initialize() {
 
@@ -576,21 +661,21 @@ public class dashboardController extends Main {
 
     SubjectPicked.getItems().setAll("Biology", "Chemistry", "Math", "OOP");
 
-    roleDropDownTwo.getItems().setAll("Biology","Chemistry","Math","OOP");
+    roleDropDownTwo.getItems().setAll("Biology", "Chemistry", "Math", "OOP");
 
-    roleDropDownOne.getItems().setAll("Hunter","Carlos","Brian","Martin");
+    roleDropDownOne.getItems().setAll("Hunter", "Carlos", "Brian", "Martin");
 
     //this code will set the profile tab's information to be displayed automatically
-    profileComboBox.getItems().setAll("Student","Tutor");
+    profileComboBox.getItems().setAll("Student", "Tutor");
     aboutMeTextArea.setText(newLogin.currentUserUser.getaboutMeText(newLogin.getUserNumber()));
     //System.out.println(newLogin.currentUserUser.getaboutMeText(newLogin.getUserNumber()));
     majorTextArea.setText(newLogin.currentUserUser.getMajor(newLogin.getUserNumber()));
     //System.out.println(newLogin.currentUserUser.getMajor(newLogin.getUserNumber()));
     //System.out.println(newLogin.currentUserUser.getRole(newLogin.getUserNumber()));
-    if( newLogin.currentUserUser.getRole(newLogin.getUserNumber()).equals("Student")){
+    if (newLogin.currentUserUser.getRole(newLogin.getUserNumber()).equals("Student")) {
       profileComboBox.getSelectionModel().selectFirst();
     }
-    if( newLogin.currentUserUser.getRole(newLogin.getUserNumber()).equals("Tutor")){
+    if (newLogin.currentUserUser.getRole(newLogin.getUserNumber()).equals("Tutor")) {
       profileComboBox.getSelectionModel().selectLast();
     }
 

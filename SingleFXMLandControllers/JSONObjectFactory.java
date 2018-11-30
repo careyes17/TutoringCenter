@@ -1,4 +1,4 @@
-package src;
+package SingleFXMLandControllers;
 // name provided by Travis DatBoi
 
 import java.io.File;

@@ -1,4 +1,4 @@
-package src;
+package SingleFXMLandControllers;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -15,13 +15,13 @@ public class writereviewController {
   private void settingsChosen(Event event) throws IOException {
     // System.out.println("in button1pressed");
 
-    Stage stage = Main.getPrimaryStage();
+    //Stage stage = Main.getPrimaryStage();
 
     Parent root = FXMLLoader
-        .load(getClass().getResource("../SingleFXMLandControllers/settings.fxml"));
+        .load(getClass().getResource("settings.fxml"));
 
-    stage.setScene(new Scene(root, 600, 400));
-    stage.show();
+    //stage.setScene(new Scene(root, 600, 400));
+    //stage.show();
 
   }
 
@@ -29,12 +29,12 @@ public class writereviewController {
   private void dashboardChosen(Event event) throws IOException {
     // System.out.println("in button1pressed");
 
-    Stage stage = Main.getPrimaryStage();
+    //Stage stage = Main.getPrimaryStage();
 
-    Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("src/dashboard.fxml"));
 
-    stage.setScene(new Scene(root, 600, 400));
-    stage.show();
+    //stage.setScene(new Scene(root, 600, 400));
+    //stage.show();
 
   }
 
@@ -42,12 +42,12 @@ public class writereviewController {
   private void quizChosen(Event event) throws IOException {
     // System.out.println("in button1pressed");
 
-    Stage stage = Main.getPrimaryStage();
+    //Stage stage = Main.getPrimaryStage();
 
     Parent root = FXMLLoader.load(getClass().getResource("../SingleFXMLandControllers/quiz.fxml"));
 
-    stage.setScene(new Scene(root, 600, 400));
-    stage.show();
+    //stage.setScene(new Scene(root, 600, 400));
+    //stage.show();
 
   }
 
@@ -70,13 +70,13 @@ public class writereviewController {
   private void scheduleChosen(Event event) throws IOException {
     // System.out.println("in button1pressed");
 
-    Stage stage = Main.getPrimaryStage();
+    //Stage stage = Main.getPrimaryStage();
 
     Parent root = FXMLLoader
-        .load(getClass().getResource("../SingleFXMLandControllers/Schedule.fxml"));
+        .load(getClass().getResource("Schedule.fxml"));
 
-    stage.setScene(new Scene(root, 600, 400));
-    stage.show();
+    //stage.setScene(new Scene(root, 600, 400));
+    //stage.show();
 
   }
 
@@ -84,12 +84,12 @@ public class writereviewController {
   private void calendarChosen(Event event) throws IOException {
     // System.out.println("in button1pressed");
 
-    Stage stage = Main.getPrimaryStage();
+    //Stage stage = Main.getPrimaryStage();
 
     Parent root = FXMLLoader.load(getClass().getResource("../FXMLUnits/calendar.fxml"));
 
-    stage.setScene(new Scene(root, 600, 400));
-    stage.show();
+    //stage.setScene(new Scene(root, 600, 400));
+    //stage.show();
 
   }
 

@@ -11,7 +11,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
   prefHeight="400.0"
   prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
-  fx:controller="src.writereviewController" stylesheets="@dashboardstyle.css">
+  fx:controller="src.writereviewController" stylesheets="@../src/dashboardstyle.css">
   <children>
     <JFXTabPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="34.0" prefWidth="600.0">
       <tabs>

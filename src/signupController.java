@@ -74,14 +74,16 @@ public class signupController extends Main {
   @FXML
   Label errortxt;
 
+  /**
+   * Populates the role combo box with "Student" and "Tutor"
+   */
   public void initialize() {
-
-    assert roledropdown
-        != null : "fx:id=\"roledropdown\" was not injected: check your FXML file 'signup.fxml'.";
-    // populate the fruit combo box with item choices.
     roledropdown.getItems().setAll("Student", "Tutor");
   }
 
+  /**
+   * Performs sign up functionality and takes the user to the sign in page to sign in
+   */
   @FXML
   private void button1Pressed(ActionEvent event) throws IOException {
 
@@ -100,6 +102,9 @@ public class signupController extends Main {
     }
   }
 
+  /**
+   * Takes user to dashboard
+   */
   @FXML
   private void goToDashboard(ActionEvent event) throws IOException {
     Stage stage = Main.getPrimaryStage();

@@ -16,7 +16,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 
-public class signinController extends Main{// extends JSONObjectFactory{
+public class signinController extends Main {// extends JSONObjectFactory{
 
   @FXML
   TextField passwordtxt;
@@ -28,16 +28,23 @@ public class signinController extends Main{// extends JSONObjectFactory{
   Label errortext;
 
 
+  /**
+   * Makes the ENTER key execute the sign in method "button1Pressed()"
+   */
   @FXML
   private void enterClicked(KeyEvent keyEvent) throws IOException {
     if (keyEvent.getCode() == KeyCode.ENTER) {
       button1Pressed();
     }
   }
+
   @FXML
 
+  /**
+   * Executes the sign in functionality
+   */
   private void button1Pressed() throws IOException {
-    if (newLogin.LoginValidation(usernametxt.getText(),passwordtxt.getText())== Boolean.TRUE){
+    if (newLogin.LoginValidation(usernametxt.getText(), passwordtxt.getText()) == Boolean.TRUE) {
       errortext.setText("Success");
       Stage stage = Main.getPrimaryStage();
       Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
@@ -45,12 +52,16 @@ public class signinController extends Main{// extends JSONObjectFactory{
       stage.show();
       //this is where the code goes to change the page to a home page
     } else {
-      String error = "Failed login";
+      String error = "Failed login"; // Fills the errortext string with appropriate message
       errortext.setText(error);
     }
   }
+
+  /**
+   * Opens the sign up window
+   */
   @FXML
-  private void hyperlinkPressed(ActionEvent event) throws IOException{
+  private void hyperlinkPressed(ActionEvent event) throws IOException {
     Stage stage = Main.getPrimaryStage();
     Parent root = FXMLLoader.load(getClass().getResource("signup.fxml"));
     stage.setScene(new Scene(root, 600, 440));

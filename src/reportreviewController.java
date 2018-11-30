@@ -14,17 +14,20 @@ public class reportreviewController {
   @FXML
   Label errortext;
 
+  /**
+   * Takes user to the dashboard
+   */
   @FXML
   private void goToDashboard(ActionEvent event) throws IOException {
     Stage stage = Main.getPrimaryStage();
-
     Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
-
     stage.setScene(new Scene(root, 600, 440));
-
     stage.show();
   }
 
+  /**
+   * Prompts the user with a success message for submission
+   */
   @FXML
   private void submit(ActionEvent event) throws IOException {
     String error = "Thank you for contributing to the community.";

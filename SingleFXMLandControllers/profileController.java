@@ -1,4 +1,4 @@
-package src;
+package SingleFXMLandControllers;
 
 public class profileController {
 
