@@ -91,8 +91,9 @@ public class User {
   //Getter functions
 
   public int getTotalNumberOfAccounts(){
-    JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
-    int totalNumberOfAccounts = userAccountsIN.size();
+    int totalNumberOfAccounts= AccountsIN.size();
+    //JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
+    //int totalNumberOfAccounts = userAccountsIN.size();
     return totalNumberOfAccounts;
   }
 
@@ -579,18 +580,22 @@ public class User {
    * Assignment Functions Array position 2 included: Get Set Create Assignments
    */
   public void createAssignment(int UserNumber, String AssigmentName, String AssignmentType,
-      String Comments, int MaxPoints, int PointsReceived) {
+      String Comments, String MaxPoints, String PointsReceived, String datePicked, String timePicked, String selectedStudent) {
     //this parses the users account from the constructor
     JSONArray UserAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
     //zero is the code for the user credential storage
     JSONArray AssignmentArrayInstance = (JSONArray) UserAccountsIN.get(2);
     //this is the new object that will be added to the array
     JSONObject AssignmentData = new JSONObject();
+
     AssignmentData.put("AssignmentName", AssigmentName);
     AssignmentData.put("MaxPoints", MaxPoints);
     AssignmentData.put("PointsReceived", PointsReceived);
     AssignmentData.put("Comments", Comments);
+    AssignmentData.put("Date Due", datePicked);
+    AssignmentData.put("Time Due", timePicked);
     AssignmentData.put("AssignmentType", AssignmentType);
+    AssignmentData.put("SelectedStudent", selectedStudent);
     //adds assignment to the array
     AssignmentArrayInstance.add(AssignmentData);
     //print the JSON Structure
@@ -774,8 +779,8 @@ public class User {
   /**
    * need create reviews section position 3
    */
-  public void createReview(int UserNumber, String TutorName, String StudentName, String Comments,
-      Boolean ReviewFlagged, int ReviewValue) {
+  public void createReview(int UserNumber, String TutorName, String Subject, String Comments,
+      Boolean ReviewFlagged, String ReviewValue) {
     //this parses the users account from the constructor
     JSONArray UserAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
     //zero is the code for the user credential storage
@@ -783,7 +788,7 @@ public class User {
     //this is the new object that will be added to the array
     JSONObject ReviewData = new JSONObject();
     ReviewData.put("TutorName", TutorName);
-    ReviewData.put("StudentName", StudentName);
+    ReviewData.put("Subject", Subject);
     ReviewData.put("Comments", Comments);
     ReviewData.put("ReviewFlagged", ReviewFlagged);
     ReviewData.put("ReviewValue", ReviewValue);
@@ -818,11 +823,11 @@ public class User {
     return TutorName;
   }
 
-  public String getReviewStudent(int UserNumber, int reviewNumber) {
+  public String getReviewSubject(int UserNumber, int reviewNumber) {
     JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
     JSONArray assignmnetsArrayIn = (JSONArray) userAccountsIN.get(3);
     JSONObject assignmentDataIn = (JSONObject) assignmnetsArrayIn.get(reviewNumber);
-    String StudentName = (String) assignmentDataIn.get("StudentName");
+    String StudentName = (String) assignmentDataIn.get("Subject");
     return StudentName;
   }
 
@@ -842,13 +847,30 @@ public class User {
     return ReviewFlagged;
   }
 
-  public long getReviewValue(int UserNumber, int reviewNumber) {
+  public String getReviewValue(int UserNumber, int reviewNumber) {
     JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
     JSONArray assignmnetsArrayIn = (JSONArray) userAccountsIN.get(3);
     JSONObject assignmentDataIn = (JSONObject) assignmnetsArrayIn.get(reviewNumber);
-    long ReviewValue = (long) assignmentDataIn.get("ReviewValue");
+    String ReviewValue = (String) assignmentDataIn.get("ReviewValue");
     return ReviewValue;
   }
+
+  /**
+   public Integer getReviewValueInteger(int UserNumber, int reviewNumber) {
+   JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
+   JSONArray assignmnetsArrayIn = (JSONArray) userAccountsIN.get(3);
+   JSONObject assignmentDataIn = (JSONObject) assignmnetsArrayIn.get(reviewNumber);
+   Integer ReviewValue = (Integer) assignmentDataIn.get("ReviewValue");
+   return ReviewValue;
+   }
+   public long getReviewValuelong(int UserNumber, int reviewNumber) {
+   JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
+   JSONArray assignmnetsArrayIn = (JSONArray) userAccountsIN.get(3);
+   JSONObject assignmentDataIn = (JSONObject) assignmnetsArrayIn.get(reviewNumber);
+   long ReviewValue = (long) assignmentDataIn.get("ReviewValue");
+   return ReviewValue;
+   }
+   */
 
   public Integer getReviewValueForAfterWriting(int UserNumber, int reviewNumber) {
     JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
@@ -882,7 +904,7 @@ public class User {
     System.out.println("File Edited Successfuly");
   }
 
-  public void setReviewStudent(int UserNumber, int assignmentNumber, String StudentName) {
+  public void setReviewSubject(int UserNumber, int assignmentNumber, String SubjectName) {
     //this parses the users account from the constructor
     JSONArray UserAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
     //zero is the code for the user credential storage
@@ -890,7 +912,7 @@ public class User {
     //this is the new object that will be added to the array
     JSONObject individualAssignmentData = (JSONObject) AssignmentArrayInstance
         .get(assignmentNumber);
-    individualAssignmentData.put("StudentName", StudentName);
+    individualAssignmentData.put("Subject",SubjectName);
     //print to file and console
     System.out.println(AccountsIN.toJSONString());
 
@@ -952,7 +974,7 @@ public class User {
   }
 
   public void setReviewValue(int UserNumber, int assignmentNumber,
-      int ReviewValue) {//this parses the users account from the constructor
+      String ReviewValue) {//this parses the users account from the constructor
     JSONArray UserAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
     //zero is the code for the user credential storage
     JSONArray AssignmentArrayInstance = (JSONArray) UserAccountsIN.get(3);
