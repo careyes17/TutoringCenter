@@ -34,7 +34,7 @@ import java.io.IOException;
 public class dashboardController extends Main {
 
   @FXML
-  private TabPane tabpane;
+  public TabPane tabpane;
 
   @FXML
   private Tab dashboard;
@@ -49,7 +49,7 @@ public class dashboardController extends Main {
   private Tab quizzes;
 
   @FXML
-  private Tab schedule;
+  public Tab schedule;
 
   @FXML
   private Tab reviewTutors;
@@ -562,29 +562,223 @@ public class dashboardController extends Main {
    */
   @FXML
   public void initialize() {
-
-    TutorPicked.getItems().setAll("Hunter", "Carlos", "Brian", "Martin");
-
+    //while(newLogin.currentUserUser.getTotalNumberOfAccounts()){}
+    for(int i=0;i<=newLogin.currentUserUser.getTotalNumberOfAccounts()-1;i++){
+      String role = newLogin.currentUserUser.getRole(i);
+      String tutorName=newLogin.currentUserUser.getFirstName(i);
+      if(role.equals("Tutor")){
+        //need to add tutors to an array of strings
+        //System.out.println("adding");
+        TutorPicked.getItems().addAll(tutorName);
+        roleDropDownOne.getItems().addAll(tutorName);
+      }
+    }
     SubjectPicked.getItems().setAll("Biology", "Chemistry", "Math", "OOP");
-
     roleDropDownTwo.getItems().setAll("Biology", "Chemistry", "Math", "OOP");
 
-    roleDropDownOne.getItems().setAll("Hunter", "Carlos", "Brian", "Martin");
-
+    emailTextField.setText(newLogin.currentUserUser.getUserEmail(newLogin.getUserNumber()));
+    usernameTextField.setText(newLogin.currentUserUser.getUsername(newLogin.getUserNumber()));
+    passwordTextField.setText(newLogin.currentUserUser.getPassword(newLogin.getUserNumber()));
+    aboutMeTextArea.setText(newLogin.currentUserUser.getaboutMeText(newLogin.getUserNumber()));
+    majorTextArea.setText(newLogin.currentUserUser.getMajor(newLogin.getUserNumber()));
     //this code will set the profile tab's information to be displayed automatically
     profileComboBox.getItems().setAll("Student", "Tutor");
-    aboutMeTextArea.setText(newLogin.currentUserUser.getaboutMeText(newLogin.getUserNumber()));
-    //System.out.println(newLogin.currentUserUser.getaboutMeText(newLogin.getUserNumber()));
-    majorTextArea.setText(newLogin.currentUserUser.getMajor(newLogin.getUserNumber()));
-    //System.out.println(newLogin.currentUserUser.getMajor(newLogin.getUserNumber()));
-    //System.out.println(newLogin.currentUserUser.getRole(newLogin.getUserNumber()));
     if (newLogin.currentUserUser.getRole(newLogin.getUserNumber()).equals("Student")) {
       profileComboBox.getSelectionModel().selectFirst();
     }
     if (newLogin.currentUserUser.getRole(newLogin.getUserNumber()).equals("Tutor")) {
       profileComboBox.getSelectionModel().selectLast();
     }
+  }
+
+  /******************************************
+   * TUTOR ASSIGNMENT METHODS
+   ******************************************/
+
+  @FXML
+  JFXTreeTableView<Assignment> tableTutor;
+
+
+  /**
+   * Updates assignments scheduled by user
+   */
+  @FXML
+  private void updateAssignmentsTutor(ActionEvent event) throws IOException {
+
+    JFXTreeTableColumn<Assignment, String> assignmentName = new JFXTreeTableColumn("Assign. Name");
+    assignmentName.setPrefWidth(100);
+
+    assignmentName.setCellValueFactory(
+        new Callback<CellDataFeatures<Assignment, String>, ObservableValue<String>>() {
+
+          @Override
+          public ObservableValue<String> call(
+              CellDataFeatures<Assignment, String> param) {
+            return param.getValue().getValue().assignmentName;
+          }
+        });
+
+    JFXTreeTableColumn<Assignment, String> datePicked = new JFXTreeTableColumn("Due Date");
+    datePicked.setPrefWidth(100);
+
+    datePicked.setCellValueFactory(
+        new Callback<CellDataFeatures<Assignment, String>, ObservableValue<String>>() {
+
+          @Override
+          public ObservableValue<String> call(
+              CellDataFeatures<Assignment, String> param) {
+            return param.getValue().getValue().datePicked;
+          }
+        });
+
+    JFXTreeTableColumn<Assignment, String> timePicked = new JFXTreeTableColumn("Time Due");
+    timePicked.setPrefWidth(100);
+
+    timePicked.setCellValueFactory(
+        new Callback<CellDataFeatures<Assignment, String>, ObservableValue<String>>() {
+
+          @Override
+          public ObservableValue<String> call(
+              CellDataFeatures<Assignment, String> param) {
+            return param.getValue().getValue().timePicked;
+          }
+        });
+
+    JFXTreeTableColumn<Assignment, String> Comments = new JFXTreeTableColumn("Comments");
+    Comments.setPrefWidth(100);
+
+    Comments.setCellValueFactory(
+        new Callback<CellDataFeatures<Assignment, String>, ObservableValue<String>>() {
+
+          @Override
+          public ObservableValue<String> call(
+              CellDataFeatures<Assignment, String> param) {
+            return param.getValue().getValue().Comments;
+          }
+        });
+
+    JFXTreeTableColumn<Assignment, String> pointsReceived = new JFXTreeTableColumn("Points Received");
+    pointsReceived.setPrefWidth(100);
+
+    pointsReceived.setCellValueFactory(
+        new Callback<CellDataFeatures<Assignment, String>, ObservableValue<String>>() {
+
+          @Override
+          public ObservableValue<String> call(
+              CellDataFeatures<Assignment, String> param) {
+            return param.getValue().getValue().pointsReceived;
+          }
+        });
+
+    JFXTreeTableColumn<Assignment, String> maxPoints = new JFXTreeTableColumn("Max Received");
+    maxPoints.setPrefWidth(100);
+
+    maxPoints.setCellValueFactory(
+        new Callback<CellDataFeatures<Assignment, String>, ObservableValue<String>>() {
+
+          @Override
+          public ObservableValue<String> call(
+              CellDataFeatures<Assignment, String> param) {
+            return param.getValue().getValue().maxPoints;
+          }
+        });
+
+    JFXTreeTableColumn<Assignment, String> assignmentType = new JFXTreeTableColumn("Assign. Type");
+    assignmentType.setPrefWidth(100);
+
+    assignmentType.setCellValueFactory(
+        new Callback<CellDataFeatures<Assignment, String>, ObservableValue<String>>() {
+
+          @Override
+          public ObservableValue<String> call(
+              CellDataFeatures<Assignment, String> param) {
+            return param.getValue().getValue().assignmentType;
+          }
+        });
+
+    JFXTreeTableColumn<Assignment, String> selectedStudent = new JFXTreeTableColumn("Student");
+    selectedStudent.setPrefWidth(100);
+
+    selectedStudent.setCellValueFactory(
+        new Callback<CellDataFeatures<Assignment, String>, ObservableValue<String>>() {
+
+          @Override
+          public ObservableValue<String> call(
+              CellDataFeatures<Assignment, String> param) {
+            return param.getValue().getValue().selectedStudent;
+          }
+        });
+
+    ObservableList<Assignment> assignment = FXCollections.observableArrayList();
+    assignment
+        .add(new Assignment("Read Ch5", "100", "", "30 mins", "11/1/18", "23:59", "Reading", "Brian"));
+    assignment.add(
+        new Assignment("Read Ch6", "100", "", "30 mins", "11/5/18", "23:59", "Reading", "Brian"));
+    assignment
+        .add(new Assignment("Read Ch7", "100", "", "30 mins", "11/9/18", "23:59", "Reading", "Brian"));
+    assignment.add(new Assignment("Read Ch8", "100", "", "30 mins", "11/13/18", "23:59", "Reading", "Brian"));
+
+    // Temporary variables for dynamic appending to the ObservableList "Schedule" for archived appointments
+    int temporarySize = temporary2.size();
+
+    for (int i = 0; i < temporarySize; i++) {
+      assignment.add(temporary2.get(i));
+    }
+
+    final TreeItem<Assignment> root = new RecursiveTreeItem<Assignment>(assignment,
+        RecursiveTreeObject::getChildren);
+    tableTutor.getColumns().setAll(assignmentName, maxPoints, pointsReceived, Comments, datePicked, timePicked, assignmentType, selectedStudent);
+    tableTutor.setRoot(root);
+    tableTutor.setShowRoot(false);
+  }
+
+  // Temporary ObservableList containing archived appointments to be appended in update in updateAssignments()
+  ObservableList<Assignment> temporary2 = FXCollections.observableArrayList();
+
+  /**
+   *
+   */
+  @FXML
+  private void removeAssignment(ActionEvent event) throws IOException {
 
   }
+
+  /**
+   *
+   */
+  @FXML
+  private void createAssignment(ActionEvent event) throws IOException {
+    Stage stage = Main.getPrimaryStage();
+    Parent root = FXMLLoader.load(getClass().getResource("createAssignment.fxml"));
+    stage.setScene(new Scene(root, 600, 440));
+    stage.show();
+  }
+
+}
+
+// Class containing appointment elements
+class Assignment extends RecursiveTreeObject<Assignment> {
+
+  StringProperty assignmentName;
+  StringProperty maxPoints;
+  StringProperty pointsReceived;
+  StringProperty Comments;
+  StringProperty datePicked;
+  StringProperty timePicked;
+  StringProperty assignmentType;
+  StringProperty selectedStudent;
+
+  public Assignment(String assignmentName, String maxPoints, String pointsReceived, String Comments, String datePicked,
+      String timePicked, String assignmentType, String selectedStudent) {
+    this.assignmentName = new SimpleStringProperty(assignmentName);
+    this.maxPoints = new SimpleStringProperty(maxPoints);
+    this.pointsReceived = new SimpleStringProperty(pointsReceived);
+    this.Comments = new SimpleStringProperty(Comments);
+    this.datePicked = new SimpleStringProperty(datePicked);
+    this.timePicked = new SimpleStringProperty(timePicked);
+    this.assignmentType = new SimpleStringProperty(assignmentType);
+    this.selectedStudent = new SimpleStringProperty(selectedStudent);
+  }
+
 
 }

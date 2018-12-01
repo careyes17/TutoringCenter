@@ -3,6 +3,9 @@ package src;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import java.io.IOException;
+import java.util.ArrayList;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +16,9 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class ratereviewController extends Main {
+  //reviews position acts similar to a pointer
+  static int userAccountPointer;
+  static int reviewAccountPointer;
 
   @FXML
   Label tutorValue;
@@ -29,14 +35,29 @@ public class ratereviewController extends Main {
 
 
   public void initialize() {
+    //need to populate the total number of tutors to the reviews drop down.
+    //need to loop through the users to find the number of tutors
+    for(int i=0;i<=newLogin.currentUserUser.getTotalNumberOfAccounts()-1;i++){
+      String role = newLogin.currentUserUser.getRole(i);
+      String tutorName=newLogin.currentUserUser.getFirstName(i);
+      if(role.equals("Tutor")){
+        //need to add tutors to an array of strings
+        //System.out.println("adding");
+        roleDropDownOne.getItems().addAll(tutorName);
+      }
+    }
 
-    assert roleDropDownOne
-        != null : "fx:id=\"roledropdown\" was not injected";
-    roleDropDownOne.getItems().setAll("Hunter", "Carlos", "Brian", "Martin");
 
-    assert roleDropDownTwo
+      //then need to add the strings to the drop down
+      //Static number of subjects for the tutoring center
+      assert roleDropDownTwo
+          != null : "fx:id=\"roledropdown\" was not injected";
+    roleDropDownTwo.getItems().setAll("Biology","Chemistry","Math","OOP");
+
+    /*assert roleDropDownOne
         != null : "fx:id=\"roledropdown\" was not injected";
-    roleDropDownTwo.getItems().setAll("Biology", "Chemistry", "Math", "OOP", "Biology");
+    roleDropDownOne.getItems().setAll("Hunter","Carlos","Brian","Martin");*/
+
 
   }
 
@@ -53,74 +74,65 @@ public class ratereviewController extends Main {
 
   @FXML
   private void submit(ActionEvent event) throws IOException {
-    if (roleDropDownOne.getValue().toString() == "Hunter") {
-      if (roleDropDownTwo.getValue().toString() == "Biology") {
-        tutorValue.setText("15");
-        reviewText.setText(
-            "Hunter was very relaxed and taught me things from even before the semester. Very chill guy!");
-      } else if (roleDropDownTwo.getValue().toString() == "Chemistry") {
-        tutorValue.setText("15");
-        reviewText.setText(
-            " Hunter helped get me through electron diagrams like it was nothing. Very good for visual learners!");
-      } else if (roleDropDownTwo.getValue().toString() == "Math") {
-        reviewText.setText("No Reviews Yet!");
-      } else if (roleDropDownTwo.getValue().toString() == "OOP" && newLogin.HardCode == true) {
-        reviewText.setText("Test Review");
-      } else if (roleDropDownTwo.getValue().toString() == "OOP") {
-        reviewText.setText("No Reviews Yet!");
-      } else if (roleDropDownTwo.getValue().toString() == "Biology") {
-        reviewText.setText("No Reviews Yet!");
-      }
-    }
-    if (roleDropDownOne.getValue().toString() == "Carlos") {
-      if (roleDropDownTwo.getValue().toString() == "Biology") {
-        reviewText.setText("No Reviews Yet!");
-      } else if (roleDropDownTwo.getValue().toString() == "Chemistry") {
-        reviewText.setText("No Reviews Yet!");
-      } else if (roleDropDownTwo.getValue().toString() == "Math") {
-        reviewText.setText("No Reviews Yet!");
-      } else if (roleDropDownTwo.getValue().toString() == "OOP") {
-        reviewText.setText(
-            "Carlos got me out of some tough spots! Helped me re-learn early concepts like recursion that I didn't understand well.");
-      } else if (roleDropDownTwo.getValue().toString() == "Biology") {
-        reviewText.setText("No Reviews Yet!");
-      }
-    }
-    if (roleDropDownOne.getValue().toString() == "Brian") {
-      if (roleDropDownTwo.getValue().toString() == "Biology") {
-        reviewText.setText("No Reviews Yet!");
-      } else if (roleDropDownTwo.getValue().toString() == "Chemistry") {
-        reviewText.setText("No Reviews Yet!");
-      } else if (roleDropDownTwo.getValue().toString() == "Math") {
-        reviewText.setText("No Reviews Yet!");
-      } else if (roleDropDownTwo.getValue().toString() == "OOP") {
-        reviewText.setText("No Reviews Yet!");
-      } else if (roleDropDownTwo.getValue().toString() == "Biology") {
-        reviewText.setText(
-            "Brian was a bit slow working with me, didn't seem to completely understand what the book was talking about, but walked me through everything.");
-      }
-    }
-    if (roleDropDownOne.getValue().toString() == "Martin") {
-      if (roleDropDownTwo.getValue().toString() == "Biology") {
-        reviewText.setText("No Reviews Yet!");
-      } else if (roleDropDownTwo.getValue().toString() == "Chemistry") {
-        reviewText.setText("No Reviews Yet!");
-      } else if (roleDropDownTwo.getValue().toString() == "Math") {
-        reviewText.setText("No Reviews Yet!");
-      } else if (roleDropDownTwo.getValue().toString() == "OOP") {
-        reviewText.setText("No Reviews Yet!");
-      } else if (roleDropDownTwo.getValue().toString() == "Biology") {
-        reviewText.setText(
-            "Martin was a bit slow working with me, didn't seem to completely understand what the book was talking about, but walked me through everything.");
+    System.out.println("submit pressed");
+    System.out.println("NumberOfAccounts "+newLogin.currentUserUser.getTotalNumberOfAccounts());
+    //need to loop through all accounts reviews and find the first review that matches the tutor
+    for(int i=0;i<=newLogin.currentUserUser.getTotalNumberOfAccounts()-1;i++){
+      //i is the number of the current account in use
+      for(int j=0;j<=newLogin.currentUserUser.getNumberOfReview(i)-1;j++){
+        System.out.println("NumberOfReviews "+newLogin.currentUserUser.getNumberOfReview(i));
+        //j is the number of specific review
+        System.out.println("DropDown value T "+roleDropDownOne.getValue().toString());
+        System.out.println("Review value T "+newLogin.currentUserUser.getReviewTutor(i,j));
+
+        if(newLogin.currentUserUser.getReviewTutor(i,j).equals(roleDropDownOne.getValue().toString())){
+          System.out.println("DropDown2 value S "+roleDropDownTwo.getValue().toString());
+          System.out.println("Review value S "+newLogin.currentUserUser.getReviewSubject(i,j));
+          if(newLogin.currentUserUser.getReviewSubject(i,j).equals(roleDropDownTwo.getValue().toString())){
+            if(newLogin.currentUserUser.getReviewFlagged(i,j)==false) {
+              reviewText.setText(newLogin.currentUserUser.getReviewComment(i, j));
+              tutorValue.setText(newLogin.currentUserUser.getReviewValue(i, j));
+              userAccountPointer = i;
+              reviewAccountPointer = j;
+              System.out.println("end of sumbit");
+              System.out.println(userAccountPointer);
+              System.out.println(reviewAccountPointer);
+              break;
+            }
+          }
+        }
       }
     }
   }
 
   @FXML
   private void nextReview(ActionEvent event) throws IOException {
-    /*
-     * ENTER FUNCTIONALITY
-     * */
+    boolean success=false;
+    reviewAccountPointer++;
+    //need to loop through all accounts reviews and find the first review that matches the tutor
+    while(userAccountPointer<newLogin.currentUserUser.getTotalNumberOfAccounts()){
+      //i is the number of the current account in use
+      while(reviewAccountPointer<=newLogin.currentUserUser.getNumberOfReview(userAccountPointer)){
+        //j is the number of specific review
+        if(newLogin.currentUserUser.getReviewTutor(userAccountPointer,reviewAccountPointer).equals(roleDropDownOne.getValue().toString())){
+          if(newLogin.currentUserUser.getReviewSubject(userAccountPointer,reviewAccountPointer).equals(roleDropDownTwo.getValue().toString())){
+            if(newLogin.currentUserUser.getReviewFlagged(userAccountPointer,reviewAccountPointer)==false) {
+              reviewText.setText(newLogin.currentUserUser
+                  .getReviewComment(userAccountPointer, reviewAccountPointer));
+              tutorValue.setText(newLogin.currentUserUser
+                  .getReviewValue(userAccountPointer, reviewAccountPointer));
+              success = true;
+              break;
+            }
+          }
+        }
+        reviewAccountPointer++;
+      }
+      if(success==true){
+        break;
+      }
+      userAccountPointer++;
+    }
   }
 
   @FXML
@@ -138,12 +150,18 @@ public class ratereviewController extends Main {
 
   @FXML
   private void rateUp(ActionEvent event) throws IOException {
+    Integer reviewValueBefore = Integer.parseInt(newLogin.currentUserUser.getReviewValue(userAccountPointer,reviewAccountPointer));
+    reviewValueBefore++;
+    String reviewValueAfter = Integer.toString(reviewValueBefore);
+    newLogin.currentUserUser.setReviewValue(userAccountPointer,reviewAccountPointer,reviewValueAfter);
+    tutorValue.setText(newLogin.currentUserUser.getReviewValue(userAccountPointer,reviewAccountPointer));
+
     this.temp--;
-    String number = tutorValue.getText();
+    /*String number = tutorValue.getText();
     int result = Integer.parseInt(number);
     result++;
     String newresult = Integer.toString(result);
-    tutorValue.setText(newresult);
+    tutorValue.setText(newresult);*/
     if (temp == 1) {
       RateUp.visibleProperty().setValue(Boolean.TRUE);
       RateDown.visibleProperty().setValue(Boolean.TRUE);
@@ -160,11 +178,11 @@ public class ratereviewController extends Main {
 
   @FXML
   private void rateDown(ActionEvent event) throws IOException {
-    String number = tutorValue.getText();
-    int result = Integer.parseInt(number);
-    result--;
-    String newresult = Integer.toString(result);
-    tutorValue.setText(newresult);
+    Integer reviewValueBefore = Integer.parseInt(newLogin.currentUserUser.getReviewValue(userAccountPointer,reviewAccountPointer));
+    reviewValueBefore--;
+    String reviewValueAfter = Integer.toString(reviewValueBefore);
+    newLogin.currentUserUser.setReviewValue(userAccountPointer,reviewAccountPointer,reviewValueAfter);
+    tutorValue.setText(newLogin.currentUserUser.getReviewValue(userAccountPointer,reviewAccountPointer));
     this.temp++;
     if (temp == 1) {
       RateUp.visibleProperty().setValue(Boolean.TRUE);
