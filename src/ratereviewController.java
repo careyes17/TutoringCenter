@@ -43,17 +43,24 @@ public class ratereviewController extends Main {
       if(role.equals("Tutor")){
         //need to add tutors to an array of strings
         //System.out.println("adding");
-        roleDropDownOne.getItems().addAll(tutorName);
+        try{roleDropDownOne.getItems().add(tutorName);
+        }catch(Exception e){
+          System.out.println("nullpointerpresent");
+
+        }
       }
     }
 
 
-      //then need to add the strings to the drop down
-      //Static number of subjects for the tutoring center
+    //then need to add the strings to the drop down
+    //Static number of subjects for the tutoring center
+    try {
       assert roleDropDownTwo
           != null : "fx:id=\"roledropdown\" was not injected";
-    roleDropDownTwo.getItems().setAll("Biology","Chemistry","Math","OOP");
-
+      roleDropDownTwo.getItems().setAll("Biology", "Chemistry", "Math", "OOP");
+    }catch(Exception e){
+      System.out.println("nullpointerpresent");
+    }
     /*assert roleDropDownOne
         != null : "fx:id=\"roledropdown\" was not injected";
     roleDropDownOne.getItems().setAll("Hunter","Carlos","Brian","Martin");*/

@@ -89,7 +89,9 @@ public class signupController extends Main {
 
     if (usernametxt.getText().isEmpty() || passwordtxt.getText().isEmpty()) {
       errortxt.setStyle("-fx-text-fill: One of the submission fields are empty");
-    } else {
+    } else if(6<=passwordtxt.getText().length() && passwordtxt.getText().length()>=32){
+      errortxt.setStyle("-fx-text-fill: Passwords need to be 6-32 charaters long");
+    }else {
       //check the last parameter to see if it gets the value from the drop down
       newLogin.createUserInformation(usernametxt.getText(), passwordtxt.getText(),
           firstnametxt.getText(), lastnametxt.getText(),

@@ -348,13 +348,13 @@ public class User {
     System.out.println("File Edited Successfuly");
   }
 
-  public void setProfileIcon(int UserNumber, String location) {
+  public void setProfileIcon(int UserNumber, String ProfileIcon) {
     //this parses the users account from the constructor
     JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
 
     JSONObject userCredentialsIn = (JSONObject) userAccountsIN.get(0);
 
-    userCredentialsIn.put("location", location);
+    userCredentialsIn.put("ProfileIcon", ProfileIcon);
 
     System.out.println(AccountsIN.toJSONString());
 
@@ -622,18 +622,22 @@ public class User {
    * Assignment Functions Array position 2 included: Get Set Create Assignments
    */
   public void createAssignment(int UserNumber, String AssigmentName, String AssignmentType,
-      String Comments, int MaxPoints, int PointsReceived) {
+      String Comments, String MaxPoints, String PointsReceived, String datePicked, String timePicked, String selectedStudent) {
     //this parses the users account from the constructor
     JSONArray UserAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
     //zero is the code for the user credential storage
     JSONArray AssignmentArrayInstance = (JSONArray) UserAccountsIN.get(2);
     //this is the new object that will be added to the array
     JSONObject AssignmentData = new JSONObject();
+
     AssignmentData.put("AssignmentName", AssigmentName);
     AssignmentData.put("MaxPoints", MaxPoints);
     AssignmentData.put("PointsReceived", PointsReceived);
     AssignmentData.put("Comments", Comments);
+    AssignmentData.put("Date Due", datePicked);
+    AssignmentData.put("Time Due", timePicked);
     AssignmentData.put("AssignmentType", AssignmentType);
+    AssignmentData.put("SelectedStudent", selectedStudent);
     //adds assignment to the array
     AssignmentArrayInstance.add(AssignmentData);
     //print the JSON Structure

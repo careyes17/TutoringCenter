@@ -518,6 +518,10 @@ public class dashboardController extends Main {
    * PROFILE METHODS
    ******************************************/
   @FXML
+  JFXBadge profilebadge;
+  @FXML
+  Hyperlink updateProfileIcon;
+  @FXML
   JFXComboBox profileComboBox;
   @FXML
   JFXTextArea aboutMeTextArea;
@@ -529,21 +533,55 @@ public class dashboardController extends Main {
    */
   @FXML
   private void updateProfile(ActionEvent event) throws IOException {
-    newLogin.currentUserUser.setAboutMeText(newLogin.getUserNumber(), aboutMeTextArea.getText());
-    newLogin.currentUserUser.setMajor(newLogin.getUserNumber(), aboutMeTextArea.getText());
-    newLogin.currentUserUser
-        .setRole(newLogin.getUserNumber(), profileComboBox.getValue().toString());
-  }
+
+
+      //updateProfileIcon
+      newLogin.currentUserUser.setAboutMeText(newLogin.getUserNumber(), aboutMeTextArea.getText());
+      newLogin.currentUserUser.setMajor(newLogin.getUserNumber(), aboutMeTextArea.getText());
+      newLogin.currentUserUser
+          .setRole(newLogin.getUserNumber(), profileComboBox.getValue().toString());
+    }
+
 
   /**
    * Updates user's profile icon
    */
   @FXML
   private void updateProfileIcon(ActionEvent event) throws IOException {
-    /*
-     * ENTER FUNCTIONALITY
-     * */
 
+    StringBuilder sb = new StringBuilder();
+    sb.append("#");
+    for (int i = 0; i < 6; i++) {
+      double random = Math.random() * 15;
+      int truncate=(int)random;
+      switch ((int) random) {
+        case 10:
+          sb.append("A");
+          break;
+        case 11:
+          sb.append("B");
+          break;
+        case 12:
+          sb.append("C");
+          break;
+        case 13:
+          sb.append("D");
+          break;
+        case 14:
+          sb.append("E");
+          break;
+        case 15:
+          sb.append("F");
+          break;
+        default:
+          sb.append(Integer.toString(truncate));
+          break;
+      }
+      System.out.println(sb);
+    }
+    System.out.println(sb);
+    profilebadge.setStyle("-fx-background-color:"+sb);
+    newLogin.currentUserUser.setProfileIcon(newLogin.getUserNumber(),sb.toString());
   }
 
   /**
@@ -598,8 +636,13 @@ public class dashboardController extends Main {
 
   @FXML
   public void initialize() {
-    tabpane.getTabs().remove(schedule);
-    tabpane.getTabs().remove(quizzes);
+    if (newLogin.currentUserUser.getRole(newLogin.getUserNumber()).equals("Tutor")) {
+      tabpane.getTabs().remove(schedule);
+      tabpane.getTabs().remove(quizzes);
+    } else if (newLogin.currentUserUser.getRole(newLogin.getUserNumber()).equals("Student")) {
+      tabpane.getTabs().remove(scheduleTutor);
+      tabpane.getTabs().remove(quizzesTutor);
+    }
 
     createQuizButton.setVisible(true);
 
@@ -625,6 +668,7 @@ public class dashboardController extends Main {
     passwordTextField.setText(newLogin.currentUserUser.getPassword(newLogin.getUserNumber()));
     aboutMeTextArea.setText(newLogin.currentUserUser.getaboutMeText(newLogin.getUserNumber()));
     majorTextArea.setText(newLogin.currentUserUser.getMajor(newLogin.getUserNumber()));
+    profilebadge.setStyle("-fx-background-color:"+newLogin.currentUserUser.getProfileIcon(newLogin.getUserNumber()));
     //this code will set the profile tab's information to be displayed automatically
     profileComboBox.getItems().setAll("Student", "Tutor");
     if (newLogin.currentUserUser.getRole(newLogin.getUserNumber()).equals("Student")) {
