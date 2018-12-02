@@ -9,16 +9,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class reportreviewController {
+public class reportreviewController extends ratereviewController {
 
   @FXML
   Label errortext;
+
+
 
   /**
    * Takes user to the dashboard
    */
   @FXML
   private void goToDashboard(ActionEvent event) throws IOException {
+
+
     Stage stage = Main.getPrimaryStage();
     Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
     stage.setScene(new Scene(root, 600, 440));
@@ -30,6 +34,7 @@ public class reportreviewController {
    */
   @FXML
   private void submit(ActionEvent event) throws IOException {
+    newLogin.currentUserUser.setReviewFlagged(userAccountPointer,reviewAccountPointer,true);
     String error = "Thank you for contributing to the community.";
     errortext.setText(error);
   }

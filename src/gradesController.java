@@ -16,7 +16,7 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 
-public class gradesController {
+public class gradesController extends Main {
 
   @FXML
   PieChart pieChart;
@@ -48,13 +48,40 @@ public class gradesController {
 
     // If the combo box has "Grades" selected
     if (pieChartTypeSelector.getValue().equals("Grades")) {
+      int A=0;
+      int B=0;
+      int C=0;
+      int D=0;
+      int F=0;
+      int counter=0;
+      while (counter<newLogin.currentUserUser.getNumberOfAssignments(newLogin.getUserNumber())){
+        double Calculation = ((double)newLogin.currentUserUser.getAssignmentPointsReceived(newLogin.getUserNumber(),counter) / (double) newLogin.currentUserUser.getAssignmentMaxPoints(newLogin.getUserNumber(),counter));
+        if(Calculation>=0.90){
+          A++;
+        }
+        if(Calculation<0.90 && Calculation>=0.80){
+          B++;
+        }
+        if(Calculation<0.80 && Calculation>=0.70){
+          C++;
+        }
+        if(Calculation<0.70 && Calculation>=0.60){
+          D++;
+        }
+        if(Calculation<0.60 && Calculation>=0.50){
+          F++;
+        }
+        counter++;
+      }
+
       // Loads grade elements
       ObservableList<PieChart.Data> pieChartData =
           FXCollections.observableArrayList(
-              new PieChart.Data("A", 13),
-              new PieChart.Data("B", 25),
-              new PieChart.Data("C", 6),
-              new PieChart.Data("D", 1)
+              new PieChart.Data("A", A),
+              new PieChart.Data("B", B),
+              new PieChart.Data("C", C),
+              new PieChart.Data("D", D),
+              new PieChart.Data("F", F)
           );
       pieChart.setData(pieChartData);
       pieChart.setTitle("Grades");
@@ -65,11 +92,29 @@ public class gradesController {
 
     if (pieChartTypeSelector.getValue().equals("Attendance")) {
       // Loads attendance elements
+      //Late, ontime, Absent
+      int Late=0;
+      int ontime=0;
+      int Absent=0;
+      int counter=0;
+      while(counter<newLogin.currentUserUser.getNumberOfAppointments(newLogin.getUserNumber())){
+        if(newLogin.currentUserUser.getAppointmentAttendance(newLogin.getUserNumber(),counter).equals("Late")){
+          Late++;
+        }
+        if(newLogin.currentUserUser.getAppointmentAttendance(newLogin.getUserNumber(),counter).equals("ontime")){
+          ontime++;
+        }
+        if(newLogin.currentUserUser.getAppointmentAttendance(newLogin.getUserNumber(),counter).equals("Absent")){
+          Absent++;
+        }
+        counter++;
+      }
+
       ObservableList<PieChart.Data> pieChartData =
           FXCollections.observableArrayList(
-              new PieChart.Data("Present", 13),
-              new PieChart.Data("Late", 2),
-              new PieChart.Data("Absent", 1)
+              new PieChart.Data("Present",ontime),
+              new PieChart.Data("Late", Late ),
+              new PieChart.Data("Absent", Absent)
           );
       pieChart.setData(pieChartData);
       pieChart.setTitle("Attendance");

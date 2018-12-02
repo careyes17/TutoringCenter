@@ -1,5 +1,6 @@
 package src;
 
+import java.sql.Time;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -89,7 +90,6 @@ public class User {
    * Account information is array position 0
    */
   //Getter functions
-
   public int getTotalNumberOfAccounts(){
     int totalNumberOfAccounts= AccountsIN.size();
     //JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
@@ -348,13 +348,13 @@ public class User {
     System.out.println("File Edited Successfuly");
   }
 
-  public void setProfileIcon(int UserNumber, String location) {
+  public void setProfileIcon(int UserNumber, String ProfileIcon) {
     //this parses the users account from the constructor
     JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
 
     JSONObject userCredentialsIn = (JSONObject) userAccountsIN.get(0);
 
-    userCredentialsIn.put("location", location);
+    userCredentialsIn.put("ProfileIcon", ProfileIcon);
 
     System.out.println(AccountsIN.toJSONString());
 
@@ -373,7 +373,7 @@ public class User {
    * Appointment information position 1 on the array
    */
   public void createAppointment(int UserNumber, String Subject, String TutorName,
-      String AppointmentDate, String Location, String Attendance) {
+      String AppointmentDate, String Location, String Attendance, String Time, String Comments) {
     //this parses the users account from the constructor
     //System.out.println("start");
     JSONArray UserAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
@@ -391,7 +391,9 @@ public class User {
     AppointmentData.put("AppointmentDate", AppointmentDate);
     //System.out.println(AppointmentDate);
     AppointmentData.put("Location", Location);
+    AppointmentData.put("Time", Time);
     //System.out.println(Location);
+    AppointmentData.put("Comments", Comments);
     AppointmentData.put("Attendance", Attendance);
     //System.out.println(Attendance);
     AppointmentArrayInstance.add(AppointmentData);
@@ -417,6 +419,23 @@ public class User {
     JSONArray appointmentsArrayIn = (JSONArray) userAccountsIN.get(1);
     int size = appointmentsArrayIn.size();
     return size;
+  }
+
+
+  public String getAppointmentTime(int UserNumber, int appointmentNumber) {
+    JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
+    JSONArray appointmentsArrayIn = (JSONArray) userAccountsIN.get(1);
+    JSONObject assignmentDataIn = (JSONObject) appointmentsArrayIn.get(appointmentNumber);
+    String assignmentTime = (String) assignmentDataIn.get("Time");
+    return assignmentTime;
+  }
+
+  public String getAppointmentComments(int UserNumber, int appointmentNumber) {
+    JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
+    JSONArray appointmentsArrayIn = (JSONArray) userAccountsIN.get(1);
+    JSONObject assignmentDataIn = (JSONObject) appointmentsArrayIn.get(appointmentNumber);
+    String assignmentComments = (String) assignmentDataIn.get("Comments");
+    return assignmentComments;
   }
 
   public String getAppointmentDate(int UserNumber, int appointmentNumber) {
@@ -469,6 +488,29 @@ public class User {
     JSONObject individualAppointmentdata = (JSONObject) appointmentArrayInstance
         .get(appointmentNumber);
     individualAppointmentdata.put("AppointmentDate", AppointmentDate);
+    //print to file and console
+    System.out.println(AccountsIN.toJSONString());
+
+    //now we will create a file and write the json structure to it.
+    //makes a file object and passes it as a parameter as a printer
+    File file = new File("JSONDATA.txt");
+    try (PrintWriter writer = new PrintWriter(file);) {
+      writer.print(AccountsIN.toJSONString());
+    } catch (FileNotFoundException ex) {
+      System.out.println(ex.toString());
+    }
+    System.out.println("File Edited Successfuly");
+  }
+
+  public void setAppointmentTime(int UserNumber, int appointmentNumber, String AppointmentTime) {
+    //this parses the users account from the constructor
+    JSONArray UserAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
+    //zero is the code for the user credential storage
+    JSONArray appointmentArrayInstance = (JSONArray) UserAccountsIN.get(1);
+    //this is the new object that will be added to the array
+    JSONObject individualAppointmentdata = (JSONObject) appointmentArrayInstance
+        .get(appointmentNumber);
+    individualAppointmentdata.put("Time", AppointmentTime);
     //print to file and console
     System.out.println(AccountsIN.toJSONString());
 
@@ -856,22 +898,21 @@ public class User {
   }
 
   /**
-   public Integer getReviewValueInteger(int UserNumber, int reviewNumber) {
-   JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
-   JSONArray assignmnetsArrayIn = (JSONArray) userAccountsIN.get(3);
-   JSONObject assignmentDataIn = (JSONObject) assignmnetsArrayIn.get(reviewNumber);
-   Integer ReviewValue = (Integer) assignmentDataIn.get("ReviewValue");
-   return ReviewValue;
-   }
-   public long getReviewValuelong(int UserNumber, int reviewNumber) {
-   JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
-   JSONArray assignmnetsArrayIn = (JSONArray) userAccountsIN.get(3);
-   JSONObject assignmentDataIn = (JSONObject) assignmnetsArrayIn.get(reviewNumber);
-   long ReviewValue = (long) assignmentDataIn.get("ReviewValue");
-   return ReviewValue;
-   }
-   */
-
+  public Integer getReviewValueInteger(int UserNumber, int reviewNumber) {
+    JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
+    JSONArray assignmnetsArrayIn = (JSONArray) userAccountsIN.get(3);
+    JSONObject assignmentDataIn = (JSONObject) assignmnetsArrayIn.get(reviewNumber);
+    Integer ReviewValue = (Integer) assignmentDataIn.get("ReviewValue");
+    return ReviewValue;
+  }
+  public long getReviewValuelong(int UserNumber, int reviewNumber) {
+    JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
+    JSONArray assignmnetsArrayIn = (JSONArray) userAccountsIN.get(3);
+    JSONObject assignmentDataIn = (JSONObject) assignmnetsArrayIn.get(reviewNumber);
+    long ReviewValue = (long) assignmentDataIn.get("ReviewValue");
+    return ReviewValue;
+  }
+  */
   public Integer getReviewValueForAfterWriting(int UserNumber, int reviewNumber) {
     JSONArray userAccountsIN = (JSONArray) AccountsIN.get(UserNumber);
     JSONArray assignmnetsArrayIn = (JSONArray) userAccountsIN.get(3);
