@@ -2,6 +2,7 @@ package src;
 
 
 import com.jfoenix.controls.JFXBadge;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextArea;
@@ -10,14 +11,18 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import com.sun.org.apache.xpath.internal.operations.Bool;
+import java.util.ArrayList;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -50,6 +55,12 @@ public class dashboardController extends Main {
 
   @FXML
   public Tab schedule;
+
+  @FXML
+  public Tab quizzesTutor;
+
+  @FXML
+  public Tab scheduleTutor;
 
   @FXML
   private Tab reviewTutors;
@@ -293,13 +304,16 @@ public class dashboardController extends Main {
 
     // Adds default events to the schedule list
     ObservableList<Schedule> Schedule = FXCollections.observableArrayList();
-    Schedule
-        .add(new Schedule("Calculus 2", "Carlos", "Integrals", "11/28/18", "3:00", "Library 203"));
-    Schedule.add(
-        new Schedule("Calculus 1", "Hunter", "Derivatives", "11/28/18", "4:00", "Library 204"));
-    Schedule
-        .add(new Schedule("Physics", "Brian", "2D movement", "12/03/18", "5:30", "Library 205"));
-    Schedule.add(new Schedule("Software", "Martin", "Loops", "12/04/18", "15:00", "Library 206"));
+    int counter=0;
+    while(counter<newLogin.currentUserUser.getNumberOfAppointments(newLogin.getUserNumber())){
+      Schedule.add(new Schedule(newLogin.currentUserUser.getAppointmentSubject(newLogin.getUserNumber(),counter),
+          newLogin.currentUserUser.getAppointmentTutor(newLogin.getUserNumber(),counter),
+          newLogin.currentUserUser.getAppointmentComments(newLogin.getUserNumber(),counter),
+          newLogin.currentUserUser.getAppointmentDate(newLogin.getUserNumber(),counter),
+          newLogin.currentUserUser.getAppointmentTime(newLogin.getUserNumber(),counter),
+          newLogin.currentUserUser.getAppointmentLocation(newLogin.getUserNumber(),counter)));
+      counter++;
+    }
 
     // Temporary variables for dynamic appending to the ObservableList "Schedule" for archived appointments
     int temporarySize = temporary.size();
@@ -434,7 +448,7 @@ public class dashboardController extends Main {
     String location = Location.getText();
     temporary.add(new Schedule(subject, tutor, comment, date, time, location));
     newLogin.currentUserUser
-        .createAppointment(newLogin.getUserNumber(), subject, tutor, date, location, "");
+        .createAppointment(newLogin.getUserNumber(), subject, tutor, date, location, "",time,comment);
   }
 
   /******************************************
@@ -560,13 +574,43 @@ public class dashboardController extends Main {
   /**
    * Executes default code when dashboard is called
    */
+
+  @FXML
+  JFXTextArea QuizQuestion, QuizQuestion1, QuizQuestion11, QuizQuestion111, QuizQuestion1111;
+
+  @FXML
+  JFXButton goToLastQuestionTutor, nextQuestionButton;
+
+  @FXML
+  JFXButton createQuizButton;
+
+  @FXML
+  Hyperlink submitHyperlink;
+
+  @FXML
+  JFXComboBox selectedstudent;
+
+  @FXML
+  JFXTextArea submitQuizCreationInstructions;
+
+  @FXML
+  JFXButton goToDashboard, completeQuizCreation;
+
   @FXML
   public void initialize() {
+    tabpane.getTabs().remove(schedule);
+    tabpane.getTabs().remove(quizzes);
+
+    createQuizButton.setVisible(true);
+
+    //goToDashboard.setVisible(true);
+    //completeQuizCreation.setVisible(true);
+
     //while(newLogin.currentUserUser.getTotalNumberOfAccounts()){}
-    for(int i=0;i<=newLogin.currentUserUser.getTotalNumberOfAccounts()-1;i++){
+    for (int i = 0; i <= newLogin.currentUserUser.getTotalNumberOfAccounts() - 1; i++) {
       String role = newLogin.currentUserUser.getRole(i);
-      String tutorName=newLogin.currentUserUser.getFirstName(i);
-      if(role.equals("Tutor")){
+      String tutorName = newLogin.currentUserUser.getFirstName(i);
+      if (role.equals("Tutor")) {
         //need to add tutors to an array of strings
         //System.out.println("adding");
         TutorPicked.getItems().addAll(tutorName);
@@ -657,7 +701,8 @@ public class dashboardController extends Main {
           }
         });
 
-    JFXTreeTableColumn<Assignment, String> pointsReceived = new JFXTreeTableColumn("Points Received");
+    JFXTreeTableColumn<Assignment, String> pointsReceived = new JFXTreeTableColumn(
+        "Points Received");
     pointsReceived.setPrefWidth(100);
 
     pointsReceived.setCellValueFactory(
@@ -711,12 +756,15 @@ public class dashboardController extends Main {
 
     ObservableList<Assignment> assignment = FXCollections.observableArrayList();
     assignment
-        .add(new Assignment("Read Ch5", "100", "", "30 mins", "11/1/18", "23:59", "Reading", "Brian"));
+        .add(new Assignment("Read Ch5", "100", "", "30 mins", "11/1/18", "23:59", "Reading",
+            "Brian"));
     assignment.add(
         new Assignment("Read Ch6", "100", "", "30 mins", "11/5/18", "23:59", "Reading", "Brian"));
     assignment
-        .add(new Assignment("Read Ch7", "100", "", "30 mins", "11/9/18", "23:59", "Reading", "Brian"));
-    assignment.add(new Assignment("Read Ch8", "100", "", "30 mins", "11/13/18", "23:59", "Reading", "Brian"));
+        .add(new Assignment("Read Ch7", "100", "", "30 mins", "11/9/18", "23:59", "Reading",
+            "Brian"));
+    assignment.add(
+        new Assignment("Read Ch8", "100", "", "30 mins", "11/13/18", "23:59", "Reading", "Brian"));
 
     // Temporary variables for dynamic appending to the ObservableList "Schedule" for archived appointments
     int temporarySize = temporary2.size();
@@ -727,7 +775,9 @@ public class dashboardController extends Main {
 
     final TreeItem<Assignment> root = new RecursiveTreeItem<Assignment>(assignment,
         RecursiveTreeObject::getChildren);
-    tableTutor.getColumns().setAll(assignmentName, maxPoints, pointsReceived, Comments, datePicked, timePicked, assignmentType, selectedStudent);
+    tableTutor.getColumns()
+        .setAll(assignmentName, maxPoints, pointsReceived, Comments, datePicked, timePicked,
+            assignmentType, selectedStudent);
     tableTutor.setRoot(root);
     tableTutor.setShowRoot(false);
   }
@@ -754,6 +804,72 @@ public class dashboardController extends Main {
     stage.show();
   }
 
+  /******************************************
+   * TUTOR CREATE QUIZ METHODS
+   ******************************************/
+
+  @FXML
+  private void goToNextQuestion(ActionEvent event) throws IOException {
+    if (nextQuestionButton.getText().equals("Submit")) {
+      QuizQuestion.setVisible(false);
+      QuizQuestion1.setVisible(false);
+      QuizQuestion11.setVisible(false);
+      QuizQuestion111.setVisible(false);
+      QuizQuestion1111.setVisible(false);
+      goToLastQuestionTutor.setVisible(false);
+      nextQuestionButton.setVisible(false);
+      goToDashboard.setVisible(true);
+      completeQuizCreation.setVisible(true);
+      selectedstudent.setVisible(true);
+      submitQuizCreationInstructions.setVisible(true);
+    }
+    nextQuestionButton.setText("Submit");
+  }
+
+  @FXML
+  private void goToLastQuestion(ActionEvent event) throws IOException {
+  }
+
+  @FXML
+  private void completeQuizCreation(ActionEvent event) throws IOException {
+  }
+
+  @FXML
+  private void goToQuizSubmission(ActionEvent event) throws IOException {
+    QuizQuestion.setVisible(false);
+    QuizQuestion1.setVisible(false);
+    QuizQuestion11.setVisible(false);
+    QuizQuestion111.setVisible(false);
+    QuizQuestion1111.setVisible(false);
+    goToLastQuestionTutor.setVisible(false);
+    submitHyperlink.setVisible(false);
+    nextQuestionButton.setVisible(false);
+    goToDashboard.setVisible(true);
+    completeQuizCreation.setVisible(true);
+    selectedstudent.setVisible(true);
+    submitQuizCreationInstructions.setVisible(true);
+  }
+
+  @FXML
+  private void goToQuizCreation(ActionEvent event) throws IOException {
+    QuizQuestion.setVisible(true);
+    QuizQuestion1.setVisible(true);
+    QuizQuestion11.setVisible(true);
+    QuizQuestion111.setVisible(true);
+    QuizQuestion1111.setVisible(true);
+    goToLastQuestionTutor.setVisible(true);
+    nextQuestionButton.setVisible(true);
+    createQuizButton.setVisible(false);
+    submitHyperlink.setVisible(true);
+  }
+
+  @FXML
+  private void goToDashboard(ActionEvent event) throws IOException {
+    SingleSelectionModel<Tab> selectionModel = tabpane.getSelectionModel();
+    selectionModel.select(dashboard);
+  }
+
+
 }
 
 // Class containing appointment elements
@@ -768,7 +884,8 @@ class Assignment extends RecursiveTreeObject<Assignment> {
   StringProperty assignmentType;
   StringProperty selectedStudent;
 
-  public Assignment(String assignmentName, String maxPoints, String pointsReceived, String Comments, String datePicked,
+  public Assignment(String assignmentName, String maxPoints, String pointsReceived, String Comments,
+      String datePicked,
       String timePicked, String assignmentType, String selectedStudent) {
     this.assignmentName = new SimpleStringProperty(assignmentName);
     this.maxPoints = new SimpleStringProperty(maxPoints);
@@ -779,6 +896,5 @@ class Assignment extends RecursiveTreeObject<Assignment> {
     this.assignmentType = new SimpleStringProperty(assignmentType);
     this.selectedStudent = new SimpleStringProperty(selectedStudent);
   }
-
 
 }
