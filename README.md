@@ -20,7 +20,7 @@ JavaFX
 JFoenix  
 Scenebuilder
 
-### Contributing?:
+### Contributing:
 Help us with our functionality!  
 We'd love to see better additions into our assignment format, and our calendar!
 
