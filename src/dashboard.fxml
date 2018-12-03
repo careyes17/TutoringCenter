@@ -16,38 +16,56 @@
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<JFXTabPane fx:id="tabpane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" stylesheets="@dashboardstyle.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.dashboardController">
+<JFXTabPane fx:id="tabpane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="450.0"
+  prefWidth="600.0" stylesheets="@dashboardstyle.css" xmlns="http://javafx.com/javafx/10.0.1"
+  xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.dashboardController">
   <tabs>
     <Tab fx:id="dashboard" text="Dashboard">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-          <Label alignment="CENTER" layoutY="378.0" prefHeight="24.0" prefWidth="600.0" text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER" />
-          <JFXButton buttonType="RAISED" layoutX="50.0" layoutY="290.0" onAction="#goToProfile" prefHeight="37.0" prefWidth="152.0" ripplerFill="#167cd0" style="-fx-background-color: #ffffff;" text="Profile" />
-          <JFXButton buttonType="RAISED" layoutX="50.0" layoutY="150.0" onAction="#goToGradesAttendance" prefHeight="37.0" prefWidth="152.0" ripplerFill="#167cd0" style="-fx-background-color: #ffffff;" text="Grades and Attendance" />
-          <JFXButton buttonType="RAISED" layoutX="50.0" layoutY="220.0" onAction="#goToReviewTutorsDashboard" prefHeight="37.0" prefWidth="152.0" ripplerFill="#167cd0" style="-fx-background-color: #ffffff;" text="Tutor Reviews" />
-          <JFXButton buttonType="RAISED" layoutX="50.0" layoutY="80.0" onAction="#goToScheduleTutoringCenter" prefHeight="37.0" prefWidth="152.0" ripplerFill="#167cd0" style="-fx-background-color: #ffffff;" text="Schedule Tutoring" />
-          <JFXBadge fx:id="class1" layoutX="346.0" layoutY="70.0" onMouseEntered="#class1Hover" onMouseExited="#class1Exit" prefHeight="57.0" prefWidth="152.0" style="-fx-background-color: #ffccbb;">
+          <Label alignment="CENTER" layoutY="378.0" prefHeight="24.0" prefWidth="600.0"
+            text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER"/>
+          <JFXButton buttonType="RAISED" layoutX="50.0" layoutY="290.0" onAction="#goToProfile"
+            prefHeight="37.0" prefWidth="152.0" ripplerFill="#167cd0"
+            style="-fx-background-color: #ffffff;" text="Profile"/>
+          <JFXButton buttonType="RAISED" layoutX="50.0" layoutY="150.0"
+            onAction="#goToGradesAttendance" prefHeight="37.0" prefWidth="152.0"
+            ripplerFill="#167cd0" style="-fx-background-color: #ffffff;"
+            text="Grades and Attendance"/>
+          <JFXButton buttonType="RAISED" layoutX="50.0" layoutY="220.0"
+            onAction="#goToReviewTutorsDashboard" prefHeight="37.0" prefWidth="152.0"
+            ripplerFill="#167cd0" style="-fx-background-color: #ffffff;" text="Tutor Reviews"/>
+          <JFXButton buttonType="RAISED" layoutX="50.0" layoutY="80.0"
+            onAction="#goToScheduleTutoringCenter" prefHeight="37.0" prefWidth="152.0"
+            ripplerFill="#167cd0" style="-fx-background-color: #ffffff;" text="Schedule Tutoring"/>
+          <JFXBadge fx:id="class1" layoutX="346.0" layoutY="70.0" onMouseEntered="#class1Hover"
+            onMouseExited="#class1Exit" prefHeight="57.0" prefWidth="152.0"
+            style="-fx-background-color: #ffccbb;">
             <effect>
-              <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              <DropShadow blurType="GAUSSIAN" color="#0000005c"/>
             </effect>
             <children>
-              <Label alignment="CENTER" text="Class 1" />
+              <Label alignment="CENTER" text="Class 1"/>
             </children>
           </JFXBadge>
-          <JFXBadge fx:id="class2" layoutX="346.0" layoutY="175.0" onMouseEntered="#class2Hover" onMouseExited="#class2Exit" prefHeight="57.0" prefWidth="152.0" style="-fx-background-color: #6eb5c0;">
+          <JFXBadge fx:id="class2" layoutX="346.0" layoutY="175.0" onMouseEntered="#class2Hover"
+            onMouseExited="#class2Exit" prefHeight="57.0" prefWidth="152.0"
+            style="-fx-background-color: #6eb5c0;">
             <effect>
-              <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              <DropShadow blurType="GAUSSIAN" color="#0000005c"/>
             </effect>
             <children>
-              <Label text="Class 2" />
+              <Label text="Class 2"/>
             </children>
           </JFXBadge>
-          <JFXBadge fx:id="class3" layoutX="346.0" layoutY="280.0" onMouseEntered="#class3Hover" onMouseExited="#class3Exit" prefHeight="57.0" prefWidth="152.0" style="-fx-background-color: #006c84;">
+          <JFXBadge fx:id="class3" layoutX="346.0" layoutY="280.0" onMouseEntered="#class3Hover"
+            onMouseExited="#class3Exit" prefHeight="57.0" prefWidth="152.0"
+            style="-fx-background-color: #006c84;">
             <effect>
-              <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+              <DropShadow blurType="GAUSSIAN" color="#0000005c"/>
             </effect>
             <children>
-              <Label text="Class 3" />
+              <Label text="Class 3"/>
             </children>
           </JFXBadge>
         </AnchorPane>
@@ -56,33 +74,47 @@
     <Tab fx:id="calendar" text="Appointments">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-          <Label alignment="CENTER" layoutY="378.0" prefHeight="24.0" prefWidth="600.0" text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER" />
-          <JFXButton fx:id="updateAssignments" alignment="CENTER" buttonType="RAISED" layoutX="46.0" layoutY="9.0" onAction="#updateAssignments" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #ffccbb;" text="Update" />
-          <JFXTreeTableView fx:id="table" layoutX="46.0" layoutY="48.0" prefHeight="310.0" prefWidth="509.0" />
-          <JFXComboBox labelFloat="true" layoutX="391.0" layoutY="12.0" prefHeight="25.0" prefWidth="164.0" promptText="Appointment Number" />
-          <JFXButton fx:id="updateAssignments11" alignment="CENTER" buttonType="RAISED" layoutX="275.0" layoutY="9.0" onAction="#updateAssignments" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #ffccbb;" text="Check-In" />
-          <JFXButton fx:id="updateAssignments1" alignment="CENTER" buttonType="RAISED" layoutX="160.0" layoutY="10.0" onAction="#updateAssignments" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #ffccbb;" text="Remove Appt." />
+          <Label alignment="CENTER" layoutY="378.0" prefHeight="24.0" prefWidth="600.0"
+            text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER"/>
+          <JFXButton fx:id="updateAssignments" alignment="CENTER" buttonType="RAISED" layoutX="46.0"
+            layoutY="9.0" onAction="#updateAssignments" prefHeight="30.0" prefWidth="100.0"
+            style="-fx-background-color: #ffccbb;" text="Update"/>
+          <JFXTreeTableView fx:id="table" layoutX="46.0" layoutY="48.0" prefHeight="310.0"
+            prefWidth="509.0"/>
+          <JFXComboBox fx:id="appointmentComboBox" labelFloat="true" layoutX="391.0" layoutY="12.0"
+            prefHeight="25.0" prefWidth="164.0" promptText="Appointment Number"/>
+          <JFXButton fx:id="checkInButton" alignment="CENTER" buttonType="RAISED" layoutX="161.0"
+            layoutY="9.0" onAction="#checkIn" prefHeight="30.0" prefWidth="100.0"
+            style="-fx-background-color: #ffccbb;" text="Check-In"/>
         </AnchorPane>
       </content>
     </Tab>
     <Tab fx:id="quizzes" text="Quizzes">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="624.0"
+          xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
           <children>
-            <Label alignment="CENTER" layoutY="378.0" prefHeight="24.0" prefWidth="600.0" text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER" />
-            <JFXButton fx:id="class1quiz" alignment="CENTER" buttonType="RAISED" layoutX="129.0" layoutY="58.0" onAction="#goToClass1Quiz" prefHeight="57.0" prefWidth="342.0" style="-fx-background-color: #ffccbb;" text="Class 1 Quiz">
+            <Label alignment="CENTER" layoutY="378.0" prefHeight="24.0" prefWidth="600.0"
+              text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER"/>
+            <JFXButton fx:id="class1quiz" alignment="CENTER" buttonType="RAISED" layoutX="129.0"
+              layoutY="58.0" onAction="#goToClass1Quiz" prefHeight="57.0" prefWidth="342.0"
+              style="-fx-background-color: #ffccbb;" text="Class 1 Quiz">
               <effect>
-                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+                <DropShadow blurType="GAUSSIAN" color="#0000005c"/>
               </effect>
             </JFXButton>
-            <JFXButton fx:id="class2quiz" alignment="CENTER" buttonType="RAISED" layoutX="129.0" layoutY="161.0" onAction="#goToClass2Quiz" prefHeight="57.0" prefWidth="342.0" style="-fx-background-color: #6eb5c0;" text="Class 2 Quiz">
+            <JFXButton fx:id="class2quiz" alignment="CENTER" buttonType="RAISED" layoutX="129.0"
+              layoutY="161.0" onAction="#goToClass2Quiz" prefHeight="57.0" prefWidth="342.0"
+              style="-fx-background-color: #6eb5c0;" text="Class 2 Quiz">
               <effect>
-                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+                <DropShadow blurType="GAUSSIAN" color="#0000005c"/>
               </effect>
             </JFXButton>
-            <JFXButton fx:id="class3quiz" alignment="CENTER" buttonType="RAISED" layoutX="129.0" layoutY="263.0" onAction="#goToClass3Quiz" prefHeight="57.0" prefWidth="342.0" style="-fx-background-color: #006c84;" text="Class 3 Quiz">
+            <JFXButton fx:id="class3quiz" alignment="CENTER" buttonType="RAISED" layoutX="129.0"
+              layoutY="263.0" onAction="#goToClass3Quiz" prefHeight="57.0" prefWidth="342.0"
+              style="-fx-background-color: #006c84;" text="Class 3 Quiz">
               <effect>
-                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+                <DropShadow blurType="GAUSSIAN" color="#0000005c"/>
               </effect>
             </JFXButton>
           </children>
@@ -91,28 +123,59 @@
     </Tab>
     <Tab fx:id="quizzesTutor" text="Quizzes">
       <content>
-        <AnchorPane fx:id="tutorQuizCreation" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+        <AnchorPane fx:id="tutorQuizCreation" maxHeight="-Infinity" maxWidth="-Infinity"
+          minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
           <children>
-            <Label alignment="CENTER" layoutY="378.0" prefHeight="24.0" prefWidth="600.0" text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER" visible="true" />
-            <JFXTextArea fx:id="QuizQuestion" editable="false" labelFloat="true" layoutX="130.0" layoutY="27.0" prefHeight="32.0" prefWidth="375.0" promptText="Enter Question" text="" visible="false" />
-            <JFXButton fx:id="goToLastQuestionTutor" buttonType="RAISED" layoutX="130.0" layoutY="312.0" onAction="#goToLastQuestion" prefHeight="37.0" prefWidth="69.0" ripplerFill="#167cd0" style="-fx-background-color: #ffccbb;" text="Back" visible="false" />
-            <JFXButton fx:id="nextQuestionButton" buttonType="RAISED" layoutX="436.0" layoutY="312.0" onAction="#goToNextQuestion" prefHeight="37.0" prefWidth="69.0" style="-fx-background-color: #ffccbb;" text="Next" visible="false" />
-            <Hyperlink fx:id="submitHyperlink" visible="false" cacheShape="false" layoutX="462.0" layoutY="350.0" onAction="#goToQuizSubmission" text="Submit" />
-            <JFXTextArea fx:id="QuizQuestion1" editable="false" labelFloat="true" layoutX="130.0" layoutY="82.0" prefHeight="32.0" prefWidth="375.0" promptText="Enter Answer #1" text="" visible="false" />
-            <JFXTextArea fx:id="QuizQuestion11" editable="false" labelFloat="true" layoutX="130.0" layoutY="137.0" prefHeight="32.0" prefWidth="375.0" promptText="Enter Answer #2" text="" visible="false" />
-            <JFXTextArea fx:id="QuizQuestion111" editable="false" labelFloat="true" layoutX="130.0" layoutY="247.0" prefHeight="32.0" prefWidth="375.0" promptText="Enter Answer #4" text="" visible="false" />
-            <JFXTextArea fx:id="QuizQuestion1111" editable="false" labelFloat="true" layoutX="130.0" layoutY="192.0" prefHeight="32.0" prefWidth="375.0" promptText="Enter Answer #3" text="" visible="false" />
+            <Label alignment="CENTER" layoutY="378.0" prefHeight="24.0" prefWidth="600.0"
+              text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER" visible="true"/>
+            <Label fx:id="quizError" alignment="CENTER" layoutX="-4.0" layoutY="355.0"
+              prefHeight="24.0" prefWidth="600.0" text="" textAlignment="CENTER" textFill="crimson"
+              visible="true"/>
+            <JFXTextArea fx:id="QuizQuestion" editable="true" labelFloat="true" layoutX="109.0"
+              layoutY="29.0" prefHeight="32.0" prefWidth="375.0" promptText="Enter Question 1"
+              text="" visible="false"/>
+            <JFXButton fx:id="goToLastQuestionTutor" buttonType="RAISED" layoutX="107.0"
+              layoutY="317.0" onAction="#goToLastQuestion" prefHeight="37.0" prefWidth="69.0"
+              ripplerFill="#167cd0" style="-fx-background-color: #ffccbb;" text="Back"
+              visible="false"/>
+            <JFXButton fx:id="nextQuestionButton" buttonType="RAISED" layoutX="413.0"
+              layoutY="317.0" onAction="#goToNextQuestion" prefHeight="37.0" prefWidth="69.0"
+              style="-fx-background-color: #ffccbb;" text="Next" visible="false"/>
+            <Hyperlink fx:id="submitHyperlink" cacheShape="false" layoutX="439.0" layoutY="355.0"
+              onAction="#goToQuizSubmission" text="Submit" visible="false"/>
+            <JFXTextArea fx:id="QuizQuestion1" editable="true" labelFloat="true" layoutX="109.0"
+              layoutY="84.0" prefHeight="32.0" prefWidth="375.0" promptText="Enter Answer #1"
+              text="" visible="false"/>
+            <JFXTextArea fx:id="QuizQuestion2" editable="true" labelFloat="true" layoutX="109.0"
+              layoutY="139.0" prefHeight="32.0" prefWidth="375.0" promptText="Enter Answer #2"
+              text="" visible="false"/>
+            <JFXTextArea fx:id="QuizQuestion3" editable="true" labelFloat="true" layoutX="109.0"
+              layoutY="249.0" prefHeight="32.0" prefWidth="375.0" promptText="Enter Answer #4"
+              text="" visible="false"/>
+            <JFXTextArea fx:id="QuizQuestion4" editable="true" labelFloat="true" layoutX="109.0"
+              layoutY="194.0" prefHeight="32.0" prefWidth="375.0" promptText="Enter Answer #3"
+              text="" visible="false"/>
             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <JFXButton fx:id="createQuizButton" alignment="CENTER" buttonType="RAISED" layoutX="129.0" layoutY="125.0" onAction="#goToQuizCreation" prefHeight="120.0" prefWidth="342.0" style="-fx-background-color: #ffccbb;" text="Create a Quiz!" visible="false">
+            <JFXButton fx:id="createQuizButton" alignment="CENTER" buttonType="RAISED"
+              layoutX="129.0" layoutY="125.0" onAction="#goToQuizCreation" prefHeight="120.0"
+              prefWidth="342.0" style="-fx-background-color: #ffccbb;" text="Create a Quiz!"
+              visible="false">
               <effect>
-                <DropShadow blurType="GAUSSIAN" color="#0000005c" />
+                <DropShadow blurType="GAUSSIAN" color="#0000005c"/>
               </effect>
             </JFXButton>
             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <JFXButton fx:id="completeQuizCreation" buttonType="RAISED" layoutX="367.0" layoutY="266.0" onAction="#completeQuizCreation" prefHeight="37.0" prefWidth="69.0" style="-fx-background-color: #ffccbb;" text="Submit" visible="false" />
-          <JFXButton fx:id="goToDashboard" buttonType="RAISED" layoutX="165.0" layoutY="266.0" onAction="#goToDashboard" prefHeight="37.0" prefWidth="76.0" style="-fx-background-color: #ffccbb;" text="Dashboard" visible="false" />
-          <JFXComboBox fx:id="selectedstudent" labelFloat="true" layoutX="165.0" layoutY="149.0" prefHeight="58.0" prefWidth="271.0" promptText="Select Student" visible="false" />
-          <JFXTextArea fx:id="submitQuizCreationInstructions" editable="false" layoutX="165.0" layoutY="93.0" prefHeight="47.0" prefWidth="271.0" text="Select which student you would like to submit this quiz for." visible="false" />
+            <JFXButton fx:id="completeQuizCreation" buttonType="RAISED" layoutX="367.0"
+              layoutY="266.0" onAction="#completeQuizCreation" prefHeight="37.0" prefWidth="69.0"
+              style="-fx-background-color: #ffccbb;" text="Submit" visible="false"/>
+            <JFXButton fx:id="goToDashboard" buttonType="RAISED" layoutX="165.0" layoutY="266.0"
+              onAction="#goToDashboard" prefHeight="37.0" prefWidth="76.0"
+              style="-fx-background-color: #ffccbb;" text="Dashboard" visible="false"/>
+            <JFXComboBox fx:id="selectedstudent" labelFloat="true" layoutX="165.0" layoutY="149.0"
+              prefHeight="58.0" prefWidth="271.0" promptText="Select Student" visible="false"/>
+            <JFXTextArea fx:id="submitQuizCreationInstructions" editable="false" layoutX="165.0"
+              layoutY="93.0" prefHeight="47.0" prefWidth="271.0"
+              text="Select which student you would like to submit this quiz for." visible="false"/>
           </children>
         </AnchorPane>
       </content>
@@ -120,65 +183,115 @@
     <Tab fx:id="reviewTutors" text="Reviews">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-          <Label alignment="CENTER" layoutY="378.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0" text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER" />
-          <JFXTextArea editable="true" labelFloat="true" layoutX="130.0" layoutY="176.0" prefHeight="109.0" prefWidth="375.0" promptText="Enter your Review Here!" text="" wrapText="true" />
-          <JFXButton buttonType="RAISED" layoutX="436.0" layoutY="315.0" onAction="#submitTutorReview" prefHeight="37.0" prefWidth="69.0" style="-fx-background-color: #ffccbb;" text="Submit" />
-          <JFXButton buttonType="RAISED" layoutX="130.0" layoutY="315.0" onAction="#goToTutorReviews" prefHeight="37.0" prefWidth="123.0" style="-fx-background-color: #ffccbb;" text="Tutor Reviews" />
-          <JFXComboBox fx:id="roleDropDownOne" labelFloat="true" layoutX="130.0" layoutY="70.0" prefHeight="25.0" prefWidth="258.0" promptText="Select Tutor" />
-          <JFXComboBox fx:id="roleDropDownTwo" labelFloat="true" layoutX="130.0" layoutY="120.0" prefHeight="25.0" prefWidth="258.0" promptText="Select Reviews" />
+          <Label alignment="CENTER" layoutY="378.0" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0"
+            text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER"/>
+          <JFXTextArea fx:id="reviewContent" editable="true" labelFloat="true" layoutX="130.0"
+            layoutY="176.0" prefHeight="109.0" prefWidth="375.0"
+            promptText="Enter your Review Here!" text="" wrapText="true"/>
+          <JFXButton fx:id="reviewSubmitButton" buttonType="RAISED" layoutX="436.0" layoutY="315.0"
+            onAction="#submitTutorReview" prefHeight="37.0" prefWidth="69.0"
+            style="-fx-background-color: #ffccbb;" text="Submit"/>
+          <JFXButton fx:id="reviewRedirectButton" buttonType="RAISED" layoutX="130.0"
+            layoutY="315.0" onAction="#goToTutorReviews" prefHeight="37.0" prefWidth="123.0"
+            style="-fx-background-color: #ffccbb;" text="Tutor Reviews"/>
+          <JFXComboBox fx:id="roleDropDownOne" labelFloat="true" layoutX="130.0" layoutY="70.0"
+            prefHeight="25.0" prefWidth="258.0" promptText="Select Tutor"/>
+          <JFXComboBox fx:id="roleDropDownTwo" labelFloat="true" layoutX="130.0" layoutY="120.0"
+            prefHeight="25.0" prefWidth="258.0" promptText="Select Reviews"/>
         </AnchorPane>
       </content>
     </Tab>
     <Tab fx:id="schedule" text="Schedule">
       <content>
-        <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-          <Label alignment="CENTER" layoutY="378.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0" text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER" />
-          <JFXTextArea fx:id="Location" labelFloat="true" layoutX="182.0" layoutY="280.0" prefHeight="25.0" prefWidth="258.0" promptText="Enter location" wrapText="true" />
-          <JFXButton buttonType="RAISED" layoutX="371.0" layoutY="330.0" onAction="#scheduleTutor" prefHeight="37.0" prefWidth="69.0" style="-fx-background-color: #ffccbb;" text="Submit" />
-          <JFXDatePicker fx:id="DatePicked" defaultColor="#006c84" layoutX="182.0" layoutY="194.0" prefHeight="25.0" prefWidth="258.0" promptText="Choose Date" />
-          <JFXComboBox fx:id="TutorPicked" labelFloat="true" layoutX="182.0" layoutY="64.0" prefHeight="25.0" prefWidth="258.0" promptText="Select Tutor" />
-          <JFXComboBox fx:id="SubjectPicked" labelFloat="true" layoutX="182.0" layoutY="14.0" prefHeight="25.0" prefWidth="258.0" promptText="Select Subject" />
-          <JFXTextArea fx:id="Comment" labelFloat="true" layoutX="182.0" layoutY="114.0" prefHeight="61.0" prefWidth="258.0" promptText="Describe what you would like to study." wrapText="true" />
-          <JFXTimePicker fx:id="TimePicked" defaultColor="#006c84" layoutX="182.0" layoutY="234.0" prefHeight="25.0" prefWidth="258.0" promptText="Choose Time" />
+        <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+          prefWidth="200.0">
+          <Label alignment="CENTER" layoutY="378.0" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0"
+            text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER"/>
+          <JFXTextArea fx:id="Location" labelFloat="true" layoutX="182.0" layoutY="280.0"
+            prefHeight="25.0" prefWidth="258.0" promptText="Enter location" wrapText="true"/>
+          <JFXButton buttonType="RAISED" layoutX="371.0" layoutY="330.0" onAction="#scheduleTutor"
+            prefHeight="37.0" prefWidth="69.0" style="-fx-background-color: #ffccbb;"
+            text="Submit"/>
+          <JFXDatePicker fx:id="DatePicked" defaultColor="#006c84" layoutX="182.0" layoutY="194.0"
+            prefHeight="25.0" prefWidth="258.0" promptText="Choose Date"/>
+          <JFXComboBox fx:id="TutorPicked" labelFloat="true" layoutX="182.0" layoutY="64.0"
+            prefHeight="25.0" prefWidth="258.0" promptText="Select Tutor"/>
+          <JFXComboBox fx:id="SubjectPicked" labelFloat="true" layoutX="182.0" layoutY="14.0"
+            prefHeight="25.0" prefWidth="258.0" promptText="Select Subject"/>
+          <JFXTextArea fx:id="Comment" labelFloat="true" layoutX="182.0" layoutY="114.0"
+            prefHeight="61.0" prefWidth="258.0" promptText="Describe what you would like to study."
+            wrapText="true"/>
+          <JFXTimePicker fx:id="TimePicked" defaultColor="#006c84" layoutX="182.0" layoutY="234.0"
+            prefHeight="25.0" prefWidth="258.0" promptText="Choose Time"/>
         </AnchorPane>
       </content>
     </Tab>
     <Tab fx:id="scheduleTutor" text="Schedule">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-          <Label alignment="CENTER" layoutY="378.0" prefHeight="24.0" prefWidth="600.0" text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER" />
-          <JFXButton fx:id="updateAssignmentsTutor" alignment="CENTER" buttonType="RAISED" layoutX="46.0" layoutY="10.0" onAction="#updateAssignmentsTutor" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: #ffccbb;" text="Update" />
-          <JFXTreeTableView fx:id="tableTutor" layoutX="46.0" layoutY="48.0" prefHeight="310.0" prefWidth="509.0" />
-          <JFXComboBox labelFloat="true" layoutX="391.0" layoutY="13.0" prefHeight="25.0" prefWidth="164.0" promptText="Assignment Number" />
-          <JFXButton fx:id="createAssignment" alignment="CENTER" buttonType="RAISED" layoutX="261.0" layoutY="10.0" onAction="#createAssignment" prefHeight="30.0" prefWidth="116.0" style="-fx-background-color: #ffccbb;" text="Create Assignment" />
-          <JFXButton fx:id="removeAssignment" alignment="CENTER" buttonType="RAISED" layoutX="123.0" layoutY="10.0" onAction="#removeAssignment" prefHeight="30.0" prefWidth="126.0" style="-fx-background-color: #ffccbb;" text="Remove Assignment" />
+          <Label alignment="CENTER" layoutY="378.0" prefHeight="24.0" prefWidth="600.0"
+            text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER"/>
+          <JFXButton fx:id="updateAssignmentsTutor" alignment="CENTER" buttonType="RAISED"
+            layoutX="46.0" layoutY="10.0" onAction="#updateAssignmentsTutor" prefHeight="30.0"
+            prefWidth="65.0" style="-fx-background-color: #ffccbb;" text="Update"/>
+          <JFXTreeTableView fx:id="tableTutor" layoutX="46.0" layoutY="48.0" prefHeight="310.0"
+            prefWidth="509.0"/>
+          <JFXComboBox labelFloat="true" layoutX="391.0" layoutY="13.0" prefHeight="25.0"
+            prefWidth="164.0" promptText="Assignment Number"/>
+          <JFXButton fx:id="createAssignment" alignment="CENTER" buttonType="RAISED" layoutX="261.0"
+            layoutY="10.0" onAction="#createAssignment" prefHeight="30.0" prefWidth="116.0"
+            style="-fx-background-color: #ffccbb;" text="Create Assignment"/>
+          <JFXButton fx:id="removeAssignment" alignment="CENTER" buttonType="RAISED" layoutX="123.0"
+            layoutY="10.0" onAction="#removeAssignment" prefHeight="30.0" prefWidth="126.0"
+            style="-fx-background-color: #ffccbb;" text="Remove Assignment"/>
         </AnchorPane>
       </content>
     </Tab>
     <Tab fx:id="settings" text="Settings">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-          <Hyperlink cacheShape="false" layoutX="176.0" layoutY="130.0" onAction="#updateEmail" text="Update Email" />
-          <JFXTextField fx:id="emailTextField" layoutX="182.0" layoutY="95.0" prefHeight="25.0" prefWidth="258.0" promptText="e.g. sample@eagle.fgcu.edu" text="sample@eagle.fgcu.edu" />
-          <JFXTextField fx:id="usernameTextField" layoutX="182.0" layoutY="165.0" prefHeight="25.0" prefWidth="258.0" promptText="e.g. JohnSmith" text="Your Username" />
-          <Hyperlink cacheShape="false" layoutX="176.0" layoutY="200.0" onAction="#updateUsername" text="Update Username" />
-          <JFXPasswordField fx:id="passwordTextField" layoutX="182.0" layoutY="235.0" prefHeight="25.0" prefWidth="258.0" text="samplepassword" />
-          <Hyperlink cacheShape="false" layoutX="176.0" layoutY="270.0" onAction="#updatePassword" text="Update Password" />
-          <Label alignment="CENTER" layoutY="378.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0" text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER" />
+          <Hyperlink cacheShape="false" layoutX="176.0" layoutY="130.0" onAction="#updateEmail"
+            text="Update Email"/>
+          <JFXTextField fx:id="emailTextField" layoutX="182.0" layoutY="95.0" prefHeight="25.0"
+            prefWidth="258.0" promptText="e.g. sample@eagle.fgcu.edu" text="sample@eagle.fgcu.edu"/>
+          <JFXTextField fx:id="usernameTextField" layoutX="182.0" layoutY="165.0" prefHeight="25.0"
+            prefWidth="258.0" promptText="e.g. JohnSmith" text="Your Username"/>
+          <Hyperlink cacheShape="false" layoutX="176.0" layoutY="200.0" onAction="#updateUsername"
+            text="Update Username"/>
+          <JFXPasswordField fx:id="passwordTextField" layoutX="182.0" layoutY="235.0"
+            prefHeight="25.0" prefWidth="258.0" text="samplepassword"/>
+          <Hyperlink cacheShape="false" layoutX="176.0" layoutY="270.0" onAction="#updatePassword"
+            text="Update Password"/>
+          <Label alignment="CENTER" layoutY="378.0" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0"
+            text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER"/>
         </AnchorPane>
       </content>
     </Tab>
     <Tab fx:id="profile" text="Profile">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-          <Label alignment="CENTER" layoutY="378.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0" text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER" />
-          <JFXButton buttonType="RAISED" layoutX="371.0" layoutY="330.0" onAction="#updateProfile" prefHeight="37.0" prefWidth="69.0" style="-fx-background-color: #ffccbb;" text="Update" />
-          <JFXButton buttonType="RAISED" layoutX="182.0" layoutY="330.0" onAction="#logout" prefHeight="37.0" prefWidth="69.0" style="-fx-background-color: #ffccbb;" text="Logout" />
-          <JFXTextArea fx:id="aboutMeTextArea" labelFloat="true" layoutX="182.0" layoutY="160.0" prefHeight="61.0" prefWidth="258.0" promptText="About Me" text="" wrapText="true" />
-          <JFXBadge layoutX="268.0" layoutY="65.0" prefHeight="64.0" prefWidth="64.0" style="-fx-background-color: #ffccbb;" text="" />
-          <Hyperlink layoutX="245.0" layoutY="135.0" onAction="#updateProfileIcon" text="Update Profile Icon" />
-          <JFXTextArea fx:id="majorTextArea" labelFloat="true" layoutX="182.0" layoutY="240.0" prefHeight="20.0" prefWidth="258.0" promptText="Major" text="" wrapText="true" />
-          <JFXComboBox fx:id="profileComboBox" layoutX="182.0" layoutY="285.0" prefHeight="27.0" prefWidth="258.0" promptText="Choose Role" />
+          <Label alignment="CENTER" layoutY="378.0" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0"
+            text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER"/>
+          <JFXButton buttonType="RAISED" layoutX="371.0" layoutY="330.0" onAction="#updateProfile"
+            prefHeight="37.0" prefWidth="69.0" style="-fx-background-color: #ffccbb;"
+            text="Update"/>
+          <JFXButton buttonType="RAISED" layoutX="182.0" layoutY="330.0" onAction="#logout"
+            prefHeight="37.0" prefWidth="69.0" style="-fx-background-color: #ffccbb;"
+            text="Logout"/>
+          <JFXTextArea fx:id="aboutMeTextArea" labelFloat="true" layoutX="182.0" layoutY="160.0"
+            prefHeight="61.0" prefWidth="258.0" promptText="About Me" text="" wrapText="true"/>
+          <JFXBadge fx:id="profilebadge" layoutX="268.0" layoutY="54.0" prefHeight="64.0"
+            prefWidth="64.0" style="-fx-background-color: #ffccbb;" text=""/>
+          <Hyperlink layoutX="245.0" layoutY="124.0" onAction="#updateProfileIcon"
+            text="Update Profile Icon"/>
+          <JFXTextArea fx:id="majorTextArea" labelFloat="true" layoutX="182.0" layoutY="240.0"
+            prefHeight="20.0" prefWidth="258.0" promptText="Major" text="" wrapText="true"/>
+          <JFXComboBox fx:id="profileComboBox" layoutX="182.0" layoutY="285.0" prefHeight="27.0"
+            prefWidth="258.0" promptText="Choose Role"/>
         </AnchorPane>
       </content>
     </Tab>

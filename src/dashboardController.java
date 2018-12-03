@@ -11,18 +11,18 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import com.sun.org.apache.xpath.internal.operations.Bool;
+import java.sql.Time;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -31,6 +31,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javax.swing.Action;
 import org.controlsfx.control.PopOver;
 
 import java.io.IOException;
@@ -211,6 +212,69 @@ public class dashboardController extends Main {
   @FXML
   JFXTreeTableView<Schedule> table;
 
+  @FXML
+  JFXButton checkInButton;
+
+  @FXML
+  JFXComboBox appointmentComboBox;
+
+  @FXML
+  private void checkIn(ActionEvent event) throws IOException {
+    boolean passed = false;
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd");
+    LocalDateTime now = LocalDateTime.now();
+    //System.out.println(dtf.format(now));
+    Comment.setText(dtf.format(now));
+    //System.out.println(newLogin.currentUserUser.getAppointmentDate(newLogin.currentUserUser.UserNumber,(int) appointmentComboBox.getValue()));
+    newLogin.currentUserUser
+        .setAppointmentComment(newLogin.getUserNumber(), (int) appointmentComboBox.getValue(),
+            dtf.format(now));
+    updateAssignments(new ActionEvent());
+    if (Integer.parseInt(
+        newLogin.currentUserUser
+            .getAppointmentDate(newLogin.getUserNumber(), (int) appointmentComboBox.getValue())
+            .substring(8, 10))
+        - Integer.parseInt(dtf.format(now).substring(3, 5)) > 0) {
+      //System.out.println("Late Level 1");
+      try {
+        if (Integer.parseInt(
+            newLogin.currentUserUser
+                .getAppointmentDate(newLogin.getUserNumber(), (int) appointmentComboBox.getValue())
+                .substring(3, 5))
+            - Integer.parseInt(dtf.format(now).substring(0, 2)) <= 0) {
+          //System.out.println("Late Level 2");
+          System.out.println("Absent!");
+          passed = true;
+          newLogin.currentUserUser.setAppointmentAttendance(newLogin.getUserNumber(),
+              (int) appointmentComboBox.getValue(), "Late");
+          //System.out.println(Integer.parseInt(dtf.format(now).substring(3, 5)));
+          //System.out.println(Integer.parseInt(dtf.format(now).substring(0, 2)));
+        }
+      } catch (Exception e) {
+
+      }
+    }
+    if (passed == false) {
+      if (Integer.parseInt(
+          newLogin.currentUserUser
+              .getAppointmentDate(newLogin.getUserNumber(), (int) appointmentComboBox.getValue())
+              .substring(8, 10))
+          - Integer.parseInt(dtf.format(now).substring(3, 5)) > 0) {
+        //System.out.println("Present Level 1");
+        if (Integer.parseInt(
+            newLogin.currentUserUser
+                .getAppointmentDate(newLogin.getUserNumber(), (int) appointmentComboBox.getValue())
+                .substring(5, 7))
+            - Integer.parseInt(dtf.format(now).substring(0, 2)) >= 0) {
+          //System.out.println("present Level 2");
+          System.out.println("Present!");
+          newLogin.currentUserUser.setAppointmentAttendance(newLogin.getUserNumber(),
+              (int) appointmentComboBox.getValue(), "Present");
+        }
+      }
+    }
+  }
+
 
   /**
    * Updates appointments scheduled by user
@@ -304,14 +368,15 @@ public class dashboardController extends Main {
 
     // Adds default events to the schedule list
     ObservableList<Schedule> Schedule = FXCollections.observableArrayList();
-    int counter=0;
-    while(counter<newLogin.currentUserUser.getNumberOfAppointments(newLogin.getUserNumber())){
-      Schedule.add(new Schedule(newLogin.currentUserUser.getAppointmentSubject(newLogin.getUserNumber(),counter),
-          newLogin.currentUserUser.getAppointmentTutor(newLogin.getUserNumber(),counter),
-          newLogin.currentUserUser.getAppointmentComments(newLogin.getUserNumber(),counter),
-          newLogin.currentUserUser.getAppointmentDate(newLogin.getUserNumber(),counter),
-          newLogin.currentUserUser.getAppointmentTime(newLogin.getUserNumber(),counter),
-          newLogin.currentUserUser.getAppointmentLocation(newLogin.getUserNumber(),counter)));
+    int counter = 0;
+    while (counter < newLogin.currentUserUser.getNumberOfAppointments(newLogin.getUserNumber())) {
+      Schedule.add(new Schedule(
+          newLogin.currentUserUser.getAppointmentSubject(newLogin.getUserNumber(), counter),
+          newLogin.currentUserUser.getAppointmentTutor(newLogin.getUserNumber(), counter),
+          newLogin.currentUserUser.getAppointmentComments(newLogin.getUserNumber(), counter),
+          newLogin.currentUserUser.getAppointmentDate(newLogin.getUserNumber(), counter),
+          newLogin.currentUserUser.getAppointmentTime(newLogin.getUserNumber(), counter),
+          newLogin.currentUserUser.getAppointmentLocation(newLogin.getUserNumber(), counter)));
       counter++;
     }
 
@@ -349,6 +414,13 @@ public class dashboardController extends Main {
       this.location = new SimpleStringProperty(location);
     }
 
+    @FXML
+    private void removeAssignment(ActionEvent event) throws IOException {
+      /*
+      Add Functionality
+       */
+    }
+
 
   }
 
@@ -361,6 +433,7 @@ public class dashboardController extends Main {
    */
   @FXML
   private void goToClass1Quiz(ActionEvent event) throws IOException {
+    QuizNumberReference = 0;
     Stage stage = Main.getPrimaryStage();
     Parent root = FXMLLoader.load(getClass().getResource("quiz.fxml"));
     stage.setScene(new Scene(root, 600, 440));
@@ -372,6 +445,7 @@ public class dashboardController extends Main {
    */
   @FXML
   private void goToClass2Quiz(ActionEvent event) throws IOException {
+    QuizNumberReference = 1;
     Stage stage = Main.getPrimaryStage();
     Parent root = FXMLLoader.load(getClass().getResource("quiz.fxml"));
     stage.setScene(new Scene(root, 600, 440));
@@ -383,6 +457,7 @@ public class dashboardController extends Main {
    */
   @FXML
   private void goToClass3Quiz(ActionEvent event) throws IOException {
+    QuizNumberReference = 2;
     Stage stage = Main.getPrimaryStage();
     Parent root = FXMLLoader.load(getClass().getResource("quiz.fxml"));
     stage.setScene(new Scene(root, 600, 440));
@@ -393,14 +468,22 @@ public class dashboardController extends Main {
    * TUTOR REVIEW METHODS
    ******************************************/
 
-  /**
-   * Executes default code for tutor review submission
-   */
+  @FXML
+  JFXTextArea reviewContent;
+  @FXML
+  JFXButton reviewSubmitButton;
+  @FXML
+  JFXButton reviewRedirectButton;
+
   @FXML
   private void submitTutorReview(ActionEvent event) throws IOException {
-    System.out.println(newLogin.HardCode.toString());
-    newLogin.HardCode = true;
-    System.out.println(newLogin.HardCode.toString());
+    newLogin.currentUserUser.createReview(newLogin.getUserNumber(),
+        roleDropDownOne.getValue().toString(), roleDropDownTwo.getValue().toString(),
+        reviewContent.getText(),
+        false,
+        "0");
+    //Need some text to tell the user that the review was submitted
+
   }
 
   /**
@@ -446,9 +529,20 @@ public class dashboardController extends Main {
     String date = DatePicked.getValue().toString();
     String time = TimePicked.getValue().toString();
     String location = Location.getText();
-    temporary.add(new Schedule(subject, tutor, comment, date, time, location));
+    //temporary.add(new Schedule(subject, tutor, comment, date, time, location));
     newLogin.currentUserUser
-        .createAppointment(newLogin.getUserNumber(), subject, tutor, date, location, "",time,comment);
+        .createAppointment(newLogin.getUserNumber(), subject, tutor, date, location, "", time,
+            comment);
+    appointmentComboBox.getItems().clear();
+    for (int i = 0;
+        i <= newLogin.currentUserUser.getNumberOfAppointments(newLogin.getUserNumber()) - 1; i++) {
+      try {
+        appointmentComboBox.getItems().addAll(i);
+      } catch (Exception e) {
+        System.out.println(".");
+      }
+    }
+
   }
 
   /******************************************
@@ -524,6 +618,51 @@ public class dashboardController extends Main {
   @FXML
   JFXTextArea majorTextArea;
 
+  @FXML
+  JFXBadge profilebadge;
+
+
+  /**
+   * Updates user's profile icon
+   */
+  @FXML
+  private void updateProfileIcon(ActionEvent event) throws IOException {
+
+    StringBuilder sb = new StringBuilder();
+    sb.append("#");
+    for (int i = 0; i < 6; i++) {
+      double random = Math.random() * 15;
+      int truncate = (int) random;
+      switch ((int) random) {
+        case 10:
+          sb.append("A");
+          break;
+        case 11:
+          sb.append("B");
+          break;
+        case 12:
+          sb.append("C");
+          break;
+        case 13:
+          sb.append("D");
+          break;
+        case 14:
+          sb.append("E");
+          break;
+        case 15:
+          sb.append("F");
+          break;
+        default:
+          sb.append(Integer.toString(truncate));
+          break;
+      }
+      System.out.println(sb);
+    }
+    System.out.println(sb);
+    profilebadge.setStyle("-fx-background-color:" + sb);
+    newLogin.currentUserUser.setProfileIcon(newLogin.getUserNumber(), sb.toString());
+  }
+
   /**
    * Updates all of the user set profile elements
    */
@@ -533,17 +672,6 @@ public class dashboardController extends Main {
     newLogin.currentUserUser.setMajor(newLogin.getUserNumber(), aboutMeTextArea.getText());
     newLogin.currentUserUser
         .setRole(newLogin.getUserNumber(), profileComboBox.getValue().toString());
-  }
-
-  /**
-   * Updates user's profile icon
-   */
-  @FXML
-  private void updateProfileIcon(ActionEvent event) throws IOException {
-    /*
-     * ENTER FUNCTIONALITY
-     * */
-
   }
 
   /**
@@ -576,7 +704,7 @@ public class dashboardController extends Main {
    */
 
   @FXML
-  JFXTextArea QuizQuestion, QuizQuestion1, QuizQuestion11, QuizQuestion111, QuizQuestion1111;
+  JFXTextArea QuizQuestion, QuizQuestion1, QuizQuestion2, QuizQuestion3, QuizQuestion4;
 
   @FXML
   JFXButton goToLastQuestionTutor, nextQuestionButton;
@@ -597,9 +725,40 @@ public class dashboardController extends Main {
   JFXButton goToDashboard, completeQuizCreation;
 
   @FXML
+  JFXButton class1quiz;
+
+  @FXML
+  JFXButton class2quiz;
+
+  @FXML
+  JFXButton class3quiz;
+
+  @FXML
   public void initialize() {
-    tabpane.getTabs().remove(schedule);
-    tabpane.getTabs().remove(quizzes);
+
+    if (newLogin.currentUserUser.getNumberOfQuizzes(newLogin.getUserNumber()) == 1) {
+      class1quiz.setVisible(true);
+      class2quiz.setVisible(false);
+      class3quiz.setVisible(false);
+    } else if (newLogin.currentUserUser.getNumberOfQuizzes(newLogin.getUserNumber()) == 2) {
+      class1quiz.setVisible(true);
+      class2quiz.setVisible(true);
+      class3quiz.setVisible(false);
+    } else if (newLogin.currentUserUser.getNumberOfQuizzes(newLogin.getUserNumber()) > 3) {
+      class1quiz.setVisible(true);
+      class2quiz.setVisible(true);
+      class3quiz.setVisible(true);
+    }
+
+    if (newLogin.currentUserUser.getRole(newLogin.getUserNumber()).equals("Tutor")) {
+      tabpane.getTabs().remove(schedule);
+      tabpane.getTabs().remove(quizzes);
+      scheduleTutor.setText("Assignments");
+      quizzesTutor.setText("Create Quiz");
+    } else if (newLogin.currentUserUser.getRole(newLogin.getUserNumber()).equals("Student")) {
+      tabpane.getTabs().remove(scheduleTutor);
+      tabpane.getTabs().remove(quizzesTutor);
+    }
 
     createQuizButton.setVisible(true);
 
@@ -615,16 +774,37 @@ public class dashboardController extends Main {
         //System.out.println("adding");
         TutorPicked.getItems().addAll(tutorName);
         roleDropDownOne.getItems().addAll(tutorName);
+      } else {
+        TutorPicked.getItems().addAll(tutorName);
       }
     }
     SubjectPicked.getItems().setAll("Biology", "Chemistry", "Math", "OOP");
     roleDropDownTwo.getItems().setAll("Biology", "Chemistry", "Math", "OOP");
+
+    for (int i = 0;
+        i <= newLogin.currentUserUser.getNumberOfAppointments(newLogin.getUserNumber()) - 1; i++) {
+      try {
+        appointmentComboBox.getItems().addAll(i);
+      } catch (Exception e) {
+        System.out.println(".");
+      }
+    }
+
+    for (int i = 0; i <= newLogin.currentUserUser.getTotalNumberOfAccounts() - 1; i++) {
+      String role = newLogin.currentUserUser.getRole(i);
+      String tutorName = newLogin.currentUserUser.getFirstName(i);
+      if (role.equals("Student")) {
+        selectedstudent.getItems().addAll(tutorName);
+      }
+    }
 
     emailTextField.setText(newLogin.currentUserUser.getUserEmail(newLogin.getUserNumber()));
     usernameTextField.setText(newLogin.currentUserUser.getUsername(newLogin.getUserNumber()));
     passwordTextField.setText(newLogin.currentUserUser.getPassword(newLogin.getUserNumber()));
     aboutMeTextArea.setText(newLogin.currentUserUser.getaboutMeText(newLogin.getUserNumber()));
     majorTextArea.setText(newLogin.currentUserUser.getMajor(newLogin.getUserNumber()));
+    profilebadge.setStyle("-fx-background-color:" + newLogin.currentUserUser
+        .getProfileIcon(newLogin.getUserNumber()));
     //this code will set the profile tab's information to be displayed automatically
     profileComboBox.getItems().setAll("Student", "Tutor");
     if (newLogin.currentUserUser.getRole(newLogin.getUserNumber()).equals("Student")) {
@@ -634,6 +814,9 @@ public class dashboardController extends Main {
       profileComboBox.getSelectionModel().selectLast();
     }
   }
+
+  @FXML
+  Hyperlink updateProfileIcon;
 
   /******************************************
    * TUTOR ASSIGNMENT METHODS
@@ -807,40 +990,160 @@ public class dashboardController extends Main {
   /******************************************
    * TUTOR CREATE QUIZ METHODS
    ******************************************/
+  String[][] temporaryString = new String[10][5];
+  int temporaryStringIndex = 0;
+
+  public void populateTemporaryStringArray(int index) {
+    ArrayList<JFXTextArea> jfxta = new ArrayList<JFXTextArea>() {
+    };
+    jfxta.add(QuizQuestion1);
+    jfxta.add(QuizQuestion2);
+    jfxta.add(QuizQuestion3);
+    jfxta.add(QuizQuestion4);
+
+    for (int i = 0; i < 5; i++) {
+      if (i == 0) {
+        temporaryString[index][0] = QuizQuestion.getText();
+      } else {
+        temporaryString[index][i] = jfxta.get(i - 1).getText();
+      }
+    }
+  }
+
+  @FXML
+  Label quizError;
 
   @FXML
   private void goToNextQuestion(ActionEvent event) throws IOException {
-    if (nextQuestionButton.getText().equals("Submit")) {
-      QuizQuestion.setVisible(false);
-      QuizQuestion1.setVisible(false);
-      QuizQuestion11.setVisible(false);
-      QuizQuestion111.setVisible(false);
-      QuizQuestion1111.setVisible(false);
-      goToLastQuestionTutor.setVisible(false);
-      nextQuestionButton.setVisible(false);
-      goToDashboard.setVisible(true);
-      completeQuizCreation.setVisible(true);
-      selectedstudent.setVisible(true);
-      submitQuizCreationInstructions.setVisible(true);
+    //write all fields String array
+    boolean donePopulating = false;
+
+    try {
+      if (!QuizQuestion.getText().equals("") && !QuizQuestion1.getText().equals("")
+          && !QuizQuestion2.getText().equals("") && !QuizQuestion3.getText().equals("")
+          && !QuizQuestion4.getText().equals("")) {
+        populateTemporaryStringArray(temporaryStringIndex);
+        donePopulating = true;
+      } else {
+        quizError.setText("Please fill out all fields.");
+      }
+    } catch (Exception e) {
+      quizError.setText("Please fill out all fields.");
     }
-    nextQuestionButton.setText("Submit");
+
+    if (donePopulating == true) {
+      quizError.setText("");
+      if (temporaryStringIndex == 8) {
+        temporaryStringIndex++;
+        nextQuestionButton.setDisable(true);
+      } else {
+        temporaryStringIndex++;
+      }
+      //clears all fields
+      if (!(temporaryString[temporaryStringIndex - 1][0].equals(""))) {
+        QuizQuestion.setPromptText("Enter Question " + (temporaryStringIndex + 1));
+        QuizQuestion.setText(temporaryString[temporaryStringIndex][0]);
+        QuizQuestion1.setText(temporaryString[temporaryStringIndex][1]);
+        QuizQuestion2.setText(temporaryString[temporaryStringIndex][2]);
+        QuizQuestion3.setText(temporaryString[temporaryStringIndex][3]);
+        QuizQuestion4.setText(temporaryString[temporaryStringIndex][4]);
+      } else {
+        QuizQuestion.setText("");
+        QuizQuestion1.setText("");
+        QuizQuestion2.setText("");
+        QuizQuestion3.setText("");
+        QuizQuestion4.setText("");
+      }
+    }
   }
 
   @FXML
   private void goToLastQuestion(ActionEvent event) throws IOException {
+    nextQuestionButton.setDisable(false);
+    if (temporaryStringIndex > 0) {
+      boolean donePopulatingLastQuestion = false;
+      try {
+        if (!QuizQuestion.getText().equals("") && !QuizQuestion1.getText().equals("")
+            && !QuizQuestion2.getText().equals("") && !QuizQuestion3.getText().equals("")
+            && !QuizQuestion4.getText().equals("")) {
+          populateTemporaryStringArray(temporaryStringIndex);
+          donePopulatingLastQuestion = true;
+        } else {
+          quizError.setText("Please fill out all fields.");
+        }
+      } catch (Exception e) {
+        quizError.setText("Please fill out all fields.");
+      }
+      if (donePopulatingLastQuestion == true) {
+        quizError.setText("");
+        temporaryStringIndex--;
+        QuizQuestion.setPromptText("Enter Question " + (temporaryStringIndex + 1));
+        QuizQuestion.setText(temporaryString[temporaryStringIndex][0]);
+        QuizQuestion1.setText(temporaryString[temporaryStringIndex][1]);
+        QuizQuestion2.setText(temporaryString[temporaryStringIndex][2]);
+        QuizQuestion3.setText(temporaryString[temporaryStringIndex][3]);
+        QuizQuestion4.setText(temporaryString[temporaryStringIndex][4]);
+      }
+    }
   }
 
   @FXML
   private void completeQuizCreation(ActionEvent event) throws IOException {
+
+    int StudentNumber = 0;
+    for (int i = 0; i <= newLogin.currentUserUser.getTotalNumberOfAccounts() - 1; i++) {
+      String role = newLogin.currentUserUser.getRole(i);
+      String StudentName = newLogin.currentUserUser.getFirstName(i);
+      if (role.equals("Student")) {
+        if (StudentName.equals(selectedstudent.getValue().toString())) {
+          StudentNumber = i;
+        }
+      }
+    }
+
+    //store destined user in JSON
+    newLogin.currentUserUser.createQuiz(StudentNumber);
+    for (int i = 0; i < temporaryString.length - 1; i++) {
+      String correctAnswer = "null";
+      int correctAnswerIndex = 0;
+      System.out.println(temporaryString[i][1]);
+      if (temporaryString[i][1].indexOf("*") != -1) {
+        correctAnswer = "A";
+        correctAnswerIndex = 1;
+      } else if (temporaryString[i][2].indexOf("*") != -1) {
+        correctAnswer = "B";
+        correctAnswerIndex = 2;
+      } else if (temporaryString[i][3].indexOf("*") != -1) {
+        correctAnswer = "C";
+        correctAnswerIndex = 3;
+      } else if (temporaryString[i][4].indexOf("*") != -1) {
+        correctAnswer = "D";
+        correctAnswerIndex = 4;
+      }
+      temporaryString[i][correctAnswerIndex] = temporaryString[i][correctAnswerIndex]
+          .substring(0, temporaryString[i][correctAnswerIndex].indexOf("*"));
+      int numofquiz = newLogin.currentUserUser.getNumberOfQuizzes(StudentNumber);
+      newLogin.currentUserUser.addQuizQuestion(StudentNumber,
+          numofquiz - 1,
+          temporaryString[i][0],
+          temporaryString[i][1],
+          temporaryString[i][2],
+          temporaryString[i][3],
+          temporaryString[i][4],
+          correctAnswer,
+          "");
+    }
+    //go to dashboard
+    goToDashboard(new ActionEvent());
   }
 
   @FXML
   private void goToQuizSubmission(ActionEvent event) throws IOException {
     QuizQuestion.setVisible(false);
     QuizQuestion1.setVisible(false);
-    QuizQuestion11.setVisible(false);
-    QuizQuestion111.setVisible(false);
-    QuizQuestion1111.setVisible(false);
+    QuizQuestion2.setVisible(false);
+    QuizQuestion3.setVisible(false);
+    QuizQuestion4.setVisible(false);
     goToLastQuestionTutor.setVisible(false);
     submitHyperlink.setVisible(false);
     nextQuestionButton.setVisible(false);
@@ -854,9 +1157,9 @@ public class dashboardController extends Main {
   private void goToQuizCreation(ActionEvent event) throws IOException {
     QuizQuestion.setVisible(true);
     QuizQuestion1.setVisible(true);
-    QuizQuestion11.setVisible(true);
-    QuizQuestion111.setVisible(true);
-    QuizQuestion1111.setVisible(true);
+    QuizQuestion2.setVisible(true);
+    QuizQuestion3.setVisible(true);
+    QuizQuestion4.setVisible(true);
     goToLastQuestionTutor.setVisible(true);
     nextQuestionButton.setVisible(true);
     createQuizButton.setVisible(false);

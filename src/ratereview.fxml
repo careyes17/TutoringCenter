@@ -18,7 +18,7 @@
       text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER"/>
     <JFXTextArea fx:id="reviewText" editable="false" layoutX="130.0" layoutY="165.0"
       prefHeight="109.0" prefWidth="375.0"
-      text="This is sample text in order to demonstrate the wrapping feature of a text area."
+      text=""
       wrapText="true"/>
     <JFXComboBox fx:id="roleDropDownOne" labelFloat="true" layoutX="130.0" layoutY="60.0"
       prefHeight="25.0" prefWidth="258.0" promptText="Select Tutor"/>

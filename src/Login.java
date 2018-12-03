@@ -132,7 +132,7 @@ public class Login {
     System.out.println(this.UserNumber);
     System.out.println(returnRole(this.UserNumber));
     if (returnRole(this.UserNumber).equals("Tutor")) {
-      currentUserTutor = new Tutor(this.UserNumber);
+      this.currentUserUser = new User(this.UserNumber);
     }
     if (returnRole(this.UserNumber).equals("Student")) {
       System.out.println("made object of student");

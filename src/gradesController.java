@@ -48,27 +48,33 @@ public class gradesController extends Main {
 
     // If the combo box has "Grades" selected
     if (pieChartTypeSelector.getValue().equals("Grades")) {
-      int A=0;
-      int B=0;
-      int C=0;
-      int D=0;
-      int F=0;
-      int counter=0;
-      while (counter<newLogin.currentUserUser.getNumberOfAssignments(newLogin.getUserNumber())){
-        double Calculation = ((double)newLogin.currentUserUser.getAssignmentPointsReceived(newLogin.getUserNumber(),counter) / (double) newLogin.currentUserUser.getAssignmentMaxPoints(newLogin.getUserNumber(),counter));
-        if(Calculation>=0.90){
+      int A = 0;
+      int B = 0;
+      int C = 0;
+      int D = 0;
+      int F = 0;
+      int counter = 0;
+      while (counter < newLogin.currentUserUser.getNumberOfAssignments(newLogin.getUserNumber())) {
+        double a = Double.parseDouble(newLogin.currentUserUser
+            .getAssignmentPointsReceived(newLogin.getUserNumber(), counter));
+        double b = Double.parseDouble(
+            newLogin.currentUserUser.getAssignmentMaxPoints(newLogin.getUserNumber(), counter));
+        System.out.println(a);
+        System.out.println(b);
+        double Calculation = (a / b);
+        if (Calculation >= 0.90) {
           A++;
         }
-        if(Calculation<0.90 && Calculation>=0.80){
+        if (Calculation < 0.90 && Calculation >= 0.80) {
           B++;
         }
-        if(Calculation<0.80 && Calculation>=0.70){
+        if (Calculation < 0.80 && Calculation >= 0.70) {
           C++;
         }
-        if(Calculation<0.70 && Calculation>=0.60){
+        if (Calculation < 0.70 && Calculation >= 0.60) {
           D++;
         }
-        if(Calculation<0.60 && Calculation>=0.50){
+        if (Calculation < 0.60 && Calculation >= 0.50) {
           F++;
         }
         counter++;
@@ -93,18 +99,21 @@ public class gradesController extends Main {
     if (pieChartTypeSelector.getValue().equals("Attendance")) {
       // Loads attendance elements
       //Late, ontime, Absent
-      int Late=0;
-      int ontime=0;
-      int Absent=0;
-      int counter=0;
-      while(counter<newLogin.currentUserUser.getNumberOfAppointments(newLogin.getUserNumber())){
-        if(newLogin.currentUserUser.getAppointmentAttendance(newLogin.getUserNumber(),counter).equals("Late")){
+      int Late = 0;
+      int ontime = 0;
+      int Absent = 0;
+      int counter = 0;
+      while (counter < newLogin.currentUserUser.getNumberOfAppointments(newLogin.getUserNumber())) {
+        if (newLogin.currentUserUser.getAppointmentAttendance(newLogin.getUserNumber(), counter)
+            .equals("Late")) {
           Late++;
         }
-        if(newLogin.currentUserUser.getAppointmentAttendance(newLogin.getUserNumber(),counter).equals("ontime")){
+        if (newLogin.currentUserUser.getAppointmentAttendance(newLogin.getUserNumber(), counter)
+            .equals("ontime")) {
           ontime++;
         }
-        if(newLogin.currentUserUser.getAppointmentAttendance(newLogin.getUserNumber(),counter).equals("Absent")){
+        if (newLogin.currentUserUser.getAppointmentAttendance(newLogin.getUserNumber(), counter)
+            .equals("Absent")) {
           Absent++;
         }
         counter++;
@@ -112,8 +121,8 @@ public class gradesController extends Main {
 
       ObservableList<PieChart.Data> pieChartData =
           FXCollections.observableArrayList(
-              new PieChart.Data("Present",ontime),
-              new PieChart.Data("Late", Late ),
+              new PieChart.Data("Present", ontime),
+              new PieChart.Data("Late", Late),
               new PieChart.Data("Absent", Absent)
           );
       pieChart.setData(pieChartData);

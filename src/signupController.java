@@ -87,9 +87,21 @@ public class signupController extends Main {
   @FXML
   private void button1Pressed(ActionEvent event) throws IOException {
 
-    if (usernametxt.getText().isEmpty() || passwordtxt.getText().isEmpty()) {
-      errortxt.setStyle("-fx-text-fill: One of the submission fields are empty");
-    } else {
+    boolean passed = true;
+    if (firstnametxt.getText().isEmpty() || lastnametxt.getText().isEmpty() || emailtxt.getText()
+        .isEmpty() || roledropdown.getValue() == null) {
+      errortxt.setText("Please fill all of the fields");
+      passed = false;
+    } else if (passwordtxt.getText().length() + 1 <= 6
+        || passwordtxt.getText().length() - 1 >= 32) {
+      errortxt.setText("Username or password needs to be 6-32 characters long");
+      passed = false;
+    } else if (usernametxt.getText().length() + 1 <= 6
+        || usernametxt.getText().length() - 1 >= 32) {
+      errortxt.setText("Username or password needs to be 6-32 characters long");
+      passed = false;
+    }
+    if (passed == true) {
       //check the last parameter to see if it gets the value from the drop down
       newLogin.createUserInformation(usernametxt.getText(), passwordtxt.getText(),
           firstnametxt.getText(), lastnametxt.getText(),
@@ -98,7 +110,6 @@ public class signupController extends Main {
       Parent root = FXMLLoader.load(getClass().getResource("signin.fxml"));
       stage.setScene(new Scene(root, 600, 440));
       stage.show();
-
     }
   }
 

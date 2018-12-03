@@ -20,6 +20,8 @@ public class Main extends Application {
   // Creates a new login instance that manages the current user
   Login newLogin = new Login();
 
+  int QuizNumberReference;
+
   // Loads the sign in fxml and sets the primary stage
   @Override
   public void start(Stage primaryStage) throws Exception {
