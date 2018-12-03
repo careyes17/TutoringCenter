@@ -15,9 +15,13 @@ To start our project, please-
 
 ### Built with:
 Intellij
+
 JSON library
+
 JavaFX
+
 JFoenix
+
 Scenebuilder
 
 ### Contributing?:
