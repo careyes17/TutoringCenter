@@ -1,7 +1,7 @@
 ## GutterBoyz & Son Tutor Center
 This project is a mock tutoring center application utilizing JavaFX and JSON
-This project was created as a collaboration between Hunter Danielson, Carlos Reyes, Brian Withrow, Tomas Vergara, and Martin Marks
-This project was started in September 2018 and finishing Dec 3, 2018. We are all currently learning Object Oriented Programming and Software Engineering Fundamentals.
+This project was created as a collaboration between Hunter Danielson, Carlos Reyes, Brian Withrow, Tomas Vergara, and Martin Marks.
+This project was started in September 2018 and finished Dec 3, 2018. We are all currently learning Object Oriented Programming and Software Engineering Fundamentals.
 The project was an assigned application for Soft. Eng. Fundamentals, and as a group we decided that we had best understanding of this application's requirements as practice.
 The project was worked on individually by the group members outside of the classroom exclusively and at times in group efforts.
 The project was also an experiment into learning more details about GUI, JSON, and project structure.
