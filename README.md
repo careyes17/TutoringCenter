@@ -14,14 +14,10 @@ To start our project, please-
 [Ideally we add a runnable jar for the use of our final deliverable and for this section]
 
 ### Built with:
-Intellij
-
-JSON library
-
-JavaFX
-
-JFoenix
-
+Intellij  
+JSON library  
+JavaFX  
+JFoenix  
 Scenebuilder
 
 ### Contributing?:
