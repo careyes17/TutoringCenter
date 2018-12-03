@@ -21,21 +21,22 @@ JFoenix
 Scenebuilder
 
 ### Contributing?:
-Help us with our functionality! We'd love to see better additions into our assignment format, and our calendar!
+Help us with our functionality!  
+We'd love to see better additions into our assignment format, and our calendar!
 
 ### License:
-[Template With Info](https://github.com/PV-COP/PV-README-TEMPLATE/blob/master/TemplateWithInfo.md)
-[Licensing a Repository](https://help.github.com/articles/licensing-a-repository/)
+[Template With Info](https://github.com/PV-COP/PV-README-TEMPLATE/blob/master/TemplateWithInfo.md)  
+[Licensing a Repository](https://help.github.com/articles/licensing-a-repository/)  
 (Probably MIT License, Martin needs to do this.)
 
 ### Acknowledgements:
-Big thanks to:
-Oracle/Ilearning
-Chelsea Atkins, Fundamentals TA
-Stackoverflow
-JFoenix
-Prof. Vanselow
-Prof. Koufaku
+Big thanks to:  
+Oracle/Ilearning  
+Chelsea Atkins, Fundamentals TA  
+Stackoverflow  
+JFoenix  
+Prof. Vanselow  
+Prof. Koufaku  
 
 ### Key Programming Concepts Utilized:
-For the sake of our hierarchy, we used inheritance to help structure controller classes and their functions.
+For the sake of our hierarchy, we used inheritance to help structure controller classes and their functions.  
