@@ -25,9 +25,7 @@ Help us with our functionality!
 We'd love to see better additions into our assignment format, and our calendar!
 
 ### License:
-[Template With Info](https://github.com/PV-COP/PV-README-TEMPLATE/blob/master/TemplateWithInfo.md)  
-[Licensing a Repository](https://help.github.com/articles/licensing-a-repository/)  
-(Probably MIT License, Martin needs to do this.)
+[MIT License](https://github.com/GutterboyzSon/TutoringCenter/blob/master/LICENSE)
 
 ### Acknowledgements:
 Big thanks to:  
