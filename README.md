@@ -6,9 +6,6 @@ The project was an assigned application for Soft. Eng. Fundamentals, and as a gr
 The project was worked on individually by the group members outside of the classroom exclusively and at times in group efforts.
 The project was also an experiment into learning more details about GUI, JSON, and project structure.
 
-### Demonstration:
------
-
 ### Getting Started
 To start our project, please-
 [Ideally we add a runnable jar for the use of our final deliverable and for this section]
