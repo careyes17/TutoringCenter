@@ -6,7 +6,7 @@ The project was an assigned application for Soft. Eng. Fundamentals, and as a gr
 The project was worked on individually by the group members outside of the classroom exclusively and at times in group efforts.
 The project was also an experiment into learning more details about GUI, JSON, and project structure.
 
-![] (gutterboyztutoringcenter.gif)
+![](gutterboyztutoringcenter.gif)
 
 ### Getting Started
 To start our project, please-
