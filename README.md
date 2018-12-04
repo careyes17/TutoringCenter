@@ -8,6 +8,21 @@ The project was also an experiment into learning more details about GUI, JSON, a
 
 ![](gutterboyztutoringcenter.gif)
 
+### Installation
+
+#### JAR: 
+You can download our project from github with this link https://github.com/GutterboyzSon/TutoringCenter.
+Next extract the project. 
+Next navigate to the folder to find the project. 
+Run the TutoringCenter.JAR file.
+#### Intelij:
+You can download the zip for our program on GitHub here, https://github.com/GutterboyzSon/TutoringCenter.
+After extraction you can open the IntelliJ IDE, and use the “Open” option on the main screen. Navigate to the extraction folder with all the program folders in it,  and open it.
+Go to File>Project Structure>Modules>Dependencies,
+If there are any dependencies that are highlighted in red,  you can remove them with the subtraction button.
+Add the dependencies by pressing the + button and add the JARs (controlsfx-8.40.14.jar, jfoenix-8.0.7.jar, json-simple-1.1.1.jar) from the Libraries folder. Then click “Apply”.
+
+
 ### Getting Started
 To start our project, please-
 [Ideally we add a runnable jar for the use of our final deliverable and for this section]
