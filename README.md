@@ -23,10 +23,6 @@ If there are any dependencies that are highlighted in red,  you can remove them 
 Add the dependencies by pressing the + button and add the JARs (controlsfx-8.40.14.jar, jfoenix-8.0.7.jar, json-simple-1.1.1.jar) from the Libraries folder.  
 Then click “Apply”.
 
-### Getting Started
-To start our project, please-
-[Ideally we add a runnable jar for the use of our final deliverable and for this section]
-
 ### Built with:
 Intellij  
 JSON library  
