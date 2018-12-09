@@ -1,5 +1,16 @@
 package src;
 
+/**
+ * Programmer: Hunter Danielson, Carl Reyes
+ * Description of file: This is the Dashboard controller that controls what the user sees when
+ * logged into the system. There are multiple tabs that correlate to each tab having different
+ * functionality.
+ * Initialization checks to what the user is logged in as and changes the tabs that are
+ * exclusive to that role.
+ * This code is separated into sections (aka each tab) signified by the java doc sections.
+ * There were to many version updates to include in this file or it would have been an
+ * exponentially large javadoc comment.
+ */
 
 import com.jfoenix.controls.JFXBadge;
 import com.jfoenix.controls.JFXButton;
@@ -11,7 +22,7 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import java.sql.Time;
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -31,9 +42,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-import javax.swing.Action;
 import org.controlsfx.control.PopOver;
-
 import java.io.IOException;
 
 
@@ -56,7 +65,6 @@ public class dashboardController extends Main {
 
   @FXML
   public Tab schedule;
-
   @FXML
   public Tab quizzesTutor;
 
@@ -171,6 +179,10 @@ public class dashboardController extends Main {
   private void goToScheduleTutoringCenter(ActionEvent event) throws IOException {
     SingleSelectionModel<Tab> selectionModel = tabpane.getSelectionModel();
     selectionModel.select(schedule);
+    if (newLogin.currentUserUser.getRole(newLogin.getUserNumber()).equals("Tutor")) {
+      selectionModel.select(scheduleTutor);
+    }
+
   }
 
   /**
@@ -474,15 +486,28 @@ public class dashboardController extends Main {
   JFXButton reviewSubmitButton;
   @FXML
   JFXButton reviewRedirectButton;
+  @FXML
+  Label ErrorReview;
 
   @FXML
   private void submitTutorReview(ActionEvent event) throws IOException {
-    newLogin.currentUserUser.createReview(newLogin.getUserNumber(),
-        roleDropDownOne.getValue().toString(), roleDropDownTwo.getValue().toString(),
-        reviewContent.getText(),
-        false,
-        "0");
-    //Need some text to tell the user that the review was submitted
+    try {
+      if (!roleDropDownOne.getValue().toString().equals("") || !reviewContent.getText().equals("")
+          || !roleDropDownTwo.getValue().toString().equals("")) {
+        newLogin.currentUserUser.createReview(newLogin.getUserNumber(),
+            roleDropDownOne.getValue().toString(), roleDropDownTwo.getValue().toString(),
+            reviewContent.getText(),
+            false,
+            "0");
+        ErrorReview.setText("Review Submitted!");
+        ErrorReview.setVisible(true);
+      } else {
+        ErrorReview.setVisible(true);
+      }
+      //Need some text to tell the user that the review was submitted
+    } catch (Exception e) {
+      ErrorReview.setVisible(true);
+    }
 
   }
 
@@ -514,6 +539,8 @@ public class dashboardController extends Main {
   JFXTimePicker TimePicked;
   @FXML
   JFXTextArea Location;
+  @FXML
+  Label Error;
 
   // Temporary ObservableList containing archived appointments to be appended in update in updateAssignments()
   ObservableList<Schedule> temporary = FXCollections.observableArrayList();
@@ -522,24 +549,31 @@ public class dashboardController extends Main {
    * Takes information from appointment scheduler form and appends the appointment list
    */
   @FXML
+  Label ErrorSchedule;
+
+  @FXML
   private void scheduleTutor(ActionEvent event) throws IOException {
-    String subject = SubjectPicked.getValue().toString();
-    String tutor = TutorPicked.getValue().toString();
-    String comment = Comment.getText();
-    String date = DatePicked.getValue().toString();
-    String time = TimePicked.getValue().toString();
-    String location = Location.getText();
-    //temporary.add(new Schedule(subject, tutor, comment, date, time, location));
-    newLogin.currentUserUser
-        .createAppointment(newLogin.getUserNumber(), subject, tutor, date, location, "", time,
-            comment);
+    try {
+      String subject = SubjectPicked.getValue().toString();
+      String tutor = TutorPicked.getValue().toString();
+      String comment = Comment.getText();
+      String date = DatePicked.getValue().toString();
+      String time = TimePicked.getValue().toString();
+      String location = Location.getText();
+      //temporary.add(new Schedule(subject, tutor, comment, date, time, location));
+      newLogin.currentUserUser
+          .createAppointment(newLogin.getUserNumber(), subject, tutor, date, location, "", time,
+              comment);
+    } catch (Exception e) {
+      ErrorSchedule.setVisible(true);
+    }
     appointmentComboBox.getItems().clear();
     for (int i = 0;
         i <= newLogin.currentUserUser.getNumberOfAppointments(newLogin.getUserNumber()) - 1; i++) {
       try {
         appointmentComboBox.getItems().addAll(i);
       } catch (Exception e) {
-        System.out.println(".");
+        ErrorSchedule.setVisible(true);
       }
     }
 
@@ -555,22 +589,31 @@ public class dashboardController extends Main {
   @FXML
   TextField usernameTextField;
   @FXML
-  PasswordField passwordTextField;
-
+  PasswordField passwordTextFieldOne;
+  @FXML
+  PasswordField passwordTextFieldTwo;
   /**
    * Updates user email
    */
   @FXML
+  Label ErrorEmail;
+
+  @FXML
   private void updateEmail(ActionEvent event) throws IOException {
     System.out.println("attempting email update");
     try {
-      String newEmail = emailTextField.getText();   //grabs the new email value
-      newLogin.currentUserUser.setUserEmail(newLogin.getUserNumber(), newEmail);
-      System.out.println("email updated");
-
+      String newEmail = emailTextField.getText();//grabs the new email value
+      if (!newEmail.equals("")) {
+        newLogin.currentUserUser.setUserEmail(newLogin.getUserNumber(), newEmail);
+        System.out.println("email updated");
+        ErrorEmail.setVisible(false);
+      } else {
+        ErrorEmail.setVisible(true);
+      }
     } catch (Exception e) {
       System.out.println("email update failed");
       System.out.println(e);
+      ErrorEmail.setVisible(true);
     }
   }
 
@@ -578,18 +621,29 @@ public class dashboardController extends Main {
    * Updates user username
    */
   @FXML
+  Label ErrorUserName;
+
+  @FXML
   private void updateUsername(ActionEvent event) throws IOException {
     System.out.println("attempting username update");
     try {
       String newUsername = usernameTextField.getText();
-      newLogin.currentUserUser.setUsername(newLogin.getUserNumber(), newUsername);
-      System.out.println("username updated");
-
+      if (!newUsername.equals("")) {
+        newLogin.currentUserUser.setUsername(newLogin.getUserNumber(), newUsername);
+        System.out.println("username updated");
+        ErrorUserName.setVisible(false);
+      } else {
+        ErrorUserName.setVisible(true);
+      }
     } catch (Exception e) {
       System.out.println("username update failed");
       System.out.println(e);
+      ErrorUserName.setVisible(true);
     }
   }
+
+  @FXML
+  Label ErrorPassword;
 
   /**
    * Updates user password
@@ -598,13 +652,21 @@ public class dashboardController extends Main {
   private void updatePassword(ActionEvent event) throws IOException {
     System.out.println("attempting password update");
     try {
-      String newUsername = passwordTextField.getText();
-      newLogin.currentUserUser.setPassword(newLogin.getUserNumber(), newUsername);
-      System.out.println("password updated");
+      String newPassword1 = passwordTextFieldOne.getText();
+      String newPassword2 = passwordTextFieldTwo.getText();
+      if (newPassword1.equals(newPassword2) && !newPassword1.equals("") && newPassword1.length() > 5
+          && newPassword1.length() < 33) {
+        newLogin.currentUserUser.setPassword(newLogin.getUserNumber(), newPassword1);
+        System.out.println("password updated");
+        ErrorPassword.setVisible(false);
+      } else {
+        ErrorPassword.setVisible(true);
+      }
 
     } catch (Exception e) {
       System.out.println("password update failed");
       System.out.println(e);
+      ErrorPassword.setVisible(true);
     }
   }
 
@@ -734,17 +796,31 @@ public class dashboardController extends Main {
   JFXButton class3quiz;
 
   @FXML
-  public void initialize() {
+  JFXButton scheduleTutoring;
 
+  @FXML
+  JFXComboBox AssignmentNumberDropDown;
+  @FXML
+  Label QuizErrorA;
+
+  @FXML
+  public void initialize() {
+    QuizErrorA.setVisible(true);
+    class1quiz.setVisible(false);
+    class2quiz.setVisible(false);
+    class3quiz.setVisible(false);
     if (newLogin.currentUserUser.getNumberOfQuizzes(newLogin.getUserNumber()) == 1) {
+      QuizErrorA.setVisible(false);
       class1quiz.setVisible(true);
       class2quiz.setVisible(false);
       class3quiz.setVisible(false);
     } else if (newLogin.currentUserUser.getNumberOfQuizzes(newLogin.getUserNumber()) == 2) {
+      QuizErrorA.setVisible(false);
       class1quiz.setVisible(true);
       class2quiz.setVisible(true);
       class3quiz.setVisible(false);
     } else if (newLogin.currentUserUser.getNumberOfQuizzes(newLogin.getUserNumber()) > 3) {
+      QuizErrorA.setVisible(false);
       class1quiz.setVisible(true);
       class2quiz.setVisible(true);
       class3quiz.setVisible(true);
@@ -755,6 +831,7 @@ public class dashboardController extends Main {
       tabpane.getTabs().remove(quizzes);
       scheduleTutor.setText("Assignments");
       quizzesTutor.setText("Create Quiz");
+      scheduleTutoring.setText("Create Assignments");
     } else if (newLogin.currentUserUser.getRole(newLogin.getUserNumber()).equals("Student")) {
       tabpane.getTabs().remove(scheduleTutor);
       tabpane.getTabs().remove(quizzesTutor);
@@ -774,8 +851,6 @@ public class dashboardController extends Main {
         //System.out.println("adding");
         TutorPicked.getItems().addAll(tutorName);
         roleDropDownOne.getItems().addAll(tutorName);
-      } else {
-        TutorPicked.getItems().addAll(tutorName);
       }
     }
     SubjectPicked.getItems().setAll("Biology", "Chemistry", "Math", "OOP");
@@ -789,6 +864,14 @@ public class dashboardController extends Main {
         System.out.println(".");
       }
     }
+    //int StudentNumber = 0;
+    for (int i = 0; i <= newLogin.currentUserUser.getTotalNumberOfAccounts() - 1; i++) {
+      String role = newLogin.currentUserUser.getRole(i);
+      String StudentName = newLogin.currentUserUser.getFirstName(i);
+      if (role.equals("Student")) {
+        AssignmentNumberDropDown.getItems().addAll(StudentName);
+      }
+    }
 
     for (int i = 0; i <= newLogin.currentUserUser.getTotalNumberOfAccounts() - 1; i++) {
       String role = newLogin.currentUserUser.getRole(i);
@@ -800,7 +883,7 @@ public class dashboardController extends Main {
 
     emailTextField.setText(newLogin.currentUserUser.getUserEmail(newLogin.getUserNumber()));
     usernameTextField.setText(newLogin.currentUserUser.getUsername(newLogin.getUserNumber()));
-    passwordTextField.setText(newLogin.currentUserUser.getPassword(newLogin.getUserNumber()));
+    //passwordTextFieldOne.setText(newLogin.currentUserUser.getPassword(newLogin.getUserNumber()));
     aboutMeTextArea.setText(newLogin.currentUserUser.getaboutMeText(newLogin.getUserNumber()));
     majorTextArea.setText(newLogin.currentUserUser.getMajor(newLogin.getUserNumber()));
     profilebadge.setStyle("-fx-background-color:" + newLogin.currentUserUser
@@ -813,6 +896,63 @@ public class dashboardController extends Main {
     if (newLogin.currentUserUser.getRole(newLogin.getUserNumber()).equals("Tutor")) {
       profileComboBox.getSelectionModel().selectLast();
     }
+    try {
+      ArrayList<Double> average = new ArrayList<Double>();
+      int counter = 0;
+      while (counter < newLogin.currentUserUser.getNumberOfAssignments(newLogin.getUserNumber())) {
+        double a = Double.parseDouble(newLogin.currentUserUser
+            .getAssignmentPointsReceived(newLogin.getUserNumber(), counter));
+        double b = Double.parseDouble(
+            newLogin.currentUserUser.getAssignmentMaxPoints(newLogin.getUserNumber(), counter));
+        System.out.println(a);
+        System.out.println(b);
+        double Calculation = (a / b);
+        average.add(Calculation);
+        counter++;
+      }
+      int counterTwo = 0;
+      double Summation = 0;
+      System.out.println(average.size());
+      while (counterTwo < average.size()) {
+        Summation = average.get(counterTwo) + Summation;
+        counterTwo++;
+      }
+      DecimalFormat df = new DecimalFormat("##000.00");
+      Double SummationDivision = Double.valueOf(df.format((Summation / average.size()) * 100));
+      class1Label.setText(SummationDivision.toString());
+      if (SummationDivision.equals(0.0)) {
+        class1Label.setText("No Grades Yet");
+      }
+    } catch (Exception e) {
+      class1Label.setText("No Grades Yet");
+
+    }
+    //Attendance Calculation
+    try {
+      double ontime = 0;
+      int counterattendence = 0;
+      System.out.println("numberofAppointments"+newLogin.currentUserUser
+          .getNumberOfAppointments(newLogin.getUserNumber()));
+      while (counterattendence < newLogin.currentUserUser
+          .getNumberOfAppointments(newLogin.getUserNumber())) {
+        System.out.println(newLogin.currentUserUser.getAppointmentAttendance(newLogin.getUserNumber(), counterattendence));
+        System.out.println(newLogin.currentUserUser.getAppointmentAttendance(newLogin.getUserNumber(), counterattendence).equals("Present"));
+        if (newLogin.currentUserUser.getAppointmentAttendance(newLogin.getUserNumber(), counterattendence).equals("Present")) {
+          System.out.println("Present");
+          ontime++;
+        }
+        counterattendence++;
+      }
+      DecimalFormat df = new DecimalFormat("##000.00");
+      Double SummationDivisionTwo = Double.valueOf(df.format((ontime / counterattendence) * 100));
+      class2Label.setText(SummationDivisionTwo.toString());
+      if (SummationDivisionTwo.equals(0.0)) {
+        class2Label.setText("No Attendance yet!");
+      }
+    } catch (Exception e) {
+      class2Label.setText("No Attendance yet!");
+    }
+    class3.setVisible(false);
   }
 
   @FXML
@@ -938,17 +1078,23 @@ public class dashboardController extends Main {
         });
 
     ObservableList<Assignment> assignment = FXCollections.observableArrayList();
-    assignment
-        .add(new Assignment("Read Ch5", "100", "", "30 mins", "11/1/18", "23:59", "Reading",
-            "Brian"));
-    assignment.add(
-        new Assignment("Read Ch6", "100", "", "30 mins", "11/5/18", "23:59", "Reading", "Brian"));
-    assignment
-        .add(new Assignment("Read Ch7", "100", "", "30 mins", "11/9/18", "23:59", "Reading",
-            "Brian"));
-    assignment.add(
-        new Assignment("Read Ch8", "100", "", "30 mins", "11/13/18", "23:59", "Reading", "Brian"));
-
+    int firstcounter = 0;
+    int secondcounter = 0;
+    while (firstcounter < newLogin.currentUserUser.getTotalNumberOfAccounts()) {
+      while (secondcounter < newLogin.currentUserUser.getNumberOfAssignments(firstcounter)) {
+        assignment.add(new Assignment(
+            newLogin.currentUserUser.getAssignmentName(firstcounter, secondcounter)
+            , newLogin.currentUserUser.getAssignmentMaxPoints(firstcounter, secondcounter)
+            , newLogin.currentUserUser.getAssignmentPointsReceived(firstcounter, secondcounter)
+            , newLogin.currentUserUser.getAssignmentComments(firstcounter, secondcounter)
+            , newLogin.currentUserUser.getAssignmentDatePicked(firstcounter, secondcounter)
+            , newLogin.currentUserUser.getAssignmentTimePicked(firstcounter, secondcounter)
+            , newLogin.currentUserUser.getAssignmentType(firstcounter, secondcounter)
+            , newLogin.currentUserUser.getAssignmentSelectedStudent(firstcounter, secondcounter)));
+        secondcounter++;
+      }
+      firstcounter++;
+    }
     // Temporary variables for dynamic appending to the ObservableList "Schedule" for archived appointments
     int temporarySize = temporary2.size();
 
@@ -1006,6 +1152,7 @@ public class dashboardController extends Main {
         temporaryString[index][0] = QuizQuestion.getText();
       } else {
         temporaryString[index][i] = jfxta.get(i - 1).getText();
+        System.out.println(temporaryString[index][i]);
       }
     }
   }
@@ -1106,19 +1253,24 @@ public class dashboardController extends Main {
     for (int i = 0; i < temporaryString.length - 1; i++) {
       String correctAnswer = "null";
       int correctAnswerIndex = 0;
-      System.out.println(temporaryString[i][1]);
-      if (temporaryString[i][1].indexOf("*") != -1) {
-        correctAnswer = "A";
-        correctAnswerIndex = 1;
-      } else if (temporaryString[i][2].indexOf("*") != -1) {
-        correctAnswer = "B";
-        correctAnswerIndex = 2;
-      } else if (temporaryString[i][3].indexOf("*") != -1) {
-        correctAnswer = "C";
-        correctAnswerIndex = 3;
-      } else if (temporaryString[i][4].indexOf("*") != -1) {
-        correctAnswer = "D";
-        correctAnswerIndex = 4;
+      //System.out.println(temporaryString[i][1]);
+      //System.out.println(temporaryString[i][1].indexOf("*"));
+      try {
+        if (temporaryString[i][1].indexOf("*") != -1) {
+          correctAnswer = "A";
+          correctAnswerIndex = 1;
+        } else if (temporaryString[i][2].indexOf("*") != -1) {
+          correctAnswer = "B";
+          correctAnswerIndex = 2;
+        } else if (temporaryString[i][3].indexOf("*") != -1) {
+          correctAnswer = "C";
+          correctAnswerIndex = 3;
+        } else if (temporaryString[i][4].indexOf("*") != -1) {
+          correctAnswer = "D";
+          correctAnswerIndex = 4;
+        }
+      } catch (Exception e) {
+        break;
       }
       temporaryString[i][correctAnswerIndex] = temporaryString[i][correctAnswerIndex]
           .substring(0, temporaryString[i][correctAnswerIndex].indexOf("*"));
@@ -1139,18 +1291,36 @@ public class dashboardController extends Main {
 
   @FXML
   private void goToQuizSubmission(ActionEvent event) throws IOException {
-    QuizQuestion.setVisible(false);
-    QuizQuestion1.setVisible(false);
-    QuizQuestion2.setVisible(false);
-    QuizQuestion3.setVisible(false);
-    QuizQuestion4.setVisible(false);
-    goToLastQuestionTutor.setVisible(false);
-    submitHyperlink.setVisible(false);
-    nextQuestionButton.setVisible(false);
-    goToDashboard.setVisible(true);
-    completeQuizCreation.setVisible(true);
-    selectedstudent.setVisible(true);
-    submitQuizCreationInstructions.setVisible(true);
+
+    boolean donePopulating = false;
+
+    try {
+      if (!QuizQuestion.getText().equals("") && !QuizQuestion1.getText().equals("")
+          && !QuizQuestion2.getText().equals("") && !QuizQuestion3.getText().equals("")
+          && !QuizQuestion4.getText().equals("")) {
+        populateTemporaryStringArray(temporaryStringIndex);
+        donePopulating = true;
+      } else {
+        quizError.setText("Please fill out all fields.");
+      }
+    } catch (Exception e) {
+      quizError.setText("Please fill out all fields.");
+    }
+
+    if (donePopulating == true) {
+      QuizQuestion.setVisible(false);
+      QuizQuestion1.setVisible(false);
+      QuizQuestion2.setVisible(false);
+      QuizQuestion3.setVisible(false);
+      QuizQuestion4.setVisible(false);
+      goToLastQuestionTutor.setVisible(false);
+      submitHyperlink.setVisible(false);
+      nextQuestionButton.setVisible(false);
+      goToDashboard.setVisible(true);
+      completeQuizCreation.setVisible(true);
+      selectedstudent.setVisible(true);
+      submitQuizCreationInstructions.setVisible(true);
+    }
   }
 
   @FXML

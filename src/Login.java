@@ -32,10 +32,9 @@ public class Login {
 
   //this stores the parsed data from the JSON file
   JSONArray AccountsIN;
-  int UserNumber;
+  static int UserNumber;
   //these are the place holders for the construction of the current user.
   static User currentUserUser;
-  Tutor currentUserTutor;
   static Boolean HardCode = false;
 
   //Constructor
@@ -68,47 +67,12 @@ public class Login {
       //You have to declare the right type of JSON<type> and then this code will
       //parce the string that was concatenated and will then create JSONObjects of this
       AccountsIN = (JSONArray) parser.parse(FileInputConcat.toString());
-      /*
-      //below the code should be implemented into the functions to get individual values
-      //this code creates the JSONArray Object Accounts
-      JSONArray userAccountsIN = (JSONArray) AccountsIN.get(0);
-
-      //this code scans through the array of userAccountsIN which is labed as Accounts int the file
-      for (int i = 0; i < userAccountsIN.size(); i++) {
-        //This code is necessary because you need to make a JSONobject in order for us to input code
-        JSONObject userCredentialsIn = (JSONObject) userAccountsIN.get(i);
-
-        //you can parse any of the objects out as diffrent data types such as long, boolean,
-        //this is just only as a string becasue this is all that is needed for now
-        String UsernameIn = (String) userCredentialsIn.get("Username");
-        String PasswordIn = (String) userCredentialsIn.get("Password");
-        System.out.printf("Username %s;\nPassword %s\n", UsernameIn, PasswordIn);
-      }
-      */
     } catch (FileNotFoundException ex) {
       System.out.println(ex.toString());
     } catch (ParseException e) {
       System.out.println(e.toString());
     }
   }
-
-  /**
-   * //adds new user to JSON file void createNewUser(String NewUsername, String NewPassword) {
-   * //this stores the individual accounts JSONArray NewUserAccount = new JSONArray(); //this is the
-   * object that will store the user credentials JSONObject userCredentials = new JSONObject();
-   * //puts username into the user credentials object userCredentials.put("Username", NewUsername);
-   * userCredentials.put("Password", NewPassword); //adds the user Credentials to the user accounts
-   * NewUserAccount.add(userCredentials); //adds the account to the JSON array
-   * AccountsIN.add(NewUserAccount); //sets the account number so that the createUserInformation
-   * function appends to the correct array value UserNumber = AccountsIN.toArray().length-1; //print
-   * the JSON Structure System.out.println(AccountsIN.toJSONString());
-   *
-   * //now we will create a file and write the json structure to it. //makes a file object and
-   * passes it as a parameter as a printer File file = new File("JSONDATA.txt"); try (PrintWriter
-   * writer = new PrintWriter(file);) { writer.print(AccountsIN.toJSONString()); } catch
-   * (FileNotFoundException ex) { System.out.println(ex.toString()); } System.out.println("File
-   * updated successfully"); }
-   */
 
   //checks the username and password of all accounts to check if the combination is correct.
   Boolean LoginValidation(String enteredUsername, String enteredPassword) {
@@ -196,13 +160,12 @@ public class Login {
     //sets all major variables for main
     this.AccountsIN = AccountsIN;
     this.UserNumber = UserNumber;
-    //This is to set the User and Tutor objects that wil have all the information about the user,
+    //This is to set the user objects that wil have all the information about the user,
     //through the instance.
-    if (returnRole(UserNumber) == "Tutor") {
-      this.currentUserTutor = new Tutor(UserNumber);
-    } else if (returnRole(UserNumber) == "User") {
+    if (returnRole(UserNumber) == "Student") {
+      this.currentUserUser = new User (UserNumber);
+    } else if (returnRole(UserNumber) == "Tutor") {
       this.currentUserUser = new User(UserNumber);
-
     }
   }
 

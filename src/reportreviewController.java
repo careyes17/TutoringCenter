@@ -1,5 +1,10 @@
 package src;
 
+/**
+ * Programmer: Hunter Danielson Description of file: This code flags a review as boolean false and
+ * prevents other users from being displayed on display reviews.
+ */
+
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -1,6 +1,5 @@
 package src;
 
-import java.sql.Time;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -18,13 +17,21 @@ import java.util.Scanner;
  * Need to do: Still needs to returns the user id and role.
  *
  * Finished Functionality: Verifies login correctly.
+ *
+ * Version 1.1:
+ * Assignments getter setter and creation adjusted.
+ *
+ * Notes:
+ * This code is extremely Redundent but upon trying to condense it into substitute functions,
+ * the Getters and Setters would produce errors. So I left the document with un-condensed functions
+ * that operate correctly.
  */
 
 public class User {
 
   //This contains all the variables and their associated values for the users instance.
   JSONArray AccountsIN;
-  int UserNumber;
+  int UserNumberA;
 
   //Base Constructor to create AccountsIN User array
   public User() {
@@ -59,7 +66,7 @@ public class User {
 
   //Overloaded Constructor that will set the Students User Number for all other functions.
   public User(int UserNumber) {
-    this.UserNumber = UserNumber;
+    this.UserNumberA = UserNumber;
     File file = new File("JSONDATA.txt");
     try {
       Scanner FileInput = new Scanner(file);
@@ -82,7 +89,7 @@ public class User {
   @Override
   public String toString() {
     return "User{" +
-        "UserNumber=" + UserNumber +
+        "UserNumber=" + UserNumberA +
         '}';
   }
 

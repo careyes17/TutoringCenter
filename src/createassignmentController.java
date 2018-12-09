@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.stage.Stage;
@@ -43,6 +44,9 @@ public class createassignmentController extends Main {
   @FXML
   JFXComboBox selectedstudent;
 
+  @FXML
+  Label ErrorAssignmnets;
+
   /**
    *
    */
@@ -50,40 +54,45 @@ public class createassignmentController extends Main {
   private void createAssignment(ActionEvent event) throws IOException {
     //Pull from fields
     //Write to JSONDATA.txt
-    newLogin.currentUserUser.createAssignment(newLogin.getUserNumber()
-        , newLogin.currentUserUser.getAssignmentName(newLogin.getUserNumber(), 4)
-        , newLogin.currentUserUser.getAssignmentType(newLogin.getUserNumber(), 4)
-        , newLogin.currentUserUser.getAssignmentComments(newLogin.getUserNumber(), 4)
-        , newLogin.currentUserUser.getAssignmentMaxPoints(newLogin.getUserNumber(), 4)
-        , newLogin.currentUserUser.getAssignmentPointsReceived(newLogin.getUserNumber(), 4)
-        , newLogin.currentUserUser.getAssignmentDatePicked(newLogin.getUserNumber(), 4)
-        , newLogin.currentUserUser.getAssignmentTimePicked(newLogin.getUserNumber(), 4)
-        , newLogin.currentUserUser.getAssignmentSelectedStudent(newLogin.getUserNumber(), 4));
-    //then tutor can update their assignments
+    try {
+
+      int StudentNumber = 0;
+      for (int i = 0; i <= newLogin.currentUserUser.getTotalNumberOfAccounts() - 1; i++) {
+        String role = newLogin.currentUserUser.getRole(i);
+        String StudentName = newLogin.currentUserUser.getFirstName(i);
+        if (role.equals("Student")) {
+          if (StudentName.equals(selectedstudent.getValue().toString())) {
+            StudentNumber = i;
+          }
+        }
+      }
+
+      String assignmentName = assignmentname.getText();
+      String maxPoints = maxpoints.getText();
+      String pointsReceived = pointsreceived.getText();
+      String Comments = comments.getText();
+      String datePicked = datepicked.getValue().toString();
+      String timePicked = timepicked.getValue().toString();
+      String assignmentType = assignmenttype.getText();
+      String selectedStudent = selectedstudent.getValue().toString();
+      newLogin.currentUserUser
+          .createAssignment(StudentNumber, assignmentName, assignmentType, Comments,
+              maxPoints, pointsReceived, datePicked, timePicked, selectedStudent);
+      ErrorAssignmnets.setText("Submitted Assignment");
+      ErrorAssignmnets.setVisible(true);
+      assignmentname.setText("");
+      maxpoints.setText("");
+      pointsreceived.setText("");
+      comments.setText("");
+      timepicked.setValue(null);
+      datepicked.setValue(null);
+      selectedstudent.setValue(null);
+      assignmenttype.setText("");
+    } catch (Exception e) {
+      ErrorAssignmnets.setVisible(true);
+    }
   }
 
-  // Temporary ObservableList containing archived assignments to be appended in update in updateAssignments()
-  ObservableList<Assignment> temporary2 = FXCollections.observableArrayList();
-
-  private void createAssignment(int userNumber, String assignmentName,
-      String assignmentType, String assignmentComments, String assignmentMaxPoints,
-      String assignmentPointsReceived, String assignmentDatePicked,
-      String assignmentTimePicked, String assignmentSelectedStudent) throws IOException {
-    String assignmentName = assignmentname.getText();
-    String maxPoints = maxpoints.getText();
-    String pointsReceived = pointsreceived.getText();
-    String Comments = comments.getText();
-    String datePicked = datepicked.getValue().toString();
-    String timePicked = timepicked.getValue().toString();
-    String assignmentType = assignmenttype.getText();
-    String selectedStudent = selectedstudent.getValue().toString();
-    temporary2.add(
-        new Assignment(assignmentName, maxPoints, pointsReceived, Comments, datePicked, timePicked,
-            assignmentType, selectedStudent));
-    newLogin.currentUserUser
-        .createAssignment(newLogin.getUserNumber(), assignmentName, maxPoints, "", Comments,
-            datePicked, timePicked, assignmentType, selectedStudent);
-  }
 
   @FXML
   private void goToDashboard(ActionEvent event) throws IOException {
