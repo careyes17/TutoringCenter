@@ -1,5 +1,11 @@
 package src;
 
+/**
+ * Programmer: Hunter Danielson Description of file: This code This code reads the Associated quiz
+ * that was created by the Tutor. We decided not to include the editing functionality as student and
+ * tutors shouldn't be able to edit quiz information.
+ */
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextArea;
@@ -9,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
@@ -54,6 +61,9 @@ public class quizController extends Main {
    * Loads and displays new questions
    */
   @FXML
+  Label ErrorQuiz;
+
+  @FXML
   private void goToNextQuestion(ActionEvent event) throws IOException {
     if (currentQuestionIndex == (
         newLogin.currentUserUser.getNumberOfQuestions(newLogin.getUserNumber(), QuizNumberReference)
@@ -70,16 +80,25 @@ public class quizController extends Main {
     if (Answer1.isSelected()) {
       newLogin.currentUserUser
           .setUserAnswer(newLogin.getUserNumber(), "A", QuizNumberReference, currentQuestionIndex);
+      goToNextQuestionPartTwo();
     } else if (Answer2.isSelected()) {
       newLogin.currentUserUser
           .setUserAnswer(newLogin.getUserNumber(), "B", QuizNumberReference, currentQuestionIndex);
+      goToNextQuestionPartTwo();
     } else if (Answer3.isSelected()) {
       newLogin.currentUserUser
           .setUserAnswer(newLogin.getUserNumber(), "C", QuizNumberReference, currentQuestionIndex);
+      goToNextQuestionPartTwo();
     } else if (Answer4.isSelected()) {
       newLogin.currentUserUser
           .setUserAnswer(newLogin.getUserNumber(), "D", QuizNumberReference, currentQuestionIndex);
+      goToNextQuestionPartTwo();
+    } else {
+      ErrorQuiz.setVisible(true);
     }
+  }
+
+  private void goToNextQuestionPartTwo() {
     // Sets unselects previous selection upon entering new question
     Answer1.setSelected(false);
     Answer2.setSelected(false);

@@ -1,47 +1,10 @@
-/*package src;
-
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import org.controlsfx.control.PopOver;
-import javafx.scene.control.Label;
-
-import java.io.IOException;
-
-public class signupController {
-
-    @FXML
-    Label label = new Label();
-
-    Label lblName = new Label("Error Message");
-    VBox vbox = new VBox(lblName);
-    PopOver popOver = new PopOver(vbox);
-
-    @FXML
-    void button1Pressed(MouseEvent event) throws Exception {
-        vbox.setPrefHeight(75);
-        vbox.setPrefWidth(75);
-        lblName.setWrapText(true);
-        vbox.setStyle("-fx-background-color: #66bbcc;");
-        popOver.show(label);
-    }
-
-    @FXML
-    void button2Pressed(MouseEvent event) throws Exception {
-        popOver.hide();
-    }
-
-}*/
-
 package src;
+
+/**
+ * Programmer: Hunter Danielson Description of file: This code allows the user added to the JSON
+ * file and would append their information to a new account. There is no data included in this new
+ * field.
+ */
 
 import java.io.IOException;
 
@@ -55,12 +18,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-
 public class signupController extends Main {
 
   @FXML
-  TextField passwordtxt;
-
+  TextField passwordtxtone;
+  @FXML
+  TextField passwordtxttwo;
   @FXML
   TextField usernametxt;
   @FXML
@@ -92,20 +55,28 @@ public class signupController extends Main {
         .isEmpty() || roledropdown.getValue() == null) {
       errortxt.setText("Please fill all of the fields");
       passed = false;
-    } else if (passwordtxt.getText().length() + 1 <= 6
-        || passwordtxt.getText().length() - 1 >= 32) {
+    } else if (passwordtxtone.getText().length() + 1 <= 6
+        || passwordtxtone.getText().length() - 1 >= 32) {
       errortxt.setText("Username or password needs to be 6-32 characters long");
       passed = false;
     } else if (usernametxt.getText().length() + 1 <= 6
         || usernametxt.getText().length() - 1 >= 32) {
       errortxt.setText("Username or password needs to be 6-32 characters long");
       passed = false;
+    } else if (!passwordtxtone.getText().equals(passwordtxttwo.getText())) {
+      errortxt.setText("Please make sure that the Passwords match");
+      passed = false;
+      System.out.println(passwordtxtone.getText());
+      System.out.println(passwordtxttwo.getText());
+      System.out.println(passwordtxtone.getText().equals(passwordtxttwo.getText()));
     }
     if (passed == true) {
       //check the last parameter to see if it gets the value from the drop down
-      newLogin.createUserInformation(usernametxt.getText(), passwordtxt.getText(),
+      newLogin.createUserInformation(usernametxt.getText(), passwordtxtone.getText(),
           firstnametxt.getText(), lastnametxt.getText(),
           emailtxt.getText(), roledropdown.getValue().toString());
+
+
       Stage stage = Main.getPrimaryStage();
       Parent root = FXMLLoader.load(getClass().getResource("signin.fxml"));
       stage.setScene(new Scene(root, 600, 440));

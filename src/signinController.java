@@ -1,10 +1,13 @@
 package src;
 
-import java.awt.event.MouseEvent;
-import java.io.IOException;
+/**
+ * Programmer: Hunter Danielson Description of file: This code allows the user to be sign in and
+ * checks the JSON structure with methods from User. This checks login and also allows the user to
+ * be redirect to the Sign in page.
+ */
 
+import java.io.IOException;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,7 +17,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-
 
 public class signinController extends Main {// extends JSONObjectFactory{
 

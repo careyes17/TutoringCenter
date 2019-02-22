@@ -1,17 +1,16 @@
 package src;
 
-import com.jfoenix.controls.JFXButton;
-import java.util.ArrayList;
+/**
+ * Programmer: Hunter Danielson, Carl Reyes Date:9/15/2018 Description of file: This code sets up
+ * the stage on running the application. This startup is default start up is signin.fxml which
+ * activates the scene and stage.
+ */
+
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class Main extends Application {
 

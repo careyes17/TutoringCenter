@@ -8,44 +8,26 @@
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-  prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1"
-  xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.ratereviewController"
-  stylesheets="@dashboardstyle.css">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@dashboardstyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.ratereviewController">
   <children>
-    <Label alignment="CENTER" layoutY="415.0" maxHeight="-Infinity" maxWidth="-Infinity"
-      minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0"
-      text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER"/>
-    <JFXTextArea fx:id="reviewText" editable="false" layoutX="130.0" layoutY="165.0"
-      prefHeight="109.0" prefWidth="375.0"
-      text=""
-      wrapText="true"/>
-    <JFXComboBox fx:id="roleDropDownOne" labelFloat="true" layoutX="130.0" layoutY="60.0"
-      prefHeight="25.0" prefWidth="258.0" promptText="Select Tutor"/>
-    <JFXComboBox fx:id="roleDropDownTwo" labelFloat="true" layoutX="130.0" layoutY="110.0"
-      prefHeight="25.0" prefWidth="258.0" promptText="Select Reviews"/>
-    <JFXButton buttonType="RAISED" layoutX="441.0" layoutY="297.0" onAction="#submit"
-      prefHeight="40.0" prefWidth="64.0" style="-fx-background-color: #ffccbb;" text="Search"/>
-    <JFXButton fx:id="RateUp" buttonType="RAISED" layoutX="67.0" layoutY="173.0" onAction="#rateUp"
-      prefHeight="40.0" prefWidth="35.0" style="-fx-background-color: #ffffff;" text="+1"
-      visible="true"/>
-    <JFXButton fx:id="RateDown" buttonType="RAISED" layoutX="67.0" layoutY="235.0"
-      onAction="#rateDown" prefHeight="40.0" prefWidth="35.0" style="-fx-background-color: #ffffff;"
-      text="-1"/>
-    <JFXBadge layoutX="515.0" layoutY="171.0" position="CENTER" prefHeight="45.0" prefWidth="45.0"
-      style="-fx-background-color: #90EE90;" text="">
+    <Label alignment="CENTER" layoutY="415.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="600.0" text="Copyright © 2018 Gutterboyz and Son LLC" textAlignment="CENTER" />
+    <JFXTextArea fx:id="reviewText" editable="false" layoutX="130.0" layoutY="165.0" prefHeight="109.0" prefWidth="375.0" text="" wrapText="true" />
+    <JFXComboBox fx:id="roleDropDownOne" labelFloat="true" layoutX="130.0" layoutY="60.0" prefHeight="25.0" prefWidth="258.0" promptText="Select Tutor" />
+    <JFXComboBox fx:id="roleDropDownTwo" labelFloat="true" layoutX="130.0" layoutY="110.0" prefHeight="25.0" prefWidth="258.0" promptText="Select Reviews" />
+    <JFXButton buttonType="RAISED" layoutX="441.0" layoutY="297.0" onAction="#submit" prefHeight="40.0" prefWidth="64.0" style="-fx-background-color: #ffccbb;" text="Search" />
+    <JFXButton fx:id="RateUp" buttonType="RAISED" layoutX="67.0" layoutY="173.0" onAction="#rateUp" prefHeight="40.0" prefWidth="35.0" style="-fx-background-color: #ffffff;" text="+1" visible="true" />
+    <JFXButton fx:id="RateDown" buttonType="RAISED" layoutX="67.0" layoutY="235.0" onAction="#rateDown" prefHeight="40.0" prefWidth="35.0" style="-fx-background-color: #ffffff;" text="-1" />
+    <JFXBadge layoutX="515.0" layoutY="171.0" position="CENTER" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #90EE90;" text="">
       <effect>
-        <DropShadow color="#00000061"/>
+        <DropShadow color="#00000061" />
       </effect>
       <children>
-        <Label fx:id="tutorValue" text="0"/>
+        <Label fx:id="tutorValue" text="0" />
       </children>
     </JFXBadge>
-    <JFXButton buttonType="RAISED" layoutX="520.0" layoutY="235.0" onAction="#nextReview"
-      prefHeight="40.0" prefWidth="35.0" style="-fx-background-color: #ffffff;" text="V"/>
-    <JFXButton buttonType="RAISED" layoutX="130.0" layoutY="297.0" onAction="#report"
-      prefHeight="40.0" prefWidth="64.0" style="-fx-background-color: #ffccbb;" text="Report"/>
-    <JFXButton buttonType="RAISED" layoutX="280.0" layoutY="297.0" onAction="#goToDashboard"
-      prefHeight="40.0" prefWidth="74.0" style="-fx-background-color: #ffccbb;" text="Dashboard"/>
+    <JFXButton buttonType="RAISED" layoutX="520.0" layoutY="235.0" onAction="#nextReview" prefHeight="40.0" prefWidth="35.0" style="-fx-background-color: #ffffff;" text="V" />
+    <JFXButton buttonType="RAISED" layoutX="130.0" layoutY="297.0" onAction="#report" prefHeight="40.0" prefWidth="64.0" style="-fx-background-color: #ffccbb;" text="Report" />
+    <JFXButton buttonType="RAISED" layoutX="280.0" layoutY="297.0" onAction="#goToDashboard" prefHeight="40.0" prefWidth="74.0" style="-fx-background-color: #ffccbb;" text="Dashboard" />
+    <Label fx:id="Error" alignment="CENTER" layoutY="350.0" prefHeight="24.0" prefWidth="600.0" text="Please check the Submission Fields" textAlignment="CENTER" textFill="crimson" visible="false" />
   </children>
 </AnchorPane>
